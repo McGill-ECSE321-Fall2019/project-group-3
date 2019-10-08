@@ -1,4 +1,5 @@
 package com.ecse321.group3.tutorME.domain.enums;
 
-public enum RoomStatus {
+public enum RoomSize {
+    BIG, SMALL
 }
