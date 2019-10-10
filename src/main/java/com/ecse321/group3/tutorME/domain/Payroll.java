@@ -1,8 +1,13 @@
 package com.ecse321.group3.tutorME.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.List;
 
+@Entity
 public class Payroll {
+
+	@OneToMany
 	private List<Tutor> tutors;
 
 	public Payroll() {}

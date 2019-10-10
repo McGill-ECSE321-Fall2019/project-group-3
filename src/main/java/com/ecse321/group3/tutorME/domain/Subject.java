@@ -1,18 +1,35 @@
 package com.ecse321.group3.tutorME.domain;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Subject {
 
+    @Id
+    private String subjectName;
+
+    @ManyToMany
     private List<University> universities;
+
+    @OneToMany
     private List<Course> courses;
 
     public Subject() {
     }
 
-    public Subject(List<University> universities, List<Course> courses) {
+    public Subject(String subjectName, List<University> universities, List<Course> courses) {
+        this.subjectName = subjectName;
         this.universities = universities;
         this.courses = courses;
+    }
+
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
     }
 
     public List<University> getUniversities() {
