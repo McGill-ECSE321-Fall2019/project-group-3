@@ -12,7 +12,7 @@ public class Course {
     @Column
     private int courseNumber;
 
-    @OneToOne(mappedBy = "courses")
+    @ManyToOne
     private Subject subject;
 
     @OneToMany(mappedBy = "course")

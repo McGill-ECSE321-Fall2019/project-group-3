@@ -1,11 +1,14 @@
 package com.ecse321.group3.tutorME.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Payroll {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int payrollId;
 
 	@OneToMany
 	private List<Tutor> tutors;
