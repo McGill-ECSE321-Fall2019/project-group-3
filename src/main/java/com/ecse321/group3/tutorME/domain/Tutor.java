@@ -1,13 +1,33 @@
 package com.ecse321.group3.tutorME.domain;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Tutor extends UserRole {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int tutorId;
+
+    @Column
     private int rate;
+
+    @ManyToMany
+    @JoinTable(
+            name="courses_taught",
+            joinColumns = @JoinColumn(name = "tutor_id"),
+            inverseJoinColumns = @JoinColumn(name="course_number")
+    )
     private List<Course> coursesTaught;
+
+    @OneToMany
     private List<Review> reviewsGiven;
+
+    @OneToMany
     private List<Review> reviewsReceived;
+
+    @OneToOne
     private Schedule schedule;
 
     public Tutor() {}

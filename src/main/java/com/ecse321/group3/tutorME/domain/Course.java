@@ -1,5 +1,7 @@
 package com.ecse321.group3.tutorME.domain;
 
+import org.springframework.context.annotation.ComponentScan;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -7,13 +9,17 @@ import java.util.List;
 public class Course {
 
     @Id
+    @Column
     private int courseNumber;
 
-    @OneToOne
+    @OneToOne(mappedBy = "courses")
     private Subject subject;
 
-    @OneToMany
+    @OneToMany(mappedBy = "course")
     private List<Lesson> lessons;
+
+    @ManyToMany(mappedBy = "coursesTaught")
+    private List<Tutor> tutors;
 
     public Course() {
     }

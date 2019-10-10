@@ -1,11 +1,19 @@
 package com.ecse321.group3.tutorME.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class UserEntity {
+
+	@Id
+	private String email;
+
 	private String firstName;
 	private String lastName;
 	private Boolean isVerified;
-	private String email;
 	private String password;
+
 	public UserEntity() {}
 	public UserEntity(String firstname, String lastname, Boolean isVerified, String email, String password) {
 		super();
