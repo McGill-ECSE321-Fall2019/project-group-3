@@ -10,7 +10,7 @@ public class Room {
 
 	@Id
 	@Column
-	private int roomId;
+	private int room_id;
 
 	@Column
 	private int numberOfSeats;
@@ -25,20 +25,20 @@ public class Room {
 
 	public Room() {}
 
-	public Room(int roomId, int numberOfSeats, Availabilities roomAvailability, RoomSize size) {
+	public Room(int room_id, int numberOfSeats, Availabilities roomAvailability, RoomSize size) {
 		super();
-		this.roomId = roomId;
+		this.room_id = room_id;
 		this.numberOfSeats = numberOfSeats;
 		this.roomAvailability = roomAvailability;
 		this.size = size;
 	}
 
-	public int getRoomId() {
-		return roomId;
+	public int getRoom_id() {
+		return room_id;
 	}
 
-	public void setRoomId(int roomId) {
-		this.roomId = roomId;
+	public void setRoom_id(int room_id) {
+		this.room_id = room_id;
 	}
 
 	public int getNumberOfSeats() {

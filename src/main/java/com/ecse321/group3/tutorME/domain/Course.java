@@ -13,6 +13,7 @@ public class Course {
     private int courseNumber;
 
     @ManyToOne
+    @JoinColumn(name="subject_id")
     private Subject subject;
 
     @OneToMany(mappedBy = "course")

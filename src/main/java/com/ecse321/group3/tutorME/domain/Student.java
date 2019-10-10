@@ -1,29 +1,29 @@
 package com.ecse321.group3.tutorME.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Student extends UserRole {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int studentId;
+    private int student_id;
+
+    @OneToMany
+    private Review review; 
 
     public Student() {
     }
 
     public Student(int studentId) {
-        this.studentId = studentId;
+        this.student_id = studentId;
     }
 
-    public int getStudentId() {
-        return studentId;
+    public int getStudent_id() {
+        return student_id;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public void setStudent_id(int student_id) {
+        this.student_id = student_id;
     }
 }

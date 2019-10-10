@@ -8,7 +8,7 @@ public class Subject {
 
     @Id
     @Column
-    private String subjectName;
+    private String subject_name;
 
     @ManyToMany(mappedBy = "subjects")
     private List<University> universities;
@@ -20,17 +20,17 @@ public class Subject {
     }
 
     public Subject(String subjectName, List<University> universities, List<Course> courses) {
-        this.subjectName = subjectName;
+        this.subject_name = subjectName;
         this.universities = universities;
         this.courses = courses;
     }
 
-    public String getSubjectName() {
-        return subjectName;
+    public String getSubject_name() {
+        return subject_name;
     }
 
-    public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName;
+    public void setSubject_name(String subject_name) {
+        this.subject_name = subject_name;
     }
 
     public List<University> getUniversities() {

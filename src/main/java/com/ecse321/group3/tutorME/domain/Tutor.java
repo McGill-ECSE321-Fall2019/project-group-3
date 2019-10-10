@@ -8,7 +8,7 @@ public class Tutor extends UserRole {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int tutorId;
+    private int tutor_id;
 
     @Column
     private int rate;
@@ -22,22 +22,28 @@ public class Tutor extends UserRole {
     private List<Course> coursesTaught;
 
     @OneToMany
-    private List<Review> reviewsGiven;
-
-    @OneToMany
-    private List<Review> reviewsReceived;
+    private List<Review> reviews;
 
     @OneToOne
+    @JoinColumn(name = "schedule_id", referencedColumnName = "tutor_id")
     private Schedule schedule;
 
     public Tutor() {}
 
-    public Tutor(int rate, List<Course> coursesTaught, List<Review> reviewsGiven, List<Review> reviewsReceived, Schedule schedule) {
+    public Tutor(int tutor_id, int rate, List<Course> coursesTaught, List<Review> reviews, Schedule schedule) {
+        this.tutor_id = tutor_id;
         this.rate = rate;
         this.coursesTaught = coursesTaught;
-        this.reviewsGiven = reviewsGiven;
-        this.reviewsReceived = reviewsReceived;
+        this.reviews = reviews;
         this.schedule = schedule;
+    }
+
+    public int getTutor_id() {
+        return tutor_id;
+    }
+
+    public void setTutor_id(int tutor_id) {
+        this.tutor_id = tutor_id;
     }
 
     public int getRate() {
@@ -56,20 +62,12 @@ public class Tutor extends UserRole {
         this.coursesTaught = coursesTaught;
     }
 
-    public List<Review> getReviewsGiven() {
-        return reviewsGiven;
+    public List<Review> getReviews() {
+        return reviews;
     }
 
-    public void setReviewsGiven(List<Review> reviewsGiven) {
-        this.reviewsGiven = reviewsGiven;
-    }
-
-    public List<Review> getReviewsReceived() {
-        return reviewsReceived;
-    }
-
-    public void setReviewsReceived(List<Review> reviewsReceived) {
-        this.reviewsReceived = reviewsReceived;
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
     public Schedule getSchedule() {

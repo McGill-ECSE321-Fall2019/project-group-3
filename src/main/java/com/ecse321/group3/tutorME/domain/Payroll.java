@@ -11,6 +11,7 @@ public class Payroll {
 	private int payrollId;
 
 	@OneToMany
+	@JoinColumn(name = "tutor_id")
 	private List<Tutor> tutors;
 
 	public Payroll() {}

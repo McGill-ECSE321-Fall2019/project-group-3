@@ -1,9 +1,8 @@
 package com.ecse321.group3.tutorME.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.ecse321.group3.tutorME.domain.enums.ReviewAuthor;
+
+import javax.persistence.*;
 
 @Entity
 public class Review {
@@ -17,6 +16,16 @@ public class Review {
 
 	@Column
 	private String comment;
+
+	@ManyToOne
+	private Tutor tutor;
+
+	@ManyToOne
+	private Student student;
+
+	@Enumerated(EnumType.STRING)
+	@Column
+	private ReviewAuthor reviewAuthor;
 
 	public Review() {}
 
