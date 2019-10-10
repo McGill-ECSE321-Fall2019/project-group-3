@@ -3,6 +3,7 @@ package com.ecse321.group3.tutorME.domain;
 import javax.persistence.*;
 
 @Entity
+@Table(name="lesson")
 public class Lesson {
 
     @Id

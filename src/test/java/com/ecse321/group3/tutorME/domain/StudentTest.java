@@ -1,4 +1,62 @@
 package com.ecse321.group3.tutorME.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.ecse321.group3.tutorME.domain.enums.ReviewAuthor;
+import com.ecse321.group3.tutorME.repository.ReviewRepository;
+import com.ecse321.group3.tutorME.repository.StudentRepository;
+import com.ecse321.group3.tutorME.repository.TutorRepository;
+import com.ecse321.group3.tutorME.domain.*;
+
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class StudentTest {
+	
+	@Autowired
+    private StudentRepository StudentEntityRepo;
+	@Autowired
+    private ReviewRepository ReviewEntityRepo;
+	@Autowired
+    private TutorRepository TutorEntityRepo;
+	
+	
+	@Test
+    public void createStudentEntity(){
+		Tutor testtutor = new Tutor();
+		testtutor.setTutor_id(69);
+		
+		
+        Student studentEntity = new Student();
+        ReviewAuthor reviewauth = ReviewAuthor.TUTOR;
+        List<Review> reviewslist = new ArrayList<Review>();
+        Review studentReview = new Review (26,4,"test",testtutor,studentEntity,reviewauth);
+       reviewslist.add(studentReview);
+       testtutor.setReviews(reviewslist);
+        studentEntity.setStudent_id(260759306);
+        studentEntity.setReview(reviewslist);
+
+        try {
+        	TutorEntityRepo.save(testtutor);
+        	ReviewEntityRepo.save(studentReview);
+        	
+            StudentEntityRepo.save(studentEntity);
+        } catch(Exception e){
+            Assert.fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void readStudentEntity(){
+        createStudentEntity();
+        Assert.assertEquals(1, StudentEntityRepo.findAll().size());
+    }
+
 }

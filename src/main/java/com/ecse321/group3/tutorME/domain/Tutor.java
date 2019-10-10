@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name="tutor")
 public class Tutor extends UserRole {
 
     @Id
@@ -25,7 +26,6 @@ public class Tutor extends UserRole {
     private List<Review> reviews;
 
     @OneToOne
-    @JoinColumn(name = "schedule_id", referencedColumnName = "tutor_id")
     private Schedule schedule;
 
     public Tutor() {}

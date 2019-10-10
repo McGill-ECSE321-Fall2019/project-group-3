@@ -6,6 +6,7 @@ import com.ecse321.group3.tutorME.domain.enums.RoomSize;
 import javax.persistence.*;
 
 @Entity
+@Table(name="room")
 public class Room {
 
 	@Id

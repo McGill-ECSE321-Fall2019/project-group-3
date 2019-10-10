@@ -20,7 +20,7 @@ public class LessonTest {
 
         Course course = new Course();
         Subject subject = new Subject();
-        subject.setSubjectName("MATH");
+        subject.setSubject_name("MATH");
         subject.setUniversities(new ArrayList<University>());
 
         lesson.setCourse(course);

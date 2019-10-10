@@ -1,11 +1,10 @@
 package com.ecse321.group3.tutorME.domain;
 
-import org.springframework.context.annotation.ComponentScan;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name="course")
 public class Course {
 
     @Id

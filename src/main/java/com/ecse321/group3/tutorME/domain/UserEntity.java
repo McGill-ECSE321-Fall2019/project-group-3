@@ -3,8 +3,10 @@ package com.ecse321.group3.tutorME.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "userentity")
 public class UserEntity {
 
 	@Id

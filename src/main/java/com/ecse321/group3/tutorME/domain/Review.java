@@ -5,6 +5,7 @@ import com.ecse321.group3.tutorME.domain.enums.ReviewAuthor;
 import javax.persistence.*;
 
 @Entity
+@Table(name="review")
 public class Review {
 
 	@Id
@@ -17,12 +18,12 @@ public class Review {
 	@Column
 	private String comment;
 
-	@OneToMany
-	@JoinColumn(name = "review_id", referencedColumnName = "tutor_id")
+	@ManyToOne
+	@JoinColumn(name = "tutor_id")
 	private Tutor tutor;
 
 	@ManyToOne
-	@JoinColumn(name = "review_id", referencedColumnName = "student_id")
+	@JoinColumn(name = "student_id")
 	private Student student;
 
 	@Enumerated(EnumType.STRING)
@@ -31,12 +32,19 @@ public class Review {
 
 	public Review() {}
 
-	public Review(int review_id, int rating, String comment) {
+	
+
+	public Review(int review_id, int rating, String comment, Tutor tutor, Student student, ReviewAuthor reviewAuthor) {
 		super();
 		this.review_id = review_id;
 		this.rating = rating;
 		this.comment = comment;
+		this.tutor = tutor;
+		this.student = student;
+		this.reviewAuthor = reviewAuthor;
 	}
+
+
 
 	public int getReview_id() {
 		return review_id;
@@ -57,6 +65,30 @@ public class Review {
 	}
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+
+	public Tutor getTutor() {
+		return tutor;
+	}
+
+	public void setTutor(Tutor tutor) {
+		this.tutor = tutor;
+	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+
+	public ReviewAuthor getReviewAuthor() {
+		return reviewAuthor;
+	}
+
+	public void setReviewAuthor(ReviewAuthor reviewAuthor) {
+		this.reviewAuthor = reviewAuthor;
 	}
 	
 	
