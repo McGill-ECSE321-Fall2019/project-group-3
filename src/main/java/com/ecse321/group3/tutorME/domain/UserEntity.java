@@ -1,5 +1,6 @@
 package com.ecse321.group3.tutorME.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -9,9 +10,16 @@ public class UserEntity {
 	@Id
 	private String email;
 
+	@Column
 	private String firstName;
+
+	@Column
 	private String lastName;
+
+	@Column
 	private Boolean isVerified;
+
+	@Column
 	private String password;
 
 	public UserEntity() {}

@@ -9,8 +9,8 @@ public class Student extends UserRole {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int student_id;
 
-    @OneToMany
-    private Review review; 
+    @OneToMany(mappedBy = "student")
+    private Review review;
 
     public Student() {
     }

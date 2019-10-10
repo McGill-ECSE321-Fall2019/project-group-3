@@ -17,10 +17,12 @@ public class Review {
 	@Column
 	private String comment;
 
-	@ManyToOne
+	@OneToMany
+	@JoinColumn(name = "review_id", referencedColumnName = "tutor_id")
 	private Tutor tutor;
 
 	@ManyToOne
+	@JoinColumn(name = "review_id", referencedColumnName = "student_id")
 	private Student student;
 
 	@Enumerated(EnumType.STRING)

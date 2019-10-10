@@ -21,7 +21,7 @@ public class Tutor extends UserRole {
     )
     private List<Course> coursesTaught;
 
-    @OneToMany
+    @OneToMany(mappedBy = "tutor")
     private List<Review> reviews;
 
     @OneToOne
