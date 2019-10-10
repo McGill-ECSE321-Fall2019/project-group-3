@@ -7,12 +7,13 @@ import java.util.List;
 public class Subject {
 
     @Id
+    @Column
     private String subjectName;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "subjects")
     private List<University> universities;
 
-    @OneToMany
+    @OneToMany(mappedBy = "subject")
     private List<Course> courses;
 
     public Subject() {

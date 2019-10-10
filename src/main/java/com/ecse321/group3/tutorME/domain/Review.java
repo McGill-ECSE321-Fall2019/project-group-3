@@ -1,5 +1,6 @@
 package com.ecse321.group3.tutorME.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,7 +12,10 @@ public class Review {
 	@GeneratedValue
 	private int review_id;
 
+	@Column
 	private int rating;
+
+	@Column
 	private String comment;
 
 	public Review() {}

@@ -9,7 +9,7 @@ public class Lesson {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int lessonId;
 
-    @OneToOne
+    @ManyToOne
     private Course course;
 
     public Lesson() {}
