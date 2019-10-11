@@ -18,6 +18,8 @@ Additionally this application is designed to integrate with the viewpoints of ot
 
 ## Deliverable 1
 
+The report can be found 
+
 | Team member       | Total hours| Responsibility |
 | ------------- |:-------------:| ---------------|
 | Karl Eid     | x | System Requirements, Use Case and Project Management| 
