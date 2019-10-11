@@ -53,4 +53,12 @@ public class Course {
     public void setCourseNumber(int courseNumber) {
         this.courseNumber = courseNumber;
     }
+
+    public List<Tutor> getTutors() {
+        return tutors;
+    }
+
+    public void setTutors(List<Tutor> tutors) {
+        this.tutors = tutors;
+    }
 }
