@@ -47,6 +47,7 @@ public class LessonTest {
     }
 
     @Test
+    @Transactional
     public void readLesson(){
         createLesson();
         Assert.assertEquals(1, lessonRepo.findAll().size());

@@ -47,6 +47,7 @@ public class SubjectTest {
 	    }
 
 	    @Test
+	    @Transactional
 	    public void getSubject(){
 	        createSubject();
 	        Assert.assertEquals(1, subjectRepo.findAll().size());

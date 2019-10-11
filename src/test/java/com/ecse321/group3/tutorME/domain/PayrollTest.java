@@ -51,6 +51,7 @@ public class PayrollTest {
     }
 
     @Test
+    @Transactional
     public void readPayroll(){
         createPayroll();
         Assert.assertEquals(1, payrollRepo.findAll().size());

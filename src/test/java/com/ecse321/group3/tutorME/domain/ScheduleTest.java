@@ -39,6 +39,7 @@ public class ScheduleTest {
     }
 
     @Test
+    @Transactional
     public void getSchedule(){
         createSchedule();
         Assert.assertEquals(1, scheduleRepo.findAll().size());

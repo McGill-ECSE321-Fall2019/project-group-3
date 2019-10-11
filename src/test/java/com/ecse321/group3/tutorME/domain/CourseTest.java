@@ -47,6 +47,7 @@ public class CourseTest {
     }
 
     @Test
+    @Transactional
     public void readCourse(){
         saveCourse();
         Assert.assertEquals(1, courseRepo.findAll().size());

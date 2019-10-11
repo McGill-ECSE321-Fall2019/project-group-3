@@ -54,6 +54,7 @@ public class UniversityTest {
     }
 
     @Test
+    @Transactional
     public void getUniversity(){
         createUniversity();
         Assert.assertEquals(1, universityRepo.findAll().size());

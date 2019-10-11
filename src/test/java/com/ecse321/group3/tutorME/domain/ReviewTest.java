@@ -40,6 +40,7 @@ public class ReviewTest {
     }
 
     @Test
+    @Transactional
     public void readReview(){
         saveReview();
         Assert.assertEquals(1, reviewRepo.findAll().size());

@@ -41,6 +41,7 @@ public class UserEntityTest {
     }
 
     @Test
+    @Transactional
     public void readUserEntity(){
         createUserEntity();
         Assert.assertEquals(1, userEntityRepo.findAll().size());

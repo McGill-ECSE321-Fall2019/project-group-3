@@ -51,18 +51,21 @@ public class TestSuiteUtils {
     
 
     public void truncateDatabase(){
-        userEntityRepository.deleteAll();
-        roomRepo.deleteAll();
-        courseRepo.deleteAll();
-        lessonRepo.deleteAll();
-        managerRepo.deleteAll();
-        payrollRepo.deleteAll();
-        reviewRepo.deleteAll();
-        roomRepo.deleteAll();
+    	subjectRepo.deleteAll();
+    	courseRepo.deleteAll();
+    	lessonRepo.deleteAll();
+    	uniRepo.deleteAll();
+    	roomRepo.deleteAll();
+    	payrollRepo.deleteAll();
+    	scheduleRepo.deleteAll();
+    	reviewRepo.deleteAll();
+    	managerRepo.deleteAll();
         studentRepo.deleteAll();
-        scheduleRepo.deleteAll();
-        uniRepo.deleteAll();
-        subjectRepo.deleteAll();
+        tutorRepo.deleteAll();
+        userEntityRepository.deleteAll();
+        
+       
+        
     }
     
 }

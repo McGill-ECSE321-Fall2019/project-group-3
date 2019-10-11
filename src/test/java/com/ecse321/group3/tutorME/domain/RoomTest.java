@@ -42,6 +42,7 @@ public class RoomTest {
     }
 
     @Test
+    @Transactional
     public void getRoom(){
         saveRoom();
         Assert.assertEquals(1, roomRepo.findAll().size());

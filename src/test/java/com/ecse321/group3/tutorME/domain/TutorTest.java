@@ -60,6 +60,7 @@ public class TutorTest {
     }
 
     @Test
+    @Transactional
     public void getTutor(){
        createTutor();
         Assert.assertEquals(1, tutorRepo.findAll().size());
