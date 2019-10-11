@@ -29,15 +29,7 @@ public class SubjectTest {
 		@Transactional
 	    public void createSubject(){
 	        Subject subject = new Subject();
-	        University university = new University();
-	        university.setUniversity_id(999);
-	        Course course = new Course();
-	        List<Course> courselist = new ArrayList<Course>();
-	        List<University> universitylist = new ArrayList<University>();
-	        courselist.add(course);
 	        subject.setSubject_name("Biology");
-	        subject.setUniversities(universitylist);
-	        subject.setCourses(courselist);
 
 	        try{
 	            subjectRepo.save(subject);

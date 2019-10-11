@@ -38,34 +38,7 @@ public class StudentTest {
 	@Test
     @Transactional
     public void createStudentEntity(){
-		Lesson lessontest = new Lesson();
-		University universitytest = new University();
-		Tutor testtutor = new Tutor();
-		testtutor.setTutor_id(69);
-		Subject subjecttest = new Subject();
-		subjecttest.setSubject_name("hello");
-		Course coursetest = new Course();
-		coursetest.setCourseNumber(100);
-		lessontest.setCourse(coursetest);
-		lessontest.setLessonId(69);
-        Student studentEntity = new Student();
-        ReviewAuthor reviewauth = ReviewAuthor.TUTOR;
-        List<Review> reviewslist = new ArrayList<Review>();
-        Review studentReview = new Review ();
-        studentReview.setComment("test");
-        studentReview.setRating(4);
-        studentReview.setReviewAuthor(ReviewAuthor.TUTOR);
-        studentReview.setTutor(testtutor);
-        studentReview.setStudent(studentEntity);
-       reviewslist.add(studentReview);
-       testtutor.setReviews(reviewslist);
-        studentEntity.setStudent_id(260759306);
-        studentEntity.setReview(reviewslist);
-        Room roomtest = new Room();
-        roomtest.setRoom_id(20);
-        lessontest.setCourse(coursetest);
-        coursetest.setSubject(subjecttest);
-        universitytest.setUniversity_id(69);
+		Student studentEntity = new Student();
 
         try {
             StudentEntityRepo.save(studentEntity);
