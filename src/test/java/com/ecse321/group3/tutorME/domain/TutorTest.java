@@ -20,7 +20,7 @@ public class TutorTest {
     private TutorRepository tutorRepo;
 	
 	@Test
-    public void saveTutor(){
+    public void createTutor(){
         Tutor tutor = new Tutor();
         tutor.setRate(60);
         tutor.setTutor_id(123);
@@ -45,13 +45,13 @@ public class TutorTest {
         try{
             tutorRepo.save(tutor);
         } catch(Exception e){
-            Assert.assertEquals(1, tutorRepo.findAll().size());
+            Assert.fail(e.getMessage());
         }
     }
 
     @Test
     public void getTutor(){
-        saveTutor();
+       createTutor();
         Assert.assertEquals(1, tutorRepo.findAll().size());
     }
 	

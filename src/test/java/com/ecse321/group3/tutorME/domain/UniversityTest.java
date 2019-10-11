@@ -19,7 +19,7 @@ public class UniversityTest {
     private UniversityRepository universityRepo;
 	
 	@Test
-    public void saveUniversity(){
+    public void createUniversity(){
         University uni = new University();
         uni.setUniversity_id(80);
         
@@ -40,13 +40,13 @@ public class UniversityTest {
         try{
             universityRepo.save(uni);
         } catch(Exception e){
-            Assert.assertEquals(1, universityRepo.findAll().size());
+            Assert.fail(e.getMessage());
         }
     }
 
     @Test
     public void getUniversity(){
-        saveUniversity();
+        createUniversity();
         Assert.assertEquals(1, universityRepo.findAll().size());
     }
 }

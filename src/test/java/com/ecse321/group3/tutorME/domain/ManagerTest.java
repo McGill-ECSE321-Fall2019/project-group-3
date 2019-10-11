@@ -23,7 +23,7 @@ public class ManagerTest {
 		try{
             ManagerEntityRepo.save(manager);
         } catch(Exception e){
-            Assert.assertEquals(1, ManagerEntityRepo.findAll().size());
+            Assert.fail(e.getMessage());
         }
     }
 

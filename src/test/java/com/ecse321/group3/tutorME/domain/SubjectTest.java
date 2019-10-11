@@ -15,7 +15,7 @@ public class SubjectTest {
 	    private SubjectRepository subjectRepo;
 		
 		@Test
-	    public void saveSchedule(){
+	    public void createSubject(){
 	        Subject subject = new Subject();
 	        University university = new University();
 	        university.setUniversity_id(999);
@@ -30,13 +30,13 @@ public class SubjectTest {
 	        try{
 	            subjectRepo.save(subject);
 	        } catch(Exception e){
-	            Assert.assertEquals(1, subjectRepo.findAll().size());
+	            Assert.fail(e.getMessage());
 	        }
 	    }
 
 	    @Test
-	    public void getSchedule(){
-	        saveSchedule();
+	    public void getSubject(){
+	        createSubject();
 	        Assert.assertEquals(1, subjectRepo.findAll().size());
 	    }
 	}

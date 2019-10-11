@@ -12,7 +12,7 @@ public class ScheduleTest {
     private ScheduleRepository scheduleRepo;
 	
 	@Test
-    public void saveSchedule(){
+    public void createSchedule(){
         Schedule schedule = new Schedule();
         schedule.setSchedule_id(900);
        
@@ -20,13 +20,13 @@ public class ScheduleTest {
         try{
             scheduleRepo.save(schedule);
         } catch(Exception e){
-            Assert.assertEquals(1, scheduleRepo.findAll().size());
+            Assert.fail(e.getMessage());
         }
     }
 
     @Test
     public void getSchedule(){
-        saveSchedule();
+        createSchedule();
         Assert.assertEquals(1, scheduleRepo.findAll().size());
     }
 }
