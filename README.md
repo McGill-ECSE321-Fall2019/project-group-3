@@ -18,7 +18,7 @@ Additionally this application is designed to integrate with the viewpoints of ot
 
 ## Deliverable 1
 
-The report can be found 
+The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/project-group-3/wiki/Deliverable-1-Report)
 
 | Team member       | Total hours| Responsibility |
 | ------------- |:-------------:| ---------------|
