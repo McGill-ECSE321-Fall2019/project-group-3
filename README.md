@@ -1,5 +1,5 @@
 # TutorME ![Travis Build Status](https://api.travis-ci.com/McGill-ECSE321-Fall2019/project-group-3.svg?token=EYsrvu215mfczoLCWqrr&branch=master)
-## ECSE 321 Project Group 3 - Company Manager view point
+## ECSE 321 Project Group 3 - Company Manager View Point
 
 Welcome to the ECSE 321 - Fall 2019 project - Group 3 edition.
 
