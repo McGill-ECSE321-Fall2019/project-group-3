@@ -32,7 +32,7 @@ public class UserEntityTest {
         userEntity.setEmail("testemail@email.com");
         userEntity.setFirstName("Test");
         userEntity.setPassword("hashedpass");
-
+ 
         try {
             userEntityRepo.save(userEntity);
         } catch(Exception e){

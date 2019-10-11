@@ -3,7 +3,6 @@ package com.ecse321.group3.tutorME.utils;
 import com.ecse321.group3.tutorME.repository.*;
 import com.ecse321.group3.tutorME.repository.RoomRepository;
 import com.ecse321.group3.tutorME.repository.ScheduleRepository;
-import com.ecse321.group3.tutorME.repository.TutorRepository;
 import com.ecse321.group3.tutorME.repository.UserEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -32,13 +31,10 @@ public class TestSuiteUtils {
     private ScheduleRepository scheduleRepo;
 
     @Autowired
-    private StudentRepository studentRepo;
+    private UserRoleRepository userRoleRepo;
 
     @Autowired
     private SubjectRepository subjectRepo;
-
-    @Autowired
-    private TutorRepository tutorRepo;
 
     @Autowired
     private UniversityRepository uniRepo;
@@ -46,9 +42,6 @@ public class TestSuiteUtils {
     @Autowired
     private ReviewRepository reviewRepo;
 
-    @Autowired
-    private ManagerRepository managerRepo;
-    
 
     public void truncateDatabase(){
     	subjectRepo.deleteAll();
@@ -59,9 +52,7 @@ public class TestSuiteUtils {
     	payrollRepo.deleteAll();
     	scheduleRepo.deleteAll();
     	reviewRepo.deleteAll();
-    	managerRepo.deleteAll();
-        studentRepo.deleteAll();
-        tutorRepo.deleteAll();
+    	userRoleRepo.deleteAll();
         userEntityRepository.deleteAll();
         
        

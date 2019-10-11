@@ -7,10 +7,6 @@ import java.util.List;
 @Table(name="tutor")
 public class Tutor extends UserRole {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int tutor_id;
-
     @Column
     private int rate;
 
@@ -25,20 +21,11 @@ public class Tutor extends UserRole {
 
     public Tutor() {}
 
-    public Tutor(int tutor_id, int rate, List<Course> courses_taught, List<Review> reviews, Schedule schedule) {
-        this.tutor_id = tutor_id;
+    public Tutor(int rate, List<Course> courses_taught, List<Review> reviews, Schedule schedule) {
         this.rate = rate;
         this.courses_taught = courses_taught;
         this.reviews = reviews;
         this.schedule = schedule;
-    }
-
-    public int getTutor_id() {
-        return tutor_id;
-    }
-
-    public void setTutor_id(int tutor_id) {
-        this.tutor_id = tutor_id;
     }
 
     public int getRate() {

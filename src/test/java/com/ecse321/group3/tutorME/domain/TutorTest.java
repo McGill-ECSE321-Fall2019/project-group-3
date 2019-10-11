@@ -1,8 +1,6 @@
 package com.ecse321.group3.tutorME.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.ecse321.group3.tutorME.repository.UserRoleRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.ecse321.group3.tutorME.repository.TutorRepository;
 import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
 import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
@@ -19,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class TutorTest {
 	
 	@Autowired
-    private TutorRepository tutorRepo;
+    private UserRoleRepository tutorRepo;
 	@Autowired
     private TestSuiteUtils testUtils;
 	
@@ -33,7 +30,7 @@ public class TutorTest {
     public void createTutor(){
         Tutor tutor = new Tutor();
         tutor.setRate(60);
-        tutor.setTutor_id(123);
+        tutor.setUserId(123);
 
         try{
             tutorRepo.save(tutor);

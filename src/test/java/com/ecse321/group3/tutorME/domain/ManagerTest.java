@@ -1,5 +1,7 @@
 package com.ecse321.group3.tutorME.domain;
 
+import com.ecse321.group3.tutorME.repository.UserEntityRepository;
+import com.ecse321.group3.tutorME.repository.UserRoleRepository;
 import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
 import org.junit.Assert;
 import org.junit.Before;
@@ -9,14 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.ecse321.group3.tutorME.repository.ManagerRepository;
-
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class ManagerTest {
 	
 	@Autowired
-    private ManagerRepository ManagerEntityRepo;
+    private UserRoleRepository ManagerEntityRepo;
 
 	@Autowired
     private TestSuiteUtils testUtils;
@@ -29,7 +29,7 @@ public class ManagerTest {
 	@Test
     public void createManagerEntity(){
 		Manager manager = new Manager();
-		manager.setManagerId(267);
+		manager.setUserId(267);
 		
 		try{
             ManagerEntityRepo.save(manager);
