@@ -25,12 +25,30 @@ public class TestSuiteUtils {
     private ScheduleRepository scheduleRepo;
     @Autowired
     private StudentRepository studentRepo;
+    @Autowired
+    private SubjectRepository subjectRepo;
+    @Autowired
+    private TutorRepository tutorRepo;
+    @Autowired
+    private UniversityRepository uniRepo;
+    @Autowired
+    private ReviewRepository reviewRepo;
+    @Autowired ManagerRepository managerRepo;
     
 
     public void truncateDatabase(){
         userEntityRepository.deleteAll();
         roomRepo.deleteAll();
         courseRepo.deleteAll();
+        lessonRepo.deleteAll();
+        managerRepo.deleteAll();
+        payrollRepo.deleteAll();
+        reviewRepo.deleteAll();
+        roomRepo.deleteAll();
+        studentRepo.deleteAll();
+        scheduleRepo.deleteAll();
+        uniRepo.deleteAll();
+        subjectRepo.deleteAll();
     }
     
 }
