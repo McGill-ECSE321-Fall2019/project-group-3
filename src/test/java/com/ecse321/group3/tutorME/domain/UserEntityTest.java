@@ -1,7 +1,10 @@
 package com.ecse321.group3.tutorME.domain;
 
 import com.ecse321.group3.tutorME.repository.UserEntityRepository;
+import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
+
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,13 @@ public class UserEntityTest {
 
     @Autowired
     private UserEntityRepository userEntityRepo;
+    @Autowired
+    private TestSuiteUtils testUtils;
+    
+    @Before
+    public void init(){
+        testUtils.truncateDatabase();
+    }
 
     @Test
     public void createUserEntity(){

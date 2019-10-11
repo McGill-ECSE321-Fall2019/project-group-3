@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import com.ecse321.group3.tutorME.domain.enums.ReviewAuthor;
 import com.ecse321.group3.tutorME.repository.CourseRepository;
 import com.ecse321.group3.tutorME.repository.ReviewRepository;
 import com.ecse321.group3.tutorME.repository.StudentRepository;
+import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
 import com.ecse321.group3.tutorME.repository.*;
 import com.ecse321.group3.tutorME.domain.*;
 
@@ -37,6 +39,13 @@ public class StudentTest {
     private UniversityRepository UniversityEntityRepo;
 	@Autowired
     private RoomRepository RoomEntityRepo;
+	@Autowired
+    private TestSuiteUtils testUtils;
+	
+	@Before
+    public void init(){
+        testUtils.truncateDatabase();
+    }
 	
 	@Test
     public void createStudentEntity(){

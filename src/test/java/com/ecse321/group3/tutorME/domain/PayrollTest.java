@@ -1,19 +1,32 @@
 package com.ecse321.group3.tutorME.domain;
 
 import com.ecse321.group3.tutorME.repository.PayrollRepository;
+import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
+
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
+@RunWith(SpringRunner.class)
 public class PayrollTest {
 
     @Autowired
     private PayrollRepository payrollRepo;
+    @Autowired
+    private TestSuiteUtils testUtils;
+    
+    @Before
+    public void init(){
+        testUtils.truncateDatabase();
+    }
 
     @Test
     public void createPayroll(){
