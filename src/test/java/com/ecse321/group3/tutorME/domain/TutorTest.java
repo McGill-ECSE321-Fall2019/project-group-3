@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.ecse321.group3.tutorME.repository.TutorRepository;
 import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
-
+import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class TutorTest {
@@ -29,6 +29,7 @@ public class TutorTest {
     }
 	
 	@Test
+	@Transactional
     public void createTutor(){
         Tutor tutor = new Tutor();
         tutor.setRate(60);

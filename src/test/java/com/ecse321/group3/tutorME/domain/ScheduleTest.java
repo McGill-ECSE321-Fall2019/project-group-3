@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.ecse321.group3.tutorME.repository.ScheduleRepository;
 import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
-
+import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class ScheduleTest {
@@ -25,6 +25,7 @@ public class ScheduleTest {
     }
 	
 	@Test
+	@Transactional
     public void createSchedule(){
         Schedule schedule = new Schedule();
         schedule.setSchedule_id(900);

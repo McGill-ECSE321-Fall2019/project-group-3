@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
-
+import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class LessonTest {
@@ -28,6 +28,7 @@ public class LessonTest {
     }
 
     @Test
+    @Transactional
     public void createLesson(){
         Lesson lesson = new Lesson();
 

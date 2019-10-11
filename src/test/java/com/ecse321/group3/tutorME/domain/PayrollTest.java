@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class PayrollTest {
@@ -29,6 +29,7 @@ public class PayrollTest {
     }
 
     @Test
+    @Transactional
     public void createPayroll(){
         Tutor tutor1 = new Tutor();
         tutor1.setRate(100);

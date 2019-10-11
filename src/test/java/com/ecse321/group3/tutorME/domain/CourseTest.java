@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class CourseTest {
@@ -29,6 +29,7 @@ public class CourseTest {
     }
 
     @Test
+    @Transactional
     public void saveCourse(){
         List<University> universityList = new ArrayList<>();
         universityList.add(new University());

@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import com.ecse321.group3.tutorME.repository.UniversityRepository;
 import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
-
+import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class UniversityTest {
@@ -27,6 +27,7 @@ public class UniversityTest {
     }
 	
 	@Test
+	@Transactional
     public void createUniversity(){
         University uni = new University();
         uni.setUniversity_id(80);

@@ -1,5 +1,6 @@
 package com.ecse321.group3.tutorME.domain;
 import java.util.*;
+import org.springframework.transaction.annotation.Transactional;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,6 +26,7 @@ public class SubjectTest {
 	    }
 		
 		@Test
+		@Transactional
 	    public void createSubject(){
 	        Subject subject = new Subject();
 	        University university = new University();
