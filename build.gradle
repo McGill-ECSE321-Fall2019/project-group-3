@@ -2,17 +2,45 @@ plugins {
 	id 'org.springframework.boot' version '2.1.9.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
+	id 'application'
 }
 
 group = 'com.ecse321.group3'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
+mainClassName='com.ecse321.group3.tutorME.TutorMeApplication'
 
 configurations {
 	developmentOnly
 	runtimeClasspath {
 		extendsFrom developmentOnly
 	}
+}
+
+sourceSets {
+  main {
+    java { srcDir 'src/main/java' }
+  }
+  test {
+    java { srcDir 'src/test/java'}
+  }
+}
+
+
+task compile(type: JavaCompile) {
+  classpath = sourceSets.main.compileClasspath
+  classpath += sourceSets.test.runtimeClasspath
+  sourceSets.test.java.outputDir = file('build/bin')
+  sourceSets.main.java.outputDir = file('build/bin')
+}
+
+
+jar {
+  destinationDir=file('distributable')
+  manifest {
+    // It is smart to reuse the name of the main class variable instead of hardcoding it
+    attributes "Main-Class": "$mainClassName"
+  }
 }
 
 repositories {
