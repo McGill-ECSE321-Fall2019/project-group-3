@@ -16,7 +16,7 @@ public class Tutor extends UserRole {
 
     @ManyToMany
     @JoinTable(
-            name="courses_taught",
+            name="coursesTaught",
             joinColumns = @JoinColumn(name = "tutor_id"),
             inverseJoinColumns = @JoinColumn(name="course_number")
     )

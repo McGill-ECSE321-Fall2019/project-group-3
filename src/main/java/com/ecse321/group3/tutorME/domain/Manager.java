@@ -20,4 +20,12 @@ public class Manager extends UserRole {
     public Manager(int managerId) {
         this.managerId = managerId;
     }
+
+	public int getManagerId() {
+		return managerId;
+	}
+
+	public void setManagerId(int managerId) {
+		this.managerId = managerId;
+	}
 }

@@ -11,9 +11,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.ecse321.group3.tutorME.domain.enums.ReviewAuthor;
+import com.ecse321.group3.tutorME.repository.CourseRepository;
 import com.ecse321.group3.tutorME.repository.ReviewRepository;
 import com.ecse321.group3.tutorME.repository.StudentRepository;
-import com.ecse321.group3.tutorME.repository.TutorRepository;
+import com.ecse321.group3.tutorME.repository.*;
 import com.ecse321.group3.tutorME.domain.*;
 
 @SpringBootTest
@@ -26,14 +27,29 @@ public class StudentTest {
     private ReviewRepository ReviewEntityRepo;
 	@Autowired
     private TutorRepository TutorEntityRepo;
-	
+	@Autowired
+    private CourseRepository CourseEntityRepo;
+	@Autowired
+    private SubjectRepository SubjectEntityRepo;
+	@Autowired
+    private LessonRepository LessonEntityRepo;
+	@Autowired
+    private UniversityRepository UniversityEntityRepo;
+	@Autowired
+    private RoomRepository RoomEntityRepo;
 	
 	@Test
     public void createStudentEntity(){
+		Lesson lessontest = new Lesson();
+		University universitytest = new University();
 		Tutor testtutor = new Tutor();
 		testtutor.setTutor_id(69);
-		
-		
+		Subject subjecttest = new Subject();
+		subjecttest.setSubject_name("hello");
+		Course coursetest = new Course();
+		coursetest.setCourseNumber(100);
+		lessontest.setCourse(coursetest);
+		lessontest.setLessonId(69);
         Student studentEntity = new Student();
         ReviewAuthor reviewauth = ReviewAuthor.TUTOR;
         List<Review> reviewslist = new ArrayList<Review>();
@@ -42,12 +58,24 @@ public class StudentTest {
        testtutor.setReviews(reviewslist);
         studentEntity.setStudent_id(260759306);
         studentEntity.setReview(reviewslist);
+        Room roomtest = new Room();
+        roomtest.setRoom_id(20);
+        lessontest.setCourse(coursetest);
+        coursetest.setSubject(subjecttest);
+        universitytest.setUniversity_id(69);
+       
 
         try {
+        	CourseEntityRepo.save(coursetest);
+        	SubjectEntityRepo.save(subjecttest);
+        	CourseEntityRepo.save(coursetest);
+        	LessonEntityRepo.save(lessontest);
         	TutorEntityRepo.save(testtutor);
         	ReviewEntityRepo.save(studentReview);
-        	
             StudentEntityRepo.save(studentEntity);
+            UniversityEntityRepo.save(universitytest);
+            
+            RoomEntityRepo.save(roomtest);
         } catch(Exception e){
             Assert.fail(e.getMessage());
         }

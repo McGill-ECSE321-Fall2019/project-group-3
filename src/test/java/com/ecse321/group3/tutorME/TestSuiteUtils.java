@@ -1,6 +1,6 @@
 package com.ecse321.group3.tutorME;
 
-import com.ecse321.group3.tutorME.repository.CourseRepository;
+import com.ecse321.group3.tutorME.repository.*;
 import com.ecse321.group3.tutorME.repository.RoomRepository;
 import com.ecse321.group3.tutorME.repository.ScheduleRepository;
 import com.ecse321.group3.tutorME.repository.TutorRepository;
@@ -17,6 +17,14 @@ public class TestSuiteUtils {
     private CourseRepository courseRepo;
     @Autowired
     private RoomRepository roomRepo;
+    @Autowired
+    private LessonRepository lessonRepo;
+    @Autowired
+    private PayrollRepository payrollRepo;
+    @Autowired
+    private ScheduleRepository scheduleRepo;
+    @Autowired
+    private StudentRepository studentRepo;
     
 
     public void truncateDatabase(){
