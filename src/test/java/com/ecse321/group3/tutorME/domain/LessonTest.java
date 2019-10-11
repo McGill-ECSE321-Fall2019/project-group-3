@@ -32,13 +32,6 @@ public class LessonTest {
     public void createLesson(){
         Lesson lesson = new Lesson();
 
-        Course course = new Course();
-        Subject subject = new Subject();
-        subject.setSubject_name("MATH");
-        subject.setUniversities(new ArrayList<University>());
-
-        lesson.setCourse(course);
-
         try{
             lessonRepo.save(lesson);
         } catch(Exception e){

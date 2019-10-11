@@ -31,13 +31,8 @@ public class CourseTest {
     @Test
     @Transactional
     public void saveCourse(){
-        List<University> universityList = new ArrayList<>();
-        universityList.add(new University());
-
         Course course = new Course();
         course.setCourseNumber(240);
-        course.setLessons(new ArrayList<Lesson>());
-        course.setSubject(new Subject());
 
         try {
             courseRepo.save(course);

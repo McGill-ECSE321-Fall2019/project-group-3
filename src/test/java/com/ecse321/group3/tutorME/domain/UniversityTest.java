@@ -31,20 +31,6 @@ public class UniversityTest {
     public void createUniversity(){
         University uni = new University();
         uni.setUniversity_id(80);
-        
-        Course coursetest = new Course();
-		coursetest.setCourseNumber(100);
-		List<Course> courselist = new ArrayList<Course>();
-		courselist.add(coursetest);
-        
-        List<Subject> subjectlist = new ArrayList<Subject>();
-       Subject subjecttest = new Subject();
-       subjecttest.setCourses(courselist);
-       subjecttest.setSubject_name("biology");
-       subjectlist.add(subjecttest);
-       uni.setSubjects(subjectlist);
- 
-       
 
         try{
             universityRepo.save(uni);

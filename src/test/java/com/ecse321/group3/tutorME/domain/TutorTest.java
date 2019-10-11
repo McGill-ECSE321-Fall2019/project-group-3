@@ -34,23 +34,6 @@ public class TutorTest {
         Tutor tutor = new Tutor();
         tutor.setRate(60);
         tutor.setTutor_id(123);
-        
-        Course coursetest = new Course();
-		coursetest.setCourseNumber(100);
-		List<Course> courselist = new ArrayList<Course>();
-		courselist.add(coursetest);
-        tutor.setCourses_taught(courselist);
-        Review review1 = new Review();
-        review1.setRating(4);
-        review1.setComment("Hello this is my comment");
-        List<Review> reviewlist = new ArrayList<Review>();
-        reviewlist.add(review1);
-        tutor.setReviews(reviewlist);
-        Schedule schedule = new Schedule();
-        schedule.setSchedule_id(900);
-        tutor.setSchedule(schedule);
- 
-       
 
         try{
             tutorRepo.save(tutor);
