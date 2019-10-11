@@ -15,12 +15,7 @@ public class Tutor extends UserRole {
     private int rate;
 
     @ManyToMany
-    @JoinTable(
-            name="coursesTaught",
-            joinColumns = @JoinColumn(name = "tutor_id"),
-            inverseJoinColumns = @JoinColumn(name="course_number")
-    )
-    private List<Course> coursesTaught;
+    private List<Course> courses_taught;
 
     @OneToMany(mappedBy = "tutor")
     private List<Review> reviews;
@@ -30,10 +25,10 @@ public class Tutor extends UserRole {
 
     public Tutor() {}
 
-    public Tutor(int tutor_id, int rate, List<Course> coursesTaught, List<Review> reviews, Schedule schedule) {
+    public Tutor(int tutor_id, int rate, List<Course> courses_taught, List<Review> reviews, Schedule schedule) {
         this.tutor_id = tutor_id;
         this.rate = rate;
-        this.coursesTaught = coursesTaught;
+        this.courses_taught = courses_taught;
         this.reviews = reviews;
         this.schedule = schedule;
     }
@@ -54,12 +49,12 @@ public class Tutor extends UserRole {
         this.rate = rate;
     }
 
-    public List<Course> getCoursesTaught() {
-        return coursesTaught;
+    public List<Course> getCourses_taught() {
+        return courses_taught;
     }
 
-    public void setCoursesTaught(List<Course> coursesTaught) {
-        this.coursesTaught = coursesTaught;
+    public void setCourses_taught(List<Course> courses_taught) {
+        this.courses_taught = courses_taught;
     }
 
     public List<Review> getReviews() {

@@ -39,7 +39,7 @@ public class TutorTest {
 		coursetest.setCourseNumber(100);
 		List<Course> courselist = new ArrayList<Course>();
 		courselist.add(coursetest);
-        tutor.setCoursesTaught(courselist);
+        tutor.setCourses_taught(courselist);
         Review review1 = new Review();
         review1.setRating(4);
         review1.setComment("Hello this is my comment");

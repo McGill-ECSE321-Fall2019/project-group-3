@@ -31,4 +31,20 @@ public class Schedule {
     public void setSchedule_id(int schedule_id) {
         this.schedule_id = schedule_id;
     }
+
+    public Tutor getTutor() {
+        return tutor;
+    }
+
+    public void setTutor(Tutor tutor) {
+        this.tutor = tutor;
+    }
+
+    public LocalDate getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDate dateTime) {
+        this.dateTime = dateTime;
+    }
 }

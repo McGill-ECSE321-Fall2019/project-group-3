@@ -12,11 +12,6 @@ public class University {
     private int university_id;
 
     @ManyToMany
-    @JoinTable(
-            name="subjects",
-            joinColumns = @JoinColumn(name = "university_id"),
-            inverseJoinColumns = @JoinColumn(name="subject_name")
-    )
     private List<Subject> subjects;
 
     public University() {}

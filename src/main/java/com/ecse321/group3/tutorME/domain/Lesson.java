@@ -11,7 +11,6 @@ public class Lesson {
     private int lessonId;
 
     @ManyToOne
-    @JoinColumn(name = "course_id")
     private Course course;
 
     public Lesson() {}

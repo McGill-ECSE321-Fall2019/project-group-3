@@ -12,13 +12,12 @@ public class Course {
     private int courseNumber;
 
     @ManyToOne
-    @JoinColumn(name="subject_id")
     private Subject subject;
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany
     private List<Lesson> lessons;
 
-    @ManyToMany(mappedBy = "coursesTaught")
+    @ManyToMany
     private List<Tutor> tutors;
 
     public Course() {

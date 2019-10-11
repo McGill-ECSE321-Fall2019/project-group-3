@@ -19,11 +19,9 @@ public class Review {
 	private String comment;
 
 	@ManyToOne
-	@JoinColumn(name = "tutor_id")
 	private Tutor tutor;
 
 	@ManyToOne
-	@JoinColumn(name = "student_id")
 	private Student student;
 
 	@Enumerated(EnumType.STRING)
