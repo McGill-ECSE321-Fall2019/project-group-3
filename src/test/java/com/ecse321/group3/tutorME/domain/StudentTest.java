@@ -18,6 +18,7 @@ import com.ecse321.group3.tutorME.repository.StudentRepository;
 import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
 import com.ecse321.group3.tutorME.repository.*;
 import com.ecse321.group3.tutorME.domain.*;
+import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -25,20 +26,7 @@ public class StudentTest {
 	
 	@Autowired
     private StudentRepository StudentEntityRepo;
-	@Autowired
-    private ReviewRepository ReviewEntityRepo;
-	@Autowired
-    private TutorRepository TutorEntityRepo;
-	@Autowired
-    private CourseRepository CourseEntityRepo;
-	@Autowired
-    private SubjectRepository SubjectEntityRepo;
-	@Autowired
-    private LessonRepository LessonEntityRepo;
-	@Autowired
-    private UniversityRepository UniversityEntityRepo;
-	@Autowired
-    private RoomRepository RoomEntityRepo;
+
 	@Autowired
     private TestSuiteUtils testUtils;
 	
@@ -48,6 +36,7 @@ public class StudentTest {
     }
 	
 	@Test
+    @Transactional
     public void createStudentEntity(){
 		Lesson lessontest = new Lesson();
 		University universitytest = new University();
@@ -62,7 +51,12 @@ public class StudentTest {
         Student studentEntity = new Student();
         ReviewAuthor reviewauth = ReviewAuthor.TUTOR;
         List<Review> reviewslist = new ArrayList<Review>();
-        Review studentReview = new Review (26,4,"test",testtutor,studentEntity,reviewauth);
+        Review studentReview = new Review ();
+        studentReview.setComment("test");
+        studentReview.setRating(4);
+        studentReview.setReviewAuthor(ReviewAuthor.TUTOR);
+        studentReview.setTutor(testtutor);
+        studentReview.setStudent(studentEntity);
        reviewslist.add(studentReview);
        testtutor.setReviews(reviewslist);
         studentEntity.setStudent_id(260759306);
@@ -72,25 +66,16 @@ public class StudentTest {
         lessontest.setCourse(coursetest);
         coursetest.setSubject(subjecttest);
         universitytest.setUniversity_id(69);
-       
 
         try {
-        	CourseEntityRepo.save(coursetest);
-        	SubjectEntityRepo.save(subjecttest);
-        	CourseEntityRepo.save(coursetest);
-        	LessonEntityRepo.save(lessontest);
-        	TutorEntityRepo.save(testtutor);
-        	ReviewEntityRepo.save(studentReview);
             StudentEntityRepo.save(studentEntity);
-            UniversityEntityRepo.save(universitytest);
-            
-            RoomEntityRepo.save(roomtest);
         } catch(Exception e){
             Assert.fail(e.getMessage());
         }
     }
 
     @Test
+    @Transactional
     public void readStudentEntity(){
         createStudentEntity();
         Assert.assertEquals(1, StudentEntityRepo.findAll().size());
