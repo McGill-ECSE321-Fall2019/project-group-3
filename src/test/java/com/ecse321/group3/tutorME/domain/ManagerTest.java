@@ -1,6 +1,8 @@
 package com.ecse321.group3.tutorME.domain;
 
+import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,15 @@ public class ManagerTest {
 	
 	@Autowired
     private ManagerRepository ManagerEntityRepo;
+
+	@Autowired
+    private TestSuiteUtils testUtils;
+
+	@Before
+    public void init(){
+        testUtils.truncateDatabase();
+    }
+
 	@Test
     public void createManagerEntity(){
 		Manager manager = new Manager();
