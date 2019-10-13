@@ -32,7 +32,7 @@ public class CourseTest {
     @Transactional
     public void saveCourse(){
         Course course = new Course();
-        course.setCourseNumber(240);
+        course.setCourseName("MATH240");
 
         try {
             courseRepo.save(course);

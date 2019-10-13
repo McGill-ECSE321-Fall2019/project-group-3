@@ -8,7 +8,7 @@ import java.util.List;
 public class Tutor extends UserRole {
 
     @Column
-    private int rate;
+    private double rate;
 
     @ManyToMany
     private List<Course> courses_taught;
@@ -21,18 +21,18 @@ public class Tutor extends UserRole {
 
     public Tutor() {}
 
-    public Tutor(int rate, List<Course> courses_taught, List<Review> reviews, Schedule schedule) {
+    public Tutor(double rate, List<Course> courses_taught, List<Review> reviews, Schedule schedule) {
         this.rate = rate;
         this.courses_taught = courses_taught;
         this.reviews = reviews;
         this.schedule = schedule;
     }
 
-    public int getRate() {
+    public double getRate() {
         return rate;
     }
 
-    public void setRate(int rate) {
+    public void setRate(double rate) {
         this.rate = rate;
     }
 

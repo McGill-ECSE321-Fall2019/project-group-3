@@ -1,6 +1,6 @@
 package com.ecse321.group3.tutorME.domain;
 
-import org.springframework.stereotype.Component;
+import java.time.LocalDate;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -13,6 +13,12 @@ public class Lesson {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int lessonId;
+    
+    @Column
+    private LocalDate startTime;
+    
+    @Column
+    private LocalDate endTime;
 
     @ManyToOne
     private Course course;
@@ -26,23 +32,16 @@ public class Lesson {
     @ManyToMany
     private List<Student> student;
 
-    @Column
-    private Date startTime;
-
-    @Column
-    private Date endTime;
-
     public Lesson() {}
 
-    public Lesson(int lessonId, Course course, Room room, Tutor tutor, List<Student> student, Date startTime, Date endTime) {
-        this.lessonId = lessonId;
-        this.course = course;
-        this.room = room;
-        this.tutor = tutor;
-        this.student = student;
-        this.startTime = startTime;
-        this.endTime = endTime;
-    }
+    public Lesson(int lessonId, LocalDate startTime, LocalDate endTime, Course course, Room room) {
+		super();
+		this.lessonId = lessonId;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.course = course;
+		this.room = room;
+	}
 
     public int getLessonId() {
         return lessonId;
@@ -84,19 +83,20 @@ public class Lesson {
         this.student = student;
     }
 
-    public Date getStartTime() {
-        return startTime;
-    }
+	public LocalDate getStartTime() {
+		return startTime;
+	}
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
+	public void setStartTime(LocalDate startTime) {
+		this.startTime = startTime;
+	}
 
-    public Date getEndTime() {
-        return endTime;
-    }
+	public LocalDate getEndTime() {
+		return endTime;
+	}
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
+	public void setEndTime(LocalDate endTime) {
+		this.endTime = endTime;
+	}
+    
 }

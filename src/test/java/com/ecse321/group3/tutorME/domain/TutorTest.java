@@ -29,7 +29,7 @@ public class TutorTest {
 	@Transactional
     public void createTutor(){
         Tutor tutor = new Tutor();
-        tutor.setRate(60);
+        tutor.setRate(60.23);
         tutor.setUserId(123);
 
         try{
