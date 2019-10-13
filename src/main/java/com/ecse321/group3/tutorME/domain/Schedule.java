@@ -1,7 +1,11 @@
 package com.ecse321.group3.tutorME.domain;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.sql.Time;
+import java.sql.Date;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Map;
 
 @Entity
 @Table(name="schedule")
@@ -14,14 +18,20 @@ public class Schedule {
     @OneToOne(mappedBy = "schedule")
     private Tutor tutor;
 
+    @OneToOne(mappedBy = "roomAvailability")
+    private Room room;
+
+    @ElementCollection
     @Column
-    private LocalDate dateTime;
+    private List<Date> dateTime;
 
     public Schedule() {
     }
 
-    public Schedule(int scheduleId) {
-        this.schedule_id = scheduleId;
+    public Schedule(int schedule_id, Tutor tutor, Room room) {
+        this.schedule_id = schedule_id;
+        this.tutor = tutor;
+        this.room = room;
     }
 
     public int getSchedule_id() {
@@ -40,11 +50,19 @@ public class Schedule {
         this.tutor = tutor;
     }
 
-    public LocalDate getDateTime() {
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
+    public List<Date> getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(LocalDate dateTime) {
+    public void setDateTime(List<Date> dateTime) {
         this.dateTime = dateTime;
     }
 }
