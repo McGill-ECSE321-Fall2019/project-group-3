@@ -27,7 +27,6 @@ public class UniversityTest {
 	@Transactional
     public void createUniversity(){
         University uni = new University();
-        uni.setUniversity_name(80);
         uni.setUniversity_name("McGill");
 
         try{

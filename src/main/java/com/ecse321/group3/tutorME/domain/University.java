@@ -8,7 +8,7 @@ import java.util.List;
 public class University {
 
     @Id
-    @GeneratedValue
+    @Column
     private String university_name;
 
     @ManyToMany
