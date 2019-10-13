@@ -13,11 +13,15 @@ public class Lesson {
     @ManyToOne
     private Course course;
 
+    @OneToOne
+    private Room room;
+
     public Lesson() {}
 
-    public Lesson(int lessonId, Course course) {
+    public Lesson(int lessonId, Course course, Room room) {
         this.lessonId = lessonId;
         this.course = course;
+        this.room = room;
     }
 
     public int getLessonId() {
@@ -34,5 +38,13 @@ public class Lesson {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

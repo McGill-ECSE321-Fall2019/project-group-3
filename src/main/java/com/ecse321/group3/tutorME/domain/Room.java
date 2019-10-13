@@ -24,14 +24,18 @@ public class Room {
 	@Column
 	private RoomSize size;
 
+	@OneToOne(mappedBy = "room")
+	private Lesson lesson;
+
 	public Room() {}
 
-	public Room(int room_id, int numberOfSeats, Availabilities roomAvailability, RoomSize size) {
+	public Room(int room_id, int numberOfSeats, Availabilities roomAvailability, RoomSize size, Lesson lesson) {
 		super();
 		this.room_id = room_id;
 		this.numberOfSeats = numberOfSeats;
 		this.roomAvailability = roomAvailability;
 		this.size = size;
+		this.lesson = lesson;
 	}
 
 	public int getRoom_id() {
@@ -60,7 +64,12 @@ public class Room {
 	public void setSize(RoomSize size) {
 		this.size = size;
 	}
-	
-	
-	
+
+	public Lesson getLesson() {
+		return lesson;
+	}
+
+	public void setLesson(Lesson lesson) {
+		this.lesson = lesson;
+	}
 }
