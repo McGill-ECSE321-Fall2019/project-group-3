@@ -26,4 +26,4 @@ The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/projec
 | Preyansh Kaushik| 15  | Development of Persistence Layer,Testing of Persistence Layer to read and write   |
 | Nicolas Abdelnour | 15 | Domain Model Design, Use Case and Report  |
 | Elie Elia | 15 |Testing of Persistence Layer to read and write, Build System and Continuous Integration  |
-| Jason Daou | 15  | Domain Model Design   |
+| Jason Daou | 15  | Domain Model Design, Match domain model with code, Use case, Text justification for domain model|
