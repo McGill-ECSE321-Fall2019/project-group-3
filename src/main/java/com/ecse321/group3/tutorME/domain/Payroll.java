@@ -16,8 +16,10 @@ public class Payroll {
 
 	public Payroll() {}
 
-	public Payroll(List<Tutor> tutors) {
+	
+	public Payroll(int payrollId, List<Tutor> tutors) {
 		super();
+		this.payrollId = payrollId;
 		this.tutors = tutors;
 	}
 
@@ -29,6 +31,13 @@ public class Payroll {
 		this.tutors = tutors;
 	}
 	
+	public double getPayrollId() {
+		return payrollId;
+	}
+
+	public void setPayrollId(int payrollId) {
+		this.payrollId = payrollId;
+	}
 	
 	
 	

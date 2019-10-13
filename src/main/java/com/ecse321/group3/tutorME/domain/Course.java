@@ -9,7 +9,7 @@ public class Course {
 
     @Id
     @Column
-    private int courseNumber;
+    private String courseName;
 
     @ManyToOne
     private Subject subject;
@@ -23,11 +23,14 @@ public class Course {
     public Course() {
     }
 
-    public Course(Subject subject, List<Lesson> lessons, int courseNumber) {
-        this.subject = subject;
-        this.lessons = lessons;
-        this.courseNumber = courseNumber;
-    }
+    
+    public Course(String courseName, Subject subject, List<Lesson> lessons, List<Tutor> tutors) {
+		super();
+		this.courseName = courseName;
+		this.subject = subject;
+		this.lessons = lessons;
+		this.tutors = tutors;
+	}
 
     public Subject getSubject() {
         return subject;
@@ -45,15 +48,18 @@ public class Course {
         this.lessons = lessons;
     }
 
-    public int getCourseNumber() {
-        return courseNumber;
-    }
+    
+    public String getCourseName() {
+		return courseName;
+	}
 
-    public void setCourseNumber(int courseNumber) {
-        this.courseNumber = courseNumber;
-    }
 
-    public List<Tutor> getTutors() {
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+
+
+	public List<Tutor> getTutors() {
         return tutors;
     }
 

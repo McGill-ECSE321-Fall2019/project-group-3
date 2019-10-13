@@ -1,5 +1,7 @@
 package com.ecse321.group3.tutorME.domain;
 
+import java.time.LocalDate;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,6 +11,12 @@ public class Lesson {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int lessonId;
+    
+    @Column
+    private LocalDate startTime;
+    
+    @Column
+    private LocalDate endTime;
 
     @ManyToOne
     private Course course;
@@ -18,11 +26,14 @@ public class Lesson {
 
     public Lesson() {}
 
-    public Lesson(int lessonId, Course course, Room room) {
-        this.lessonId = lessonId;
-        this.course = course;
-        this.room = room;
-    }
+    public Lesson(int lessonId, LocalDate startTime, LocalDate endTime, Course course, Room room) {
+		super();
+		this.lessonId = lessonId;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.course = course;
+		this.room = room;
+	}
 
     public int getLessonId() {
         return lessonId;
@@ -47,4 +58,21 @@ public class Lesson {
     public void setRoom(Room room) {
         this.room = room;
     }
+
+	public LocalDate getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(LocalDate startTime) {
+		this.startTime = startTime;
+	}
+
+	public LocalDate getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(LocalDate endTime) {
+		this.endTime = endTime;
+	}
+    
 }

@@ -31,6 +31,7 @@ public class UniversityTest {
     public void createUniversity(){
         University uni = new University();
         uni.setUniversity_id(80);
+        uni.setUniversity_name("McGill");
 
         try{
             universityRepo.save(uni);
