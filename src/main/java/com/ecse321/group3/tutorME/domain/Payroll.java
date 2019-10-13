@@ -14,13 +14,26 @@ public class Payroll {
 	@OneToMany
 	private List<Tutor> tutors;
 
+	@ManyToOne
+	private Manager manager;
+
+	@Column
+	private double commission;
+
 	public Payroll() {}
 
-	
-	public Payroll(int payrollId, List<Tutor> tutors) {
-		super();
+	public Payroll(int payrollId, List<Tutor> tutors, Manager manager) {
 		this.payrollId = payrollId;
 		this.tutors = tutors;
+		this.manager = manager;
+	}
+
+	public int getPayrollId() {
+		return payrollId;
+	}
+
+	public void setPayrollId(int payrollId) {
+		this.payrollId = payrollId;
 	}
 
 	public List<Tutor> getTutors() {
@@ -30,15 +43,20 @@ public class Payroll {
 	public void setTutors(List<Tutor> tutors) {
 		this.tutors = tutors;
 	}
-	
-	public double getPayrollId() {
-		return payrollId;
+
+	public Manager getManager() {
+		return manager;
 	}
 
-	public void setPayrollId(int payrollId) {
-		this.payrollId = payrollId;
+	public void setManager(Manager manager) {
+		this.manager = manager;
 	}
-	
-	
-	
+
+	public double getCommission() {
+		return commission;
+	}
+
+	public void setCommission(double commission) {
+		this.commission = commission;
+	}
 }

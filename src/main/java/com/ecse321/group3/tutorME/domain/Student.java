@@ -11,14 +11,16 @@ public class Student extends UserRole {
     @OneToMany(mappedBy = "student")
     private List<Review> review;
 
+    @ManyToMany(mappedBy = "student")
+    private List<Lesson> lesson;
+
     public Student() {
     }
 
-    
-
-    public Student(List<Review> review) {
+    public Student(List<Review> review, List<Lesson> lesson) {
 		super();
         this.review = review;
+        this.lesson = lesson;
 	}
 
 
@@ -26,12 +28,15 @@ public class Student extends UserRole {
 		return review;
 	}
 
-
-
 	public void setReview(List<Review> review) {
 		this.review = review;
 	}
 
-	
-    
+    public List<Lesson> getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(List<Lesson> lesson) {
+        this.lesson = lesson;
+    }
 }
