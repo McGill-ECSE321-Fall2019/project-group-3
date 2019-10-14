@@ -4,6 +4,7 @@
 Welcome to the ECSE 321 - Fall 2019 project - Group 3 edition.
 
 TutorMe is hosted here: https://tutorme-ecse321-group3.herokuapp.com
+
 Please check the wiki for information on the architecture of the system and how to use it.
 
 ## Scope of Project
