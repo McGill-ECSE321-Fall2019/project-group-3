@@ -3,6 +3,7 @@
 
 Welcome to the ECSE 321 - Fall 2019 project - Group 3 edition.
 
+TutorMe is hosted here: https://tutorme-ecse321-group3.herokuapp.com
 Please check the wiki for information on the architecture of the system and how to use it.
 
 ## Scope of Project
@@ -14,8 +15,6 @@ Our application supports the scenarios described in the user stories for the Com
 Additionally this application is designed to integrate with the viewpoints of other stake-holders created by seperate teams via service calls. All functionality of the system is to be accessible via the web frontend for respective stakeholders. In addition, a mobile (Android) frontend allows easy execution of the most important functionality for the given stakeholder having both read and write access to the backend via RESTful service call.
 
 
-
-
 ## Deliverable 1
 
 The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/project-group-3/wiki/Deliverable-1-Report)
@@ -23,7 +22,7 @@ The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/projec
 | Team member| Total hours| Responsibility |
 |------------------ |:-------------:| ---------------|
 | Karl Eid     | 15 | System Requirements, Use Case and Project Management| 
-| Preyansh Kaushik| 15  | Development of Persistence Layer,Testing of Persistence Layer to read and write   |
+| Preyansh Kaushik| 15  | Development of Persistence Layer,Testing of Persistence Layer to read and write, Build System  |
 | Nicolas Abdelnour | 15 | Domain Model Design, Use Case and Report  |
 | Elie Elia | 15 |Testing of Persistence Layer to read and write, Build System and Continuous Integration  |
 | Jason Daou | 15  | Domain Model Design, Match domain model with code, Use case, Provide design choices in Wiki|
