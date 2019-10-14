@@ -1,6 +1,5 @@
 package com.ecse321.group3.tutorME.domain;
 
-import com.ecse321.group3.tutorME.domain.enums.Availabilities;
 import com.ecse321.group3.tutorME.domain.enums.RoomSize;
 
 import javax.persistence.*;
@@ -16,9 +15,8 @@ public class Room {
 	@Column
 	private int numberOfSeats;
 
-	@Enumerated(EnumType.STRING)
-	@Column
-	private Availabilities roomAvailability;
+	@OneToOne
+	private Schedule roomAvailability;
 
 	@Enumerated(EnumType.STRING)
 	@Column
@@ -29,7 +27,7 @@ public class Room {
 
 	public Room() {}
 
-	public Room(int room_id, int numberOfSeats, Availabilities roomAvailability, RoomSize size, Lesson lesson) {
+	public Room(int room_id, int numberOfSeats, Schedule roomAvailability, RoomSize size, Lesson lesson) {
 		super();
 		this.room_id = room_id;
 		this.numberOfSeats = numberOfSeats;
@@ -52,10 +50,10 @@ public class Room {
 	public void setNumberOfSeats(int numberOfSeats) {
 		this.numberOfSeats = numberOfSeats;
 	}
-	public Availabilities getRoomAvailability() {
+	public Schedule getRoomAvailability() {
 		return roomAvailability;
 	}
-	public void setRoomAvailability(Availabilities roomAvailability) {
+	public void setRoomAvailability(Schedule roomAvailability) {
 		this.roomAvailability = roomAvailability;
 	}
 	public RoomSize getSize() {

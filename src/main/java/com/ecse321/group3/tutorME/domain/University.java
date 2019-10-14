@@ -8,25 +8,29 @@ import java.util.List;
 public class University {
 
     @Id
-    @GeneratedValue
-    private int university_id;
+    @Column
+    private String university_name;
 
     @ManyToMany
     private List<Subject> subjects;
 
     public University() {}
 
-    public University(int university_id, List<Subject> subjects) {
-        this.university_id = university_id;
-        this.subjects = subjects;
+    
+
+    public University(String university_name, List<Subject> subjects) {
+		super();
+		this.university_name = university_name;
+		this.subjects = subjects;
+	}
+
+
+    public String getUniversity_name() {
+        return university_name;
     }
 
-    public int getUniversity_id() {
-        return university_id;
-    }
-
-    public void setUniversity_id(int university_id) {
-        this.university_id = university_id;
+    public void setUniversity_name(String university_name) {
+        this.university_name = university_name;
     }
 
     public List<Subject> getSubjects() {

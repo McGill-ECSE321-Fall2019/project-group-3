@@ -1,6 +1,5 @@
 package com.ecse321.group3.tutorME.domain;
 
-import com.ecse321.group3.tutorME.domain.enums.Availabilities;
 import com.ecse321.group3.tutorME.domain.enums.RoomSize;
 import com.ecse321.group3.tutorME.repository.RoomRepository;
 import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
@@ -32,7 +31,6 @@ public class RoomTest {
         Room room = new Room();
         room.setSize(RoomSize.BIG);
         room.setNumberOfSeats(10);
-        room.setRoomAvailability(Availabilities.OPEN);
 
         try{
             roomRepo.save(room);

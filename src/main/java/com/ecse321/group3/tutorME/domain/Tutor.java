@@ -8,7 +8,7 @@ import java.util.List;
 public class Tutor extends UserRole {
 
     @Column
-    private int rate;
+    private double rate;
 
     @ManyToMany
     private List<Course> courses_taught;
@@ -19,20 +19,24 @@ public class Tutor extends UserRole {
     @OneToOne
     private Schedule schedule;
 
+    @OneToMany(mappedBy = "tutor")
+    private List<Lesson> lesson;
+
     public Tutor() {}
 
-    public Tutor(int rate, List<Course> courses_taught, List<Review> reviews, Schedule schedule) {
+    public Tutor(double rate, List<Course> courses_taught, List<Review> reviews, Schedule schedule, List<Lesson> lesson) {
         this.rate = rate;
         this.courses_taught = courses_taught;
         this.reviews = reviews;
         this.schedule = schedule;
+        this.lesson = lesson;
     }
 
-    public int getRate() {
+    public double getRate() {
         return rate;
     }
 
-    public void setRate(int rate) {
+    public void setRate(double rate) {
         this.rate = rate;
     }
 
@@ -58,5 +62,13 @@ public class Tutor extends UserRole {
 
     public void setSchedule(Schedule schedule) {
         this.schedule = schedule;
+    }
+
+    public List<Lesson> getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(List<Lesson> lesson) {
+        this.lesson = lesson;
     }
 }
