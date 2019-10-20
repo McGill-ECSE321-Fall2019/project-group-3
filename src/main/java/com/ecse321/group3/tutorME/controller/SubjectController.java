@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.xml.ws.Response;
 import java.util.List;
 
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
 @RestController
 public class SubjectController {
 
@@ -20,7 +22,8 @@ public class SubjectController {
 
     //request mapping makes this method link to tutorme-heroku.com/api/subject
     //the request body just says that take in a subject object (json)
-    @RequestMapping("/api/subject")
+    //the method could be GET instead of POST where appropriate.
+    @RequestMapping(value = "/api/subject", method = POST)
     public ResponseEntity<Subject> createSubject(@RequestBody Subject subject){
 
         //validate the input first.
