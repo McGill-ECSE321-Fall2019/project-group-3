@@ -14,6 +14,7 @@ import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 
 @RestController
 public class CourseController {
@@ -50,7 +51,7 @@ public class CourseController {
     public ResponseEntity<Course> getCourse(@RequestParam String courseName){
 
         //validate the input first.
-        if(courseName == null){
+        if(courseName == null || courseName.isEmpty()){
             //invalid course name entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -81,6 +82,24 @@ public class CourseController {
         }
         //if no errors, we're going to return the course with an ok status
         return new ResponseEntity<>(courses, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/api/course/delete", method = DELETE)
+    public ResponseEntity<Course> deleteCourse(@RequestParam String courseName){
+    	//validate the input first.
+        if(courseName == null || courseName.isEmpty()){
+            //invalid course name entered, return a bad request.
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+
+        try{
+            courseService.deleteCourse(courseName);
+        } catch(Exception e){
+            //If we get any exceptions while getting a course, we will return a server error
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        //if no errors, we're going to return the course with an ok status
+        return new ResponseEntity<>(null, HttpStatus.OK);
     }
 
 }

@@ -68,7 +68,14 @@ public class CourseService implements CourseServiceIF {
 
     @Override
     public void deleteCourse(String courseName) throws Exception {
-
+        //delete the course
+        try {
+            courseRepo.deleteById(courseName);
+        } catch(Exception e){
+            //if we get errors getting to database, throw an exception
+            throw new Exception(e.getMessage());
+        }
+        return; 
     }
 
 
