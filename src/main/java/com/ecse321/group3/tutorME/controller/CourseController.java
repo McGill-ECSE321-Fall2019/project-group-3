@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.xml.ws.Response;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -67,6 +66,21 @@ public class CourseController {
         }
         //if no errors, we're going to return the course with an ok status
         return new ResponseEntity<>(course, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/api/course/getall", method = GET)
+    public ResponseEntity<List<Course>> getCourses(){
+        List<Course> courses = null;
+        
+        //tell the course service to list all courses.
+        try{
+            courses = courseService.getCourses();
+        } catch(Exception e){
+            //If we get any exceptions while getting a course, we will return a server error
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        //if no errors, we're going to return the course with an ok status
+        return new ResponseEntity<>(courses, HttpStatus.OK);
     }
 
 }

@@ -52,8 +52,19 @@ public class CourseService implements CourseServiceIF {
 
     @Override
     public List<Course> getCourses() throws Exception {
-        return null;
-    }
+        List<Course> courses = null;
+
+        //create the course, by saving to the database.
+        try {
+            courses = courseRepo.findAll();
+        } catch(Exception e){
+            //if we get errors getting to database, throw an exception
+            throw new Exception(e.getMessage());
+        }
+
+        //or else return the course we created.
+        return courses;     
+        }
 
     @Override
     public void deleteCourse(String courseName) throws Exception {
