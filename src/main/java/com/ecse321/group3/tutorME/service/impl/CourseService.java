@@ -78,5 +78,18 @@ public class CourseService implements CourseServiceIF {
         return; 
     }
 
-
+    @Override
+    public Course updateCourse(String oldName, String newName) throws Exception {
+        //delete the course
+        Course courseUpdated = null;
+        try {
+            Course courseToUpdate = courseRepo.findById(oldName).get();
+            courseToUpdate.setCourseName(newName);
+            courseUpdated = courseRepo.save(courseToUpdate);
+        } catch(Exception e){
+            //if we get errors getting to database, throw an exception
+            throw new Exception(e.getMessage());
+        }
+        return courseUpdated; 
+    }
 }

@@ -15,6 +15,7 @@ import java.util.List;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 @RestController
 public class CourseController {
@@ -30,20 +31,20 @@ public class CourseController {
 
         //validate the input first.
         if(course == null || course.getCourseName() == null || course.getCourseName().isEmpty()){
-            //invalid subject entered, return a bad request.
+            //invalid course entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
-        //tell the subject service to create the subject.
+        //tell the course service to create the subject.
         Course createdCourse = null;
 
         try{
             createdCourse = courseService.createCourse(course);
         } catch(Exception e){
-            //If we get any exceptions while creating a subject, we will return a server error
+            //If we get any exceptions while creating a course, we will return a server error
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        //if no errors, we're going to return the created subject with a ok status
+        //if no errors, we're going to return the created course with a ok status
         return new ResponseEntity<>(createdCourse, HttpStatus.OK);
     }
     
@@ -84,7 +85,7 @@ public class CourseController {
         return new ResponseEntity<>(courses, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/api/course/delete", method = DELETE)
+    @RequestMapping(value = "/api/course", method = DELETE)
     public ResponseEntity<Course> deleteCourse(@RequestParam String courseName){
     	//validate the input first.
         if(courseName == null || courseName.isEmpty()){
@@ -94,6 +95,24 @@ public class CourseController {
 
         try{
             courseService.deleteCourse(courseName);
+        } catch(Exception e){
+            //If we get any exceptions while getting a course, we will return a server error
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        //if no errors, we're going to return the course with an ok status
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/api/course/update", method = POST)
+    public ResponseEntity<Course> updateCourse(@RequestParam String oldName, @RequestParam String newName){
+    	//validate the input first.
+        if(oldName == null || oldName.isEmpty() || newName == null || newName.isEmpty()){
+            //invalid course name entered, return a bad request.
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+
+        try{
+            courseService.updateCourse(oldName, newName);
         } catch(Exception e){
             //If we get any exceptions while getting a course, we will return a server error
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
