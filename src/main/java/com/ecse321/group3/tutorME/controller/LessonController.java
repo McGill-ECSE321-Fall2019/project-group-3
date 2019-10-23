@@ -30,7 +30,7 @@ public class LessonController {
     public ResponseEntity<Lesson> createLesson(@RequestBody Lesson lesson){
 
         //validate the input first.
-        if(lesson == null || lesson.getLessonId() < 0){
+        if(lesson == null || lesson.getLessonId() <= 0){
             //invalid subject entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -52,7 +52,7 @@ public class LessonController {
     public ResponseEntity<Lesson> getLesson(@RequestParam int lessonId){
 
         //validate the input first.
-        if(lessonId < 0){
+        if(lessonId <= 0){
             //invalid lesson name entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -84,11 +84,30 @@ public class LessonController {
         //if no errors, we're going to return the lesson with an ok status
         return new ResponseEntity<>(lessons, HttpStatus.OK);
     }
+    @RequestMapping(value = "/api/lesson/update", method = POST)
+    public ResponseEntity<Lesson> updateLesson(@RequestParam int oldId, @RequestBody Lesson lesson){
+        //validate the input first.
+        if( oldId <= 0 || lesson == null){
+            //invalid lesson name entered, return a bad request.
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+        Lesson lesson_updated = null;
+
+        try{
+            lesson_updated = lessonService.updateLesson(oldId, lesson);
+        } catch(Exception e){
+            //If we get any exceptions while getting a lesson, we will return a server error
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        //if no errors, we're going to return the lesson with an ok status
+        return new ResponseEntity<>(lesson_updated, HttpStatus.OK);
+    }
+    
 
     @RequestMapping(value = "/api/lesson/delete", method = DELETE)
     public ResponseEntity<Lesson> deleteLesson(@RequestParam int lessonId,LocalDate startTime){
     	//validate the input first.
-        if(lessonId < 0 || startTime.isBefore(LocalDate.now()) || startTime.isEqual(LocalDate.now()) ){
+        if(lessonId <= 0 || startTime.isBefore(LocalDate.now()) || startTime.isEqual(LocalDate.now()) ){
             //invalid lesson id entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }

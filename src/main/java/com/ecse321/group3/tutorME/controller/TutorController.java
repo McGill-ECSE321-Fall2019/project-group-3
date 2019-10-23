@@ -1,7 +1,7 @@
 package com.ecse321.group3.tutorME.controller;
 
-import com.ecse321.group3.tutorME.domain.Lesson;
-import com.ecse321.group3.tutorME.service.LessonServiceIF;
+import com.ecse321.group3.tutorME.domain.Tutor;
+import com.ecse321.group3.tutorME.service.TutorServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,85 +21,106 @@ import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 public class TutorController {
 
     @Autowired
-    private LessonServiceIF lessonService;
+    private TutorServiceIF tutorService;
 
-    //request mapping makes this method link to tutorme-heroku.com/api/lesson
-    //the request body just says that take in a lesson object (json)
+    //request mapping makes this method link to tutorme-heroku.com/api/tutor
+    //the request body just says that take in a tutor object (json)
     //the method could be GET instead of POST where appropriate.
-    @RequestMapping(value = "/api/lesson", method = POST)
-    public ResponseEntity<Lesson> createLesson(@RequestBody Lesson lesson){
+    @RequestMapping(value = "/api/tutor", method = POST)
+    public ResponseEntity<Tutor> createTutor(@RequestBody Tutor tutor){
 
         //validate the input first.
-        if(lesson == null || lesson.getLessonId() < 0){
+        if(tutor == null){
             //invalid subject entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
-        //tell the lesson service to create the lesson.
-        Lesson createdLesson = null;
+        //tell the tutor service to create the tutor.
+        Tutor createdTutor = null;
 
         try{
-        	createdLesson = lessonService.createLesson(lesson);
+            createdTutor = tutorService.createTutor(tutor);
         } catch(Exception e){
             //If we get any exceptions while creating a subject, we will return a server error
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         //if no errors, we're going to return the created subject with a ok status
-        return new ResponseEntity<>(createdLesson, HttpStatus.OK);
+        return new ResponseEntity<>(createdTutor, HttpStatus.OK);
     }
     
-    @RequestMapping(value = "/api/lesson", method = GET)
-    public ResponseEntity<Lesson> getLesson(@RequestParam int lessonId){
+    @RequestMapping(value = "/api/tutor", method = GET)
+    public ResponseEntity<Tutor> getTutor(@RequestParam String emailAddress){
 
         //validate the input first.
-        if(lessonId < 0){
-            //invalid lesson name entered, return a bad request.
+        if(emailAddress == null ||emailAddress.isEmpty()){
+            //invalid tutor name entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
-        //tell the lesson service to create the lesson.
-        Lesson lesson = null;
+        //tell the tutor service to create the tutor.
+        Tutor tutor = null;
 
         try{
-            lesson = lessonService.getLesson(lessonId);
+            tutor = tutorService.getTutor(emailAddress);
         } catch(Exception e){
-            //If we get any exceptions while getting a lesson, we will return a server error
+            //If we get any exceptions while getting a tutor, we will return a server error
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        //if no errors, we're going to return the lesson with an ok status
-        return new ResponseEntity<>(lesson, HttpStatus.OK);
+        //if no errors, we're going to return the tutor with an ok status
+        return new ResponseEntity<>(tutor, HttpStatus.OK);
     }
     
-    @RequestMapping(value = "/api/lesson/getall", method = GET)
-    public ResponseEntity<List<Lesson>> getLessons(){
-        List<Lesson> lessons = null;
+    @RequestMapping(value = "/api/tutor/getall", method = GET)
+    public ResponseEntity<List<Tutor>> getTutors(){
+        List<Tutor> tutors = null;
         
-        //tell the lesson service to list all lessons.
+        //tell the tutor service to list all tutors.
         try{
-            lessons = lessonService.getLessons();
+            tutors = tutorService.getTutors();
         } catch(Exception e){
-            //If we get any exceptions while getting a lesson, we will return a server error
+            //If we get any exceptions while getting a tutor, we will return a server error
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        //if no errors, we're going to return the lesson with an ok status
-        return new ResponseEntity<>(lessons, HttpStatus.OK);
+        //if no errors, we're going to return the tutor with an ok status
+        return new ResponseEntity<>(tutors, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/api/lesson/delete", method = DELETE)
-    public ResponseEntity<Lesson> deleteLesson(@RequestParam int lessonId,LocalDate startTime){
+
+    @RequestMapping(value = "/api/tutor/update", method = POST)
+    public ResponseEntity<Tutor> updateTutor(@RequestParam int oldId, @RequestBody Tutor tutor){
+        //validate the input first.
+        if( oldId <= 0 || tutor == null){
+            //invalid tutor name entered, return a bad request.
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+        Tutor tutorUpdated = null;
+
+        try{
+            tutorUpdated = tutorService.updateTutor(oldId, tutor);
+        } catch(Exception e){
+            //If we get any exceptions while getting a tutor, we will return a server error
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        //if no errors, we're going to return the tutor with an ok status
+        return new ResponseEntity<>(tutorUpdated, HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value = "/api/tutor/delete", method = DELETE)
+    public ResponseEntity<Tutor> deleteTutor(@RequestParam String emailAddress){
     	//validate the input first.
-        if(lessonId < 0 || startTime.isBefore(LocalDate.now()) || startTime.isEqual(LocalDate.now()) ){
-            //invalid lesson id entered, return a bad request.
+        if(emailAddress.isEmpty() ){
+            //invalid tutor id entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
         try{
-            lessonService.deleteLesson(lessonId);
+            tutorService.deleteTutor(emailAddress);
         } catch(Exception e){
-            //If we get any exceptions while getting a lesson, we will return a server error
+            //If we get any exceptions while getting a tutor, we will return a server error
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        //if no errors, we're going to return the lesson with an ok status
+        //if no errors, we're going to return the tutor with an ok status
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 

@@ -13,7 +13,7 @@ public interface LessonServiceIF {
     Lesson createLesson(Lesson lesson) throws Exception;
     Lesson getLesson(int lessonId) throws Exception;
     List<Lesson> getLessons() throws Exception;
-    //todo: update.
+    Lesson updateLesson(int oldId, Lesson lesson) throws Exception;
     void deleteLesson(int lessonId) throws Exception;
 }
 

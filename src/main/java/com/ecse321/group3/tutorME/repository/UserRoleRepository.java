@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRoleRepository extends JpaRepository<UserRole, Integer> {
-	UserRole findByUserEmailAddress(String emailAddress);
+	UserRole findByUserEmail(String emailAddress);
+	void deleteByUserEmail(String emailAddress);
 }

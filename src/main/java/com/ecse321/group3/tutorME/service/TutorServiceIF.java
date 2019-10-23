@@ -16,7 +16,7 @@ public interface TutorServiceIF {
     Tutor createTutor(Tutor tutor) throws Exception;
     Tutor getTutor(String emailAddress) throws Exception;
     List<Tutor> getTutors() throws Exception;
-    //todo: update.
+    Tutor updateTutor(int oldId, Tutor tutor) throws Exception;
     void deleteTutor(String emailAddress) throws Exception;
 }
 
