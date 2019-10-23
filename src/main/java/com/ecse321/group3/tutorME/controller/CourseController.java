@@ -104,21 +104,22 @@ public class CourseController {
     }
     
     @RequestMapping(value = "/api/course/update", method = POST)
-    public ResponseEntity<Course> updateCourse(@RequestParam String oldName, @RequestParam String newName){
+    public ResponseEntity<Course> updateCourse(@RequestParam String oldName, @RequestBody Course course){
     	//validate the input first.
-        if(oldName == null || oldName.isEmpty() || newName == null || newName.isEmpty()){
+        if(oldName == null || oldName.isEmpty() || course == null || course.getCourseName().isEmpty()){
             //invalid course name entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
+        Course courseUpdated = null;
 
         try{
-            courseService.updateCourse(oldName, newName);
+            courseUpdated = courseService.updateCourse(oldName, course);
         } catch(Exception e){
             //If we get any exceptions while getting a course, we will return a server error
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         //if no errors, we're going to return the course with an ok status
-        return new ResponseEntity<>(null, HttpStatus.OK);
+        return new ResponseEntity<>(courseUpdated, HttpStatus.OK);
     }
 
 }
