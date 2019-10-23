@@ -55,7 +55,7 @@ public class UserEntityController {
     }
     
     @RequestMapping(value = "/api/user/getall", method = GET)
-    public ResponseEntity<List<UserEntity>> getCourses(){
+    public ResponseEntity<List<UserEntity>> getUserEntities(){
         List<UserEntity> users = null;
         try{
             users = userEntityService.getUserEntities();
@@ -66,7 +66,7 @@ public class UserEntityController {
     }
 
     @RequestMapping(value = "/api/user", method = DELETE)
-    public ResponseEntity<Course> deleteCourse(@RequestParam String email){
+    public ResponseEntity<UserEntity> deleteUserEntity(@RequestParam String email){
         if(email == null || email.isEmpty()){
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
