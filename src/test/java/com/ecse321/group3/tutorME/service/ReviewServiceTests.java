@@ -70,12 +70,12 @@ public class ReviewServiceTests {
         reviewRepository.save(review2);
         reviewRepository.save(review3);
 
-        int tutor_id = userRoleRepository.findAll().get(0).getUserId();
+        String tutor_email = userRoleRepository.findAll().get(0).getUser().getEmail();
 
         List<Review> reviewsForTutor = new ArrayList<>();
 
         try{
-            reviewsForTutor = reviewService.getReviewsForTutor(tutor_id);
+            reviewsForTutor = reviewService.getReviewsForTutor(tutor_email);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -117,12 +117,12 @@ public class ReviewServiceTests {
         reviewRepository.save(review2);
         reviewRepository.save(review3);
 
-        int tutor_id = userRoleRepository.findAll().get(1).getUserId();
+        String student_email = userRoleRepository.findAll().get(0).getUser().getEmail();
 
         List<Review> reviewsForTutor = new ArrayList<>();
 
         try{
-            reviewsForTutor = reviewService.getReviewsForStudent(tutor_id);
+            reviewsForTutor = reviewService.getReviewsForStudent(student_email);
         } catch (Exception e) {
             e.printStackTrace();
         }
