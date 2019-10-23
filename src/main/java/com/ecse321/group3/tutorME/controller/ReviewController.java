@@ -22,7 +22,7 @@ public class ReviewController {
     private ReviewServiceIF reviewService;
 
     @RequestMapping(value = "/api/review", method = POST)
-    public ResponseEntity<Review> createSubject(@RequestBody Review review){
+    public ResponseEntity<Review> createReview(@RequestBody Review review){
 
         if(review == null){
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -65,7 +65,7 @@ public class ReviewController {
     }
 
     @RequestMapping(value = "/api/review", method = DELETE)
-    public ResponseEntity<Review> deleteSubject(@RequestParam int review_id){
+    public ResponseEntity<Review> deleteReview(@RequestParam int review_id){
 
         try{
             reviewService.deleteReview(review_id);
@@ -77,11 +77,11 @@ public class ReviewController {
     }
 
     @RequestMapping(value = "/api/review/getForTutor")
-    public ResponseEntity<List<Review>> getReviewsForTutor(@RequestParam int tutor_id){
+    public ResponseEntity<List<Review>> getReviewsForTutor(@RequestParam String tutor_email){
         List<Review> reviews = null;
 
         try{
-            reviews = reviewService.getReviewsForTutor(tutor_id);
+            reviews = reviewService.getReviewsForTutor(tutor_email);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -90,11 +90,11 @@ public class ReviewController {
     }
 
     @RequestMapping(value = "/api/review/getForStudent")
-    public ResponseEntity<List<Review>> getReviewsForStudent(@RequestParam int student_id){
+    public ResponseEntity<List<Review>> getReviewsForStudent(@RequestParam String student_email){
         List<Review> reviews = null;
 
         try{
-            reviews = reviewService.getReviewsForStudent(student_id);
+            reviews = reviewService.getReviewsForStudent(student_email);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }

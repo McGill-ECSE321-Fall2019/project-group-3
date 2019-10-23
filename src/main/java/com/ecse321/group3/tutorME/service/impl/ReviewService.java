@@ -73,9 +73,9 @@ public class ReviewService implements ReviewServiceIF {
     }
 
     @Override
-    public List<Review> getReviewsForTutor(int tutor_id) throws Exception {
+    public List<Review> getReviewsForTutor(String tutor_email) throws Exception {
         List<Review> reviews = new ArrayList<>();
-        UserRole tutor =  userRoleRepo.getOne(tutor_id);
+        UserRole tutor =  userRoleRepo.findByUserEmail(tutor_email);
 
         try{
             reviews = reviewRepo.findByTutorAndReviewAuthor(tutor, ReviewAuthor.STUDENT);
@@ -87,9 +87,9 @@ public class ReviewService implements ReviewServiceIF {
     }
 
     @Override
-    public List<Review> getReviewsForStudent(int student_id) throws Exception {
+    public List<Review> getReviewsForStudent(String student_email) throws Exception {
         List<Review> reviews = null;
-        UserRole student = userRoleRepo.getOne(student_id);
+        UserRole student = userRoleRepo.findByUserEmail(student_email);
         try{
             reviews = reviewRepo.findByStudentAndReviewAuthor(student, ReviewAuthor.TUTOR);
         } catch(Exception e){

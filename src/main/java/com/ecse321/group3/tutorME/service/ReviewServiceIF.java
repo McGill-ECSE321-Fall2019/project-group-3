@@ -13,6 +13,6 @@ public interface ReviewServiceIF {
     List<Review> getReviews() throws Exception;
     void deleteReview(int review_id) throws Exception;
 
-    List<Review> getReviewsForTutor(int tutor_id) throws Exception;
-    List<Review> getReviewsForStudent(int student_id) throws Exception;
+    List<Review> getReviewsForTutor(String tutor_email) throws Exception;
+    List<Review> getReviewsForStudent(String student_email) throws Exception;
 }
