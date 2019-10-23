@@ -13,5 +13,6 @@ public interface CourseServiceIF {
     Course getCourse(String courseName) throws Exception;
     List<Course> getCourses() throws Exception;
     //todo: update.
+    Course updateCourse(String oldName, Course course) throws Exception;
     void deleteCourse(String courseName) throws Exception;
 }
