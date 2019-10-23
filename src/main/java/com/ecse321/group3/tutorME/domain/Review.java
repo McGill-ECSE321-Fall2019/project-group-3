@@ -18,10 +18,10 @@ public class Review {
 	@Column
 	private String comment;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Tutor tutor;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Student student;
 
 	@Enumerated(EnumType.STRING)
