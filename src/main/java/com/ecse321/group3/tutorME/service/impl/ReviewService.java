@@ -64,6 +64,20 @@ public class ReviewService implements ReviewServiceIF {
     }
 
     @Override
+    public Review updateReview(int review_id, Review review) throws Exception{
+        Review updatedReview = null;
+
+        try{
+            deleteReview(review_id);
+            updatedReview = createReview(review);
+        } catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+
+        return updatedReview;
+    }
+
+    @Override
     public void deleteReview(int review_id) throws Exception {
         try{
             reviewRepo.deleteById(review_id);

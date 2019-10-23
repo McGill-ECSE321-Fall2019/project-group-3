@@ -2,7 +2,6 @@ package com.ecse321.group3.tutorME.controller;
 
 import com.ecse321.group3.tutorME.domain.Review;
 import com.ecse321.group3.tutorME.service.ReviewServiceIF;
-import com.ecse321.group3.tutorME.service.impl.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -63,6 +62,24 @@ public class ReviewController {
         }
         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/api/review/update", method = POST)
+    public ResponseEntity<Review> updateReview(@RequestParam int review_id, @RequestBody Review review){
+
+        if(review_id <= 0 || review == null || review.getReview_id() <= 0)
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
+        Review updatedReview = null;
+
+        try{
+            updatedReview = reviewService.updateReview(review_id, review);
+        } catch(Exception e){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(updatedReview, HttpStatus.OK);
+    }
+
 
     @RequestMapping(value = "/api/review", method = DELETE)
     public ResponseEntity<Review> deleteReview(@RequestParam int review_id){

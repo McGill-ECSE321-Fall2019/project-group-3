@@ -55,6 +55,19 @@ public class SubjectService implements SubjectServiceIF {
         return subjects;
     }
 
+    public Subject updateSubject(String subjectName, Subject subject) throws Exception{
+        Subject subjectUpdated = null;
+
+        try {
+            deleteSubject(subjectName);
+            subjectUpdated = createSubject(subject);
+        } catch(Exception e){
+            //if we get errors getting to database, throw an exception
+            throw new Exception(e.getMessage());
+        }
+        return subjectUpdated;
+    }
+
     @Override
     public void deleteSubject(String subjectName) throws Exception {
         try{

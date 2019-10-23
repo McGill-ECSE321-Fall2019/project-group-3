@@ -11,6 +11,7 @@ public interface ReviewServiceIF {
     Review createReview(Review review) throws Exception;
     Review getReview(int review_id) throws Exception;
     List<Review> getReviews() throws Exception;
+    Review updateReview(int review_id, Review review) throws Exception;
     void deleteReview(int review_id) throws Exception;
 
     List<Review> getReviewsForTutor(String tutor_email) throws Exception;

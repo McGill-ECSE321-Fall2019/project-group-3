@@ -69,6 +69,24 @@ public class SubjectController {
         return new ResponseEntity<>(subjects, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/api/subject/update", method = POST)
+    public ResponseEntity<Subject> updateSubject(@RequestParam String oldName, @RequestBody Subject subject){
+
+        if(oldName == null || oldName.isEmpty() || subject == null || subject.getSubject_name().isEmpty()){
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+
+        Subject updatedSub = null;
+
+        try{
+            updatedSub = subjectService.updateSubject(oldName, subject);
+        } catch(Exception e){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(updatedSub, HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/api/subject", method = DELETE)
     public ResponseEntity<Subject> deleteSubject(@RequestParam String subjectName){
 
