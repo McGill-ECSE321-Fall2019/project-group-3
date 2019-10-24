@@ -13,6 +13,6 @@ public interface StudentServiceIF {
     //todo: update.
     void deleteStudent(String emailAddress) throws Exception;
 	Student getStudent(String emailAddress);
-	Student updateStudent(int oldId, Student student);
+	Student updateStudent(String oldId, Student student);
 
 }

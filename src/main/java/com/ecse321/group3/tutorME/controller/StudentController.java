@@ -85,9 +85,9 @@ public class StudentController {
 
 
     @RequestMapping(value = "/api/student/update", method = POST)
-    public ResponseEntity<Student> updateStudent(@RequestParam int oldId, @RequestBody Student student){
+    public ResponseEntity<Student> updateStudent(@RequestParam String oldId, @RequestBody Student student){
         //validate the input first.
-        if( oldId <= 0 || student == null){
+        if( oldId ==null || student == null || oldId.isEmpty()){
             //invalid tutor name entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }

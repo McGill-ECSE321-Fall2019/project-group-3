@@ -14,5 +14,6 @@ public interface UniversityServiceIF {
     List<University> getUniversities() throws Exception;
     //todo: update.
     void deleteUniversity(String universityName) throws Exception;
+	University updateUniversity(String oldId, University university);
 
 }

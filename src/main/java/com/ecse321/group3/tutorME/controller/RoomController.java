@@ -1,6 +1,7 @@
 package com.ecse321.group3.tutorME.controller;
 
 import com.ecse321.group3.tutorME.domain.Room;
+import com.ecse321.group3.tutorME.domain.University;
 import com.ecse321.group3.tutorME.service.RoomServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -81,6 +82,24 @@ public class RoomController {
         }
         //if no errors, we're going to return the lesson with an ok status
         return new ResponseEntity<>(rooms, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/api/room/update", method = POST)
+    public ResponseEntity<Room> updateRoom(@RequestParam int oldId, @RequestBody Room room){
+        //validate the input first.
+        if( oldId <0 || room == null){
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+        Room roomUpdated = null;
+
+        try{
+            roomUpdated = roomService.updateRoom(oldId, room);
+        } catch(Exception e){
+            //If we get any exceptions while getting a tutor, we will return a server error
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        //if no errors, we're going to return the tutor with an ok status
+        return new ResponseEntity<>(roomUpdated, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/api/room/delete", method = DELETE)
