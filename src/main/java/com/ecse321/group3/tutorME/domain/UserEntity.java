@@ -21,7 +21,7 @@ public class UserEntity {
 	@Column
 	private String password;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private UserRole userRole;
 
 	public UserEntity() {}

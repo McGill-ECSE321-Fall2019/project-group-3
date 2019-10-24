@@ -9,7 +9,7 @@ public abstract class UserRole {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int userId;
 
-    @OneToOne(mappedBy = "userRole")
+    @OneToOne(mappedBy = "userRole", cascade = CascadeType.MERGE)
     private UserEntity user;
 
     public UserRole() {
