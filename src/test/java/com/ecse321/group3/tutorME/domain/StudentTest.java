@@ -1,6 +1,8 @@
 package com.ecse321.group3.tutorME.domain;
 
 import com.ecse321.group3.tutorME.repository.UserRoleRepository;
+import com.ecse321.group3.tutorME.service.StudentServiceIF;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,6 +19,10 @@ import org.springframework.transaction.annotation.Transactional;
 public class StudentTest {
 	
 	@Autowired
+	private StudentServiceIF studentService;
+
+	
+	@Autowired
     private UserRoleRepository StudentEntityRepo;
 
 	@Autowired
@@ -29,14 +35,22 @@ public class StudentTest {
 	
 	@Test
     @Transactional
-    public void createStudentEntity(){
+    public void createStudent(){
 		Student studentEntity = new Student();
+		studentEntity.setUserId(1);
 
         try {
-            StudentEntityRepo.save(studentEntity);
+            studentService.createStudent(studentEntity);
         } catch(Exception e){
             Assert.fail(e.getMessage());
         }
+    }
+	
+	@Test
+    @Transactional
+    public void getStudent() throws Exception {
+        createStudent();
+        Assert.assertEquals(1, studentService.getStudent(1).getStudentId());
     }
 
     @Test

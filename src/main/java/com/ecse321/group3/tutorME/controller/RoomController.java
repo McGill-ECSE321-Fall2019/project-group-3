@@ -26,7 +26,7 @@ public class RoomController {
     //the request body just says that take in a lesson object (json)
     //the method could be GET instead of POST where appropriate.
     @RequestMapping(value = "/api/room", method = POST)
-    public ResponseEntity<Room> createLesson(@RequestBody Room room){
+    public ResponseEntity<Room> createRoom(@RequestBody Room room){
 
         //validate the input first.
         if(room == null || room.getRoom_id() < 0){
