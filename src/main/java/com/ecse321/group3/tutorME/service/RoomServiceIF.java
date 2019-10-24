@@ -11,7 +11,7 @@ public interface RoomServiceIF {
     List<Room> getRooms() throws Exception;
   
     void deleteRoom(int room_id) throws Exception;
-	Room updateRoom(int oldId, Room room);
+	Room updateRoom(int oldId, Room room) throws Exception;
   
 
 }

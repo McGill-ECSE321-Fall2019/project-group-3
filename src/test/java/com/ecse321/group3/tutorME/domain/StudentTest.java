@@ -50,7 +50,7 @@ public class StudentTest {
     @Transactional
     public void getStudent() throws Exception {
         createStudent();
-        Assert.assertEquals(1, studentService.getStudent(1).getStudentId());
+        Assert.assertEquals(1, studentService.getStudent(emailAddress));
     }
 
     @Test
