@@ -1,12 +1,14 @@
 package com.ecse321.group3.tutorME.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "userentity")
 public class UserEntity {
 
 	@Id
+    @NotNull
 	private String email;
 
 	@Column

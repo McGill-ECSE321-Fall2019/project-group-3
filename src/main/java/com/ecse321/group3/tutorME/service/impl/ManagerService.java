@@ -73,9 +73,9 @@ public class ManagerService implements ManagerServiceIF {
 
     @Override
     public void deleteManager(String email) throws Exception {
-
+        Manager managerToDelete = this.getManager(email);
         try{
-            managerRepo.deleteByUserEmail(email);
+            managerRepo.deleteById(managerToDelete.getUserId());
         } catch (Exception e){
             throw new Exception(e.getMessage());
         }
