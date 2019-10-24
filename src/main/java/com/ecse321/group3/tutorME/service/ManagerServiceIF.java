@@ -1,9 +1,11 @@
 package com.ecse321.group3.tutorME.service;
 
 import com.ecse321.group3.tutorME.domain.Manager;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface ManagerServiceIF {
 
     Manager createManager(Manager manager) throws Exception;

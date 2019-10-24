@@ -1,5 +1,11 @@
 package com.ecse321.group3.tutorME.domain;
 import java.util.*;
+
+import com.ecse321.group3.tutorME.domain.enums.ReviewAuthor;
+import com.ecse321.group3.tutorME.repository.ReviewRepository;
+import com.ecse321.group3.tutorME.repository.UserRoleRepository;
+import com.ecse321.group3.tutorME.service.SubjectServiceIF;
+import com.ecse321.group3.tutorME.service.impl.ReviewService;
 import org.springframework.transaction.annotation.Transactional;
 import org.junit.Assert;
 import org.junit.Before;
@@ -12,19 +18,27 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.ecse321.group3.tutorME.repository.ScheduleRepository;
 import com.ecse321.group3.tutorME.repository.SubjectRepository;
 import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
+
+import javax.persistence.EntityNotFoundException;
+
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class SubjectTest {
+
+		@Autowired
+		private SubjectServiceIF subjectService;
+
 		@Autowired
 	    private SubjectRepository subjectRepo;
+
 		@Autowired
 	    private TestSuiteUtils testUtils;
-		
+
 		@Before
 	    public void init(){
 	        testUtils.truncateDatabase();
 	    }
-		
+
 		@Test
 		@Transactional
 	    public void createSubject(){
@@ -32,7 +46,7 @@ public class SubjectTest {
 	        subject.setSubject_name("Biology");
 
 	        try{
-	            subjectRepo.save(subject);
+	            subjectService.createSubject(subject);
 	        } catch(Exception e){
 	            Assert.fail(e.getMessage());
 	        }
@@ -40,10 +54,51 @@ public class SubjectTest {
 
 	    @Test
 	    @Transactional
-	    public void getSubject(){
+	    public void getSubject() throws Exception {
 	        createSubject();
-	        Assert.assertEquals(1, subjectRepo.findAll().size());
+	        Assert.assertEquals("Biology", subjectService.getSubject("Biology").getSubject_name());
 	    }
-	}
+
+		@Test
+		@Transactional
+		public void updateSubject() throws Exception {
+			createSubject();
+
+			Subject newSubject = new Subject();
+			newSubject.setSubject_name("Math");
+
+			try {
+				subjectService.updateSubject("Biology", newSubject);
+			} catch (Exception e) {
+				Assert.fail(e.getMessage());
+			}
+
+			try {
+				subjectService.getSubject("Biology");
+			} catch(Exception e){
+				//all good.
+			}
+			Assert.assertEquals("Math", subjectService.getSubject("Math").getSubject_name());
+		}
+
+		@Test
+		@Transactional
+		public void getAllSubjects() throws Exception{
+			createSubject();
+			Subject newSubject = new Subject();
+			newSubject.setSubject_name("Math");
+			subjectService.createSubject(newSubject);
+
+			Assert.assertEquals(2, subjectService.getSubjects().size());
+		}
+
+		@Test
+		@Transactional
+		public void deleteSubject() throws Exception{
+			createSubject();
+			subjectService.deleteSubject("Biology");
+			Assert.assertEquals(0, subjectService.getSubjects().size());
+		}
+}
 
 

@@ -4,10 +4,12 @@ import com.ecse321.group3.tutorME.domain.Manager;
 import com.ecse321.group3.tutorME.repository.UserRoleRepository;
 import com.ecse321.group3.tutorME.service.ManagerServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class ManagerService implements ManagerServiceIF {
 
     @Autowired
