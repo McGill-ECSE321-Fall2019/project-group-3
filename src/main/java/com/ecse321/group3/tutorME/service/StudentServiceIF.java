@@ -10,9 +10,8 @@ public interface StudentServiceIF {
 	
 	Student createStudent(Student student) throws Exception;
     List<Student> getStudents() throws Exception;
-    //todo: update.
     void deleteStudent(String emailAddress) throws Exception;
-	Student getStudent(String emailAddress);
-	Student updateStudent(String oldId, Student student);
+	Student getStudent(String emailAddress) throws Exception;
+	Student updateStudent(String oldId, Student student) throws Exception;
 
 }
