@@ -23,7 +23,7 @@ public class StudentTest {
 
 	
 	@Autowired
-    private UserRoleRepository StudentEntityRepo;
+    private UserRoleRepository userRoleRepo;
 
 	@Autowired
     private TestSuiteUtils testUtils;
@@ -37,7 +37,7 @@ public class StudentTest {
     @Transactional
     public void createStudent(){
 		Student studentEntity = new Student();
-		studentEntity.setUserId(1);
+		studentEntity.getUser().setEmail("hello");
 
         try {
             studentService.createStudent(studentEntity);
@@ -50,14 +50,46 @@ public class StudentTest {
     @Transactional
     public void getStudent() throws Exception {
         createStudent();
-        Assert.assertEquals(1, studentService.getStudent(emailAddress));
+        Assert.assertEquals(1, userRoleRepo.findAll().size());
     }
 
-    @Test
-    @Transactional
-    public void readStudentEntity(){
-        createStudentEntity();
-        Assert.assertEquals(1, StudentEntityRepo.findAll().size());
-    }
+	@Test
+	@Transactional
+	public void updateStudent() throws Exception {
+		createStudent();
 
+		Student newStudent = new Student();
+		newStudent.getUser().setEmail("hello2");
+
+		try {
+			studentService.updateStudent("hello", newStudent);
+		} catch (Exception e) {
+			Assert.fail(e.getMessage());
+		}
+
+		try {
+			studentService.getStudent("hello");
+		} catch(Exception e){
+		}
+		Assert.assertEquals("hello2", studentService.getStudent("hello2").getUser().getEmail());
+	}
+	
+	@Test
+	@Transactional
+	public void getAllStudents() throws Exception{
+		createStudent();
+		Student newStudent = new Student();
+		newStudent.getUser().setEmail("hello3");
+		studentService.createStudent(newStudent);
+
+		Assert.assertEquals(2, studentService.getStudents().size());
+	}
+
+	@Test
+	@Transactional
+	public void deleteStudent() throws Exception{
+		createStudent();
+		studentService.deleteStudent("hello");
+		Assert.assertEquals(0, studentService.getStudents().size());
+	}
 }
