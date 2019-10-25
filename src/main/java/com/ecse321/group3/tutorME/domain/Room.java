@@ -9,6 +9,7 @@ import javax.persistence.*;
 public class Room {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column
 	private int room_id;
 

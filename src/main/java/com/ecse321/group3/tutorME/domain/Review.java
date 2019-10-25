@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Review {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int review_id;
 
 	@Column
@@ -18,10 +18,10 @@ public class Review {
 	@Column
 	private String comment;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Tutor tutor;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Student student;
 
 	@Enumerated(EnumType.STRING)
