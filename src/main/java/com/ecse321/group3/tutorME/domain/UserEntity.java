@@ -26,7 +26,9 @@ public class UserEntity {
 	@OneToOne(cascade = CascadeType.ALL)
 	private UserRole userRole;
 
-	public UserEntity() {}
+	public UserEntity() {
+		this.isVerified = false;
+	}
 
 	public UserEntity(String email, String firstName, String lastName, Boolean isVerified, String password, UserRole userRole) {
 		this.email = email;
