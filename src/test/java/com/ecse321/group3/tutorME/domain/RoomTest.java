@@ -1,7 +1,6 @@
 package com.ecse321.group3.tutorME.domain;
 
-import com.ecse321.group3.tutorME.domain.enums.RoomSize;
-import com.ecse321.group3.tutorME.repository.RoomRepository;
+
 import com.ecse321.group3.tutorME.service.RoomServiceIF;
 import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
 
@@ -19,9 +18,6 @@ public class RoomTest {
 	
 	@Autowired
 	private RoomServiceIF roomService;
-
-    @Autowired
-    private RoomRepository roomRepo;
     @Autowired
     private TestSuiteUtils testUtils;
     @Before
