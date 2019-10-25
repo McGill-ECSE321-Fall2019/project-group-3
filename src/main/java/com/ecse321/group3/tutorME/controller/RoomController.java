@@ -22,71 +22,63 @@ public class RoomController {
     @Autowired
     private RoomServiceIF roomService;
 
-    //request mapping makes this method link to tutorme-heroku.com/api/lesson
-    //the request body just says that take in a lesson object (json)
-    //the method could be GET instead of POST where appropriate.
     @RequestMapping(value = "/api/room", method = POST)
     public ResponseEntity<Room> createRoom(@RequestBody Room room){
 
-        //validate the input first.
+     
         if(room == null || room.getRoom_id() < 0){
-            //invalid subject entered, return a bad request.
+           
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
-        //tell the lesson service to create the lesson.
         Room createdRoom = null;
 
         try{
         	createdRoom = roomService.createRoom(room);
         } catch(Exception e){
-            //If we get any exceptions while creating a subject, we will return a server error
+           
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        //if no errors, we're going to return the created subject with a ok status
+       
         return new ResponseEntity<>(createdRoom, HttpStatus.OK);
     }
     
     @RequestMapping(value = "/api/room", method = GET)
     public ResponseEntity<Room> getRoom(@RequestParam int roomId){
 
-        //validate the input first.
+       
         if(roomId < 0){
-            //invalid lesson name entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
-        //tell the lesson service to create the lesson.
         Room room = null;
 
         try{
             room = roomService.getRoom(roomId);
         } catch(Exception e){
-            //If we get any exceptions while getting a lesson, we will return a server error
+           
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        //if no errors, we're going to return the lesson with an ok status
+   
         return new ResponseEntity<>(room, HttpStatus.OK);
     }
     
     @RequestMapping(value = "/api/room/getall", method = GET)
     public ResponseEntity<List<Room>> getRooms(){
         List<Room> rooms = null;
-        
-        //tell the lesson service to list all lessons.
         try{
             rooms = roomService.getRooms();
         } catch(Exception e){
-            //If we get any exceptions while getting a lesson, we will return a server error
+            
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        //if no errors, we're going to return the lesson with an ok status
+     
         return new ResponseEntity<>(rooms, HttpStatus.OK);
     }
     
     @RequestMapping(value = "/api/room/update", method = POST)
     public ResponseEntity<Room> updateRoom(@RequestParam int oldId, @RequestBody Room room){
-        //validate the input first.
+        
         if( oldId <0 || room == null){
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -95,28 +87,27 @@ public class RoomController {
         try{
             roomUpdated = roomService.updateRoom(oldId, room);
         } catch(Exception e){
-            //If we get any exceptions while getting a tutor, we will return a server error
+            
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        //if no errors, we're going to return the tutor with an ok status
+       
         return new ResponseEntity<>(roomUpdated, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/api/room/delete", method = DELETE)
     public ResponseEntity<Room> deleteRoom(@RequestParam int roomId){
-    	//validate the input first.
+    	
         if(roomId < 0 ){
-            //invalid lesson id entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
         try{
             roomService.deleteRoom(roomId);
         } catch(Exception e){
-            //If we get any exceptions while getting a lesson, we will return a server error
+           
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        //if no errors, we're going to return the lesson with an ok status
+
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 
