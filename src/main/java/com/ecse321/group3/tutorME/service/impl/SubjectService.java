@@ -18,35 +18,62 @@ public class SubjectService implements SubjectServiceIF {
 
     @Override
     public Subject createSubject(Subject subject) throws Exception {
-        //THIS METHOD WILL DO THE ACTUAL CODE IMPLEMENTATION.
         Subject subjectCreated = null;
 
-        //create the subject, by saving to the database.
         try {
             subjectCreated = subjectRepo.save(subject);
         } catch(Exception e){
-            //if we get errors saving to database, throw an exception
             throw new Exception(e.getMessage());
         }
 
-        //or else return the subject we created.
         return subjectCreated;
     }
 
     @Override
     public Subject getSubject(String subjectName) throws Exception {
-        return null;
+        Subject subject = null;
+
+        try{
+            subject = subjectRepo.getOne(subjectName);
+        } catch(Exception e){
+            throw new Exception(e.getMessage());
+        }
+
+        return subject;
     }
 
     @Override
     public List<Subject> getSubjects() throws Exception {
-        return null;
+        List<Subject> subjects = null;
+
+        try{
+            subjects = subjectRepo.findAll();
+        } catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+
+        return subjects;
+    }
+
+    public Subject updateSubject(String subjectName, Subject subject) throws Exception{
+        Subject subjectUpdated = null;
+
+        try {
+            deleteSubject(subjectName);
+            subjectUpdated = createSubject(subject);
+        } catch(Exception e){
+            //if we get errors getting to database, throw an exception
+            throw new Exception(e.getMessage());
+        }
+        return subjectUpdated;
     }
 
     @Override
     public void deleteSubject(String subjectName) throws Exception {
-
+        try{
+            subjectRepo.deleteById(subjectName);
+        } catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
     }
-
-
 }

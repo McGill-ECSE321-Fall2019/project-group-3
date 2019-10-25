@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name = "student")
 public class Student extends UserRole {
 
-    @OneToMany(mappedBy = "student")
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
     private List<Review> review;
 
     @ManyToMany(mappedBy = "student")
