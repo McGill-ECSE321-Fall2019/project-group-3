@@ -12,6 +12,6 @@ public interface SubjectServiceIF {
     Subject createSubject(Subject subject) throws Exception;
     Subject getSubject(String subjectName) throws Exception;
     List<Subject> getSubjects() throws Exception;
-    //todo: update.
+    Subject updateSubject(String oldName, Subject subject) throws Exception;
     void deleteSubject(String subjectName) throws Exception;
 }

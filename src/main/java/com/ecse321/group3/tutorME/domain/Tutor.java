@@ -13,7 +13,7 @@ public class Tutor extends UserRole {
     @ManyToMany
     private List<Course> courses_taught;
 
-    @OneToMany(mappedBy = "tutor")
+    @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
     private List<Review> reviews;
 
     @OneToOne
