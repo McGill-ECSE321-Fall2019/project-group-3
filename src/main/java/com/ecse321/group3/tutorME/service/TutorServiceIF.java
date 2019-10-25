@@ -16,7 +16,7 @@ public interface TutorServiceIF {
     Tutor createTutor(Tutor tutor) throws Exception;
     Tutor getTutor(String emailAddress) throws Exception;
     List<Tutor> getTutors() throws Exception;
-    Tutor updateTutor(int oldId, Tutor tutor) throws Exception;
+    Tutor updateTutor(String oldId, Tutor tutor) throws Exception;
     void deleteTutor(String emailAddress) throws Exception;
 }
 
@@ -25,17 +25,3 @@ public interface TutorServiceIF {
 
 
 
-//Lessons:
-//Create lesson - done
-//Get lesson by id - done
-//Get a list of all lessons - done
-//Update lesson start time
-//Update lesson end time
-//Delete lesson (only if start time is later than today)
-
-//Tutors: 
-//Create Tutor - done
-//Get tutor by id - done
-//Get a list of all the tutors - done
-//Update a tutor’s information
-//Delete a tutor - done

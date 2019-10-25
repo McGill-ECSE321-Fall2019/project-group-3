@@ -30,7 +30,8 @@ public class LessonController {
     public ResponseEntity<Lesson> createLesson(@RequestBody Lesson lesson){
 
         //validate the input first.
-        if(lesson == null || lesson.getLessonId() <= 0){
+        if(lesson == null || lesson.getLessonId() <= 0 || (lesson.getStartTime()!=null
+        && lesson.getStartTime().isBefore(LocalDate.now()))){
             //invalid subject entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -105,9 +106,9 @@ public class LessonController {
     
 
     @RequestMapping(value = "/api/lesson/delete", method = DELETE)
-    public ResponseEntity<Lesson> deleteLesson(@RequestParam int lessonId,LocalDate startTime){
+    public ResponseEntity<Lesson> deleteLesson(@RequestParam int lessonId){
     	//validate the input first.
-        if(lessonId <= 0 || startTime.isBefore(LocalDate.now()) || startTime.isEqual(LocalDate.now()) ){
+        if(lessonId <= 0  ){
             //invalid lesson id entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }

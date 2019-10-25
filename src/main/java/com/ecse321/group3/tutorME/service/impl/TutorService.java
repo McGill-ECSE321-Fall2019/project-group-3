@@ -13,6 +13,7 @@ import javax.persistence.EntityNotFoundException;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TutorService implements TutorServiceIF {
@@ -70,12 +71,10 @@ public class TutorService implements TutorServiceIF {
 
         //create the tutor, by saving to the database.
         try {
-        	List<UserRole> tutor_users = tutorRepo.findAll();
-        	for(int i = 0; i < tutor_users.size(); i++) {
-        	    if (tutor_users.get(i) instanceof Tutor) {
-        	        tutors.add((Tutor) tutor_users.get(i));
-                }
-        	}
+            tutors = tutorRepo.findAll().stream()
+                    .filter(x -> x instanceof Tutor)
+                    .map(x -> (Tutor) x)
+                    .collect(Collectors.toList());
         } catch(Exception e){
             //if we get errors getting to database, throw an exception
             throw new Exception(e.getMessage());
@@ -87,11 +86,11 @@ public class TutorService implements TutorServiceIF {
 
 
    @Override
-   public Tutor updateTutor(int oldId, Tutor tutor) throws Exception {
+   public Tutor updateTutor(String oldId, Tutor tutor) throws Exception {
         Tutor tutor_updated = null;
        try {
-           tutorRepo.deleteById(oldId);
-           tutor_updated = tutorRepo.save(tutor);
+           deleteTutor(oldId);
+           tutor_updated = createTutor(tutor);
        } catch(Exception e){
            //if we get errors getting to database, throw an exception
            throw new Exception(e.getMessage());
@@ -101,22 +100,15 @@ public class TutorService implements TutorServiceIF {
 
 
 
-
-
-
-
-
     @Override
     public void deleteTutor(String emailAddress) throws Exception {
         //delete the tutor
+        Tutor tutorToBeDeleted = getTutor(emailAddress);
         try {
-        	tutorRepo.deleteByUserEmail(emailAddress);
+        	tutorRepo.deleteById(tutorToBeDeleted.getUserId());
         } catch(Exception e){
             //if we get errors getting to database, throw an exception
             throw new Exception(e.getMessage());
         }
-        return; 
     }
-
-
 }

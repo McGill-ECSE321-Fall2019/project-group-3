@@ -86,6 +86,7 @@ public class LessonService implements LessonServiceIF {
     @Override
     public void deleteLesson(int lessonId) throws Exception {
         //delete the lesson
+
         try {
             lessonRepo.deleteById(lessonId);
         } catch(Exception e){
