@@ -18,7 +18,6 @@ public class UserEntityService implements UserEntityServiceIF {
     @Override
     public UserEntity createUserEntity(UserEntity user) throws Exception {
         UserEntity userCreated = null;
-
         try {
         	if (user.getUserRole() != null) {
         		user.setVerified(true);

@@ -21,6 +21,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 @RestController
 public class UserEntityController {
 
+	
     @Autowired
     private UserEntityServiceIF userEntityService;
 
