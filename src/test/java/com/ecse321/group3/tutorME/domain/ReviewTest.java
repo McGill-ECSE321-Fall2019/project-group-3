@@ -124,8 +124,6 @@ public class ReviewTest {
 
         tutor1.setReviews(new ArrayList<Review>(Arrays.asList(review)));
 
-        userEntityRepository.save(userEntity);
-        reviewRepository.save(review);
         userRoleRepository.save(tutor1);
 
         String tutor_email = userEntity.getEmail();
@@ -155,12 +153,10 @@ public class ReviewTest {
         review.setStudent(student);
         review.setReviewAuthor(ReviewAuthor.TUTOR);
         review.setRating(5);
-        review.setComment("no one is ever going to read this");
+        review.setComment("nthis");
 
         student.setReview(new ArrayList<Review>(Arrays.asList(review)));
 
-        userEntityRepository.save(userEntity);
-        reviewRepository.save(review);
         userRoleRepository.save(student);
 
         String student_email = userEntity.getEmail();
