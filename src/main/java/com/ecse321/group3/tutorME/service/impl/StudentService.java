@@ -1,19 +1,19 @@
 package com.ecse321.group3.tutorME.service.impl;
-
-import com.ecse321.group3.tutorME.domain.Course;
 import com.ecse321.group3.tutorME.domain.Student;
-import com.ecse321.group3.tutorME.repository.StudentRepository;
+
+import com.ecse321.group3.tutorME.repository.UserRoleRepository;
 import com.ecse321.group3.tutorME.service.StudentServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class StudentService implements StudentServiceIF {
 
-    @Autowired
-    private StudentRepository studentRepo;
+	@Autowired
+    private UserRoleRepository studentRepo;
 
     @Override
     public Student createStudent(Student student) throws Exception {
@@ -32,49 +32,52 @@ public class StudentService implements StudentServiceIF {
     public Student getStudent(String email) throws Exception {
         Student student = null;
 
-        try {
-            student = studentRepo.findById(email).get();
-        } catch(Exception e){
+        try{
+            student = (Student) studentRepo.findByUserEmail(email);
+        } catch (Exception e){
             throw new Exception(e.getMessage());
         }
 
-        return student;    
-        }
+        return student;
+    }
 
     @Override
     public List<Student> getStudents() throws Exception {
         List<Student> students = null;
-        try {
-            students = studentRepo.findAll();
-        } catch(Exception e){
+
+        try{
+            students = studentRepo.findAll().stream()
+                    .filter(x -> x instanceof Student)
+                    .map(x -> (Student) x)
+                    .collect(Collectors.toList());
+        } catch (Exception e){
             throw new Exception(e.getMessage());
         }
-        return students;     
+
+        return students;
+    }
+
+    @Override
+    public Student updateStudent(String oldEmail, Student student) throws Exception {
+        Student updatedStudent = null;
+
+        try{
+            deleteStudent(oldEmail);
+            updatedStudent = createStudent(student);
+        } catch (Exception e){
+            throw new Exception(e.getMessage());
         }
+
+        return updatedStudent;
+    }
 
     @Override
     public void deleteStudent(String email) throws Exception {
-        try {
-            studentRepo.deleteById(email);
-        } catch(Exception e){
+        Student studentToDelete = this.getStudent(email);
+        try{
+            studentRepo.deleteById(studentToDelete.getUserId());
+        } catch (Exception e){
             throw new Exception(e.getMessage());
         }
-        return; 
     }
-    
-    @Override
-    public Student updateStudent(String oldEmail, Student student) throws Exception {
-        //delete the course
-        Student studentUpdated = null;
-        try {
-            studentRepo.deleteById(oldEmail);
-            studentUpdated = studentRepo.save(student);
-        } catch(Exception e){
-            //if we get errors getting to database, throw an exception
-            throw new Exception(e.getMessage());
-        }
-        return studentUpdated; 
-    }
-
-
 }

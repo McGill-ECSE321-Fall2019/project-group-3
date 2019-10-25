@@ -9,9 +9,11 @@ import com.ecse321.group3.tutorME.domain.Student;
 public interface StudentServiceIF {
 	
 	Student createStudent(Student student) throws Exception;
-    List<Student> getStudents() throws Exception;
-    void deleteStudent(String emailAddress) throws Exception;
 	Student getStudent(String emailAddress) throws Exception;
-	Student updateStudent(String oldId, Student student) throws Exception;
+    List<Student> getStudents() throws Exception;
+    Student updateStudent(String oldId, Student student) throws Exception;
+    void deleteStudent(String emailAddress) throws Exception;
+	
+	
 
 }
