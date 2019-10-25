@@ -93,7 +93,7 @@ public class ReviewController {
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/api/review/getForTutor")
+    @RequestMapping(value = "/api/review/getForTutor", method = GET)
     public ResponseEntity<List<Review>> getReviewsForTutor(@RequestParam String tutor_email){
         List<Review> reviews = null;
 
@@ -106,7 +106,7 @@ public class ReviewController {
         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/api/review/getForStudent")
+    @RequestMapping(value = "/api/review/getForStudent", method = GET)
     public ResponseEntity<List<Review>> getReviewsForStudent(@RequestParam String student_email){
         List<Review> reviews = null;
 
