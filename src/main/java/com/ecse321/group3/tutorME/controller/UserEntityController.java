@@ -21,6 +21,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 @RestController
 public class UserEntityController {
 
+	
     @Autowired
     private UserEntityServiceIF userEntityService;
 
@@ -78,5 +79,25 @@ public class UserEntityController {
         }
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
+    
+    @RequestMapping(value = "/api/user/update", method = POST)
+    public ResponseEntity<UserEntity> updateCourse(@RequestParam String oldEmail, @RequestBody UserEntity user){
+    	//validate the input first.
+        if(oldEmail == null || oldEmail.isEmpty() || user == null || user.getEmail().isEmpty()){
+            //invalid course name entered, return a bad request.
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+        UserEntity userUpdated = null;
+
+        try{
+            userUpdated = userEntityService.updateUserEntity(oldEmail, user);
+        } catch(Exception e){
+            //If we get any exceptions while getting a course, we will return a server error
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        //if no errors, we're going to return the course with an ok status
+        return new ResponseEntity<>(userUpdated, HttpStatus.OK);
+    }
+
     
 }
