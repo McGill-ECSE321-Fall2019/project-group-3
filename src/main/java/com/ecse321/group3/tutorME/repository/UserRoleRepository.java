@@ -8,7 +8,6 @@ import java.util.List;
 
 @Repository
 public interface UserRoleRepository extends JpaRepository<UserRole, Integer> {
-
     UserRole findByUserEmail(String email);
     List<UserRole> deleteByUserEmail(String email);
 }
