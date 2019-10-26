@@ -59,14 +59,13 @@ public class LessonTest {
 
 
         lessonService.createLesson(lesson);
-        System.out.println(lessonService.getLesson(1).getLessonId());
 
         Lesson newLesson = new Lesson();
         date = LocalDate.now();
         newLesson.setStartTime(date);
 
         try {
-            lessonService.updateLesson(1, newLesson);
+            lessonService.updateLesson(lessonService.getLessons().get(0).getLessonId(), newLesson);
         } catch (Exception e) {
             Assert.fail(e.getMessage());
         }
