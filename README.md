@@ -27,3 +27,16 @@ The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/projec
 | Nicolas Abdelnour | 15 | Domain Model Design, Use Case and Report  |
 | Elie Elia | 15 |Testing of Persistence Layer to read and write, Build System and Continuous Integration  |
 | Jason Daou | 15  | Domain Model Design, Match domain model with code, Use case, Provide design choices in Wiki|
+
+
+## Deliverable 2
+
+The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/project-group-3/wiki/Deliverable-2-Report)
+
+| Team member| Total hours| Responsibility |
+|------------------ |:-------------:| ---------------|
+| Karl Eid     |  | | 
+| Preyansh Kaushik|   | |
+| Nicolas Abdelnour |  | |
+| Elie Elia |  | |
+| Jason Daou |   | |
