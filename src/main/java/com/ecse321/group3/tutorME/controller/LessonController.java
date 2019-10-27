@@ -32,7 +32,7 @@ public class LessonController {
         //validate the input first.
         if(lesson == null || lesson.getLessonId() <= 0 || (lesson.getStartTime()!=null
         && lesson.getStartTime().isBefore(LocalDate.now()))){
-            //invalid subject entered, return a bad request.
+            //invalid lesson entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
@@ -42,10 +42,10 @@ public class LessonController {
         try{
         	createdLesson = lessonService.createLesson(lesson);
         } catch(Exception e){
-            //If we get any exceptions while creating a subject, we will return a server error
+            //If we get any exceptions while creating a lesson, we will return a server error
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        //if no errors, we're going to return the created subject with a ok status
+        //if no errors, we're going to return the created lesson with a ok status
         return new ResponseEntity<>(createdLesson, HttpStatus.OK);
     }
     

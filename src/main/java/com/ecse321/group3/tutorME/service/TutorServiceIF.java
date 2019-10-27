@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public interface TutorServiceIF {
 
-    //Creating an interface for all the methods a subject will have.
+    //Creating an interface for all the methods a tutor will have.
     Tutor createTutor(Tutor tutor) throws Exception;
     Tutor getTutor(String emailAddress) throws Exception;
     List<Tutor> getTutors() throws Exception;
