@@ -4,8 +4,6 @@ package com.ecse321.group3.tutorME.domain;
 import com.ecse321.group3.tutorME.repository.PayrollRepository;
 import com.ecse321.group3.tutorME.service.PayrollServiceIF;
 import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
-
-import javafx.animation.PauseTransition;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
