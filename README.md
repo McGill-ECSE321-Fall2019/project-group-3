@@ -35,8 +35,10 @@ The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/projec
 
 | Team member| Total hours| Responsibility |
 |------------------ |:-------------:| ---------------|
-| Karl Eid     |  | | 
-| Preyansh Kaushik|   | |
-| Nicolas Abdelnour |  | |
-| Elie Elia |  | |
-| Jason Daou |   | |
+| Karl Eid     | 18 |RESTful services, Build system, Unit testing and documentation | 
+| Preyansh Kaushik|18   | RESTful services, Build system, Unit testing and documentation |
+| Nicolas Abdelnour | 18 | RESTful services, Build system, Unit testing |
+| Elie Elia | 18 | RESTful services, Build system, Unit testing |
+| Jason Daou | N/A  | N/A|
+
+* Note :Every team member was reponsible for the implementation and testing of their own methods, specified in the report
