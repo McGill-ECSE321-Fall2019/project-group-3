@@ -41,4 +41,4 @@ The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/projec
 | Elie Elia | 18 | RESTful services, Build system, Unit testing |
 | Jason Daou | N/A  | N/A|
 
-* Note :Every team member was reponsible for the implementation and testing of their own methods, specified in the report
+* Note: Every team member was reponsible for the implementation and testing of their own methods, specified in the report
