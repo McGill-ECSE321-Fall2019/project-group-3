@@ -46,6 +46,7 @@ public class ManagerService implements ManagerServiceIF {
         List<Manager> managers = null;
 
         try{
+            //from user role repository, filter out the instances which are manager into a list
             managers = managerRepo.findAll().stream()
                     .filter(x -> x instanceof Manager)
                     .map(x -> (Manager) x)

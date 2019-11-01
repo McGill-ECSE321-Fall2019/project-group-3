@@ -6,7 +6,6 @@ import com.ecse321.group3.tutorME.service.ScheduleServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service

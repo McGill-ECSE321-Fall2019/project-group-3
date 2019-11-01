@@ -1,6 +1,5 @@
 package com.ecse321.group3.tutorME.controller;
 
-import com.ecse321.group3.tutorME.domain.Course;
 import com.ecse321.group3.tutorME.domain.Schedule;
 import com.ecse321.group3.tutorME.service.ScheduleServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;

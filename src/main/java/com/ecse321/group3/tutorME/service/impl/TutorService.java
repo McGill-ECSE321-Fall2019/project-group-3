@@ -2,16 +2,11 @@ package com.ecse321.group3.tutorME.service.impl;
 
 import com.ecse321.group3.tutorME.domain.Tutor;
 import com.ecse321.group3.tutorME.domain.UserRole;
-import com.ecse321.group3.tutorME.domain.Subject;
-import com.ecse321.group3.tutorME.domain.University;
 import com.ecse321.group3.tutorME.repository.UserRoleRepository;
 import com.ecse321.group3.tutorME.service.TutorServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
-
-import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 

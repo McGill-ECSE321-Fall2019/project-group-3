@@ -1,7 +1,5 @@
 package com.ecse321.group3.tutorME.repository;
 
-import com.ecse321.group3.tutorME.domain.Student;
-import com.ecse321.group3.tutorME.domain.Tutor;
 import com.ecse321.group3.tutorME.domain.UserRole;
 import com.ecse321.group3.tutorME.domain.enums.ReviewAuthor;
 import org.springframework.data.jpa.repository.JpaRepository;

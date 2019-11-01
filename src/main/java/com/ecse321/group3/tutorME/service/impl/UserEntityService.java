@@ -1,6 +1,5 @@
 package com.ecse321.group3.tutorME.service.impl;
 
-import com.ecse321.group3.tutorME.domain.Course;
 import com.ecse321.group3.tutorME.domain.UserEntity;
 import com.ecse321.group3.tutorME.repository.UserEntityRepository;
 import com.ecse321.group3.tutorME.service.UserEntityServiceIF;

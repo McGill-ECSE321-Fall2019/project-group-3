@@ -4,7 +4,6 @@ import com.ecse321.group3.tutorME.domain.enums.ReviewAuthor;
 import com.ecse321.group3.tutorME.repository.ReviewRepository;
 import com.ecse321.group3.tutorME.repository.UserEntityRepository;
 import com.ecse321.group3.tutorME.repository.UserRoleRepository;
-import com.ecse321.group3.tutorME.service.ReviewServiceIF;
 import com.ecse321.group3.tutorME.service.impl.ReviewService;
 import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
 

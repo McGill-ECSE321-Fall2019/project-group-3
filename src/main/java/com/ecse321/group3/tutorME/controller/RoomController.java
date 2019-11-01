@@ -1,7 +1,6 @@
 package com.ecse321.group3.tutorME.controller;
 
 import com.ecse321.group3.tutorME.domain.Room;
-import com.ecse321.group3.tutorME.domain.University;
 import com.ecse321.group3.tutorME.service.RoomServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

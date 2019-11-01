@@ -1,9 +1,6 @@
 package com.ecse321.group3.tutorME.utils;
 
 import com.ecse321.group3.tutorME.repository.*;
-import com.ecse321.group3.tutorME.repository.RoomRepository;
-import com.ecse321.group3.tutorME.repository.ScheduleRepository;
-import com.ecse321.group3.tutorME.repository.UserEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

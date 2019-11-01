@@ -3,7 +3,6 @@ package com.ecse321.group3.tutorME.service;
 import com.ecse321.group3.tutorME.domain.Lesson;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
