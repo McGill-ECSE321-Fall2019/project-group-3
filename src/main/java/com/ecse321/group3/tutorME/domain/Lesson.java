@@ -3,7 +3,6 @@ package com.ecse321.group3.tutorME.domain;
 import java.time.LocalDate;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.util.List;
 
 @Entity

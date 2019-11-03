@@ -1,11 +1,6 @@
 package com.ecse321.group3.tutorME.domain;
-import java.util.*;
 
-import com.ecse321.group3.tutorME.domain.enums.ReviewAuthor;
-import com.ecse321.group3.tutorME.repository.ReviewRepository;
-import com.ecse321.group3.tutorME.repository.UserRoleRepository;
 import com.ecse321.group3.tutorME.service.SubjectServiceIF;
-import com.ecse321.group3.tutorME.service.impl.ReviewService;
 import org.springframework.transaction.annotation.Transactional;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,11 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.ecse321.group3.tutorME.repository.ScheduleRepository;
 import com.ecse321.group3.tutorME.repository.SubjectRepository;
 import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
-
-import javax.persistence.EntityNotFoundException;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)

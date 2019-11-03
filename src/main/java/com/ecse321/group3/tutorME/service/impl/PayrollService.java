@@ -1,6 +1,5 @@
 package com.ecse321.group3.tutorME.service.impl;
 
-import com.ecse321.group3.tutorME.domain.Lesson;
 import com.ecse321.group3.tutorME.domain.Payroll;
 import com.ecse321.group3.tutorME.repository.PayrollRepository;
 import com.ecse321.group3.tutorME.service.PayrollServiceIF;

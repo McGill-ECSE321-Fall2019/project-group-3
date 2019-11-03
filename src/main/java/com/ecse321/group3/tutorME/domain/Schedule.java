@@ -1,11 +1,8 @@
 package com.ecse321.group3.tutorME.domain;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.sql.Date;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 @Entity
 @Table(name="schedule")

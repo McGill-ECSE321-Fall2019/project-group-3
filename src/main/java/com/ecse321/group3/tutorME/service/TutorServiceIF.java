@@ -1,12 +1,9 @@
 package com.ecse321.group3.tutorME.service;
 
 import com.ecse321.group3.tutorME.domain.Tutor;
-import com.ecse321.group3.tutorME.domain.UserEntity;
-import com.ecse321.group3.tutorME.domain.UserRole;
 
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service

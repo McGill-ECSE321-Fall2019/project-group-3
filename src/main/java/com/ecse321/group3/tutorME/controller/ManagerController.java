@@ -2,7 +2,6 @@ package com.ecse321.group3.tutorME.controller;
 
 import com.ecse321.group3.tutorME.domain.Manager;
 import com.ecse321.group3.tutorME.service.ManagerServiceIF;
-import com.ecse321.group3.tutorME.service.SubjectServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

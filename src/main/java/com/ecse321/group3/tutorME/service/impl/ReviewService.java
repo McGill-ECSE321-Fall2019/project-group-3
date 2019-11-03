@@ -1,14 +1,11 @@
 package com.ecse321.group3.tutorME.service.impl;
 
 import com.ecse321.group3.tutorME.domain.Review;
-import com.ecse321.group3.tutorME.domain.Student;
-import com.ecse321.group3.tutorME.domain.Tutor;
 import com.ecse321.group3.tutorME.domain.UserRole;
 import com.ecse321.group3.tutorME.domain.enums.ReviewAuthor;
 import com.ecse321.group3.tutorME.repository.ReviewRepository;
 import com.ecse321.group3.tutorME.repository.UserRoleRepository;
 import com.ecse321.group3.tutorME.service.ReviewServiceIF;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

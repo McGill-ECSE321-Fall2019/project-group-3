@@ -1,18 +1,12 @@
 package com.ecse321.group3.tutorME.service.impl;
 
 import com.ecse321.group3.tutorME.domain.Lesson;
-import com.ecse321.group3.tutorME.domain.Subject;
-import com.ecse321.group3.tutorME.domain.University;
 import com.ecse321.group3.tutorME.repository.LessonRepository;
 import com.ecse321.group3.tutorME.service.LessonServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
-
-import java.time.LocalDate;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 @Service
 public class LessonService implements LessonServiceIF {

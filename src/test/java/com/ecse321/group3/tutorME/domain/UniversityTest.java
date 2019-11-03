@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import com.ecse321.group3.tutorME.repository.UniversityRepository;
-import com.ecse321.group3.tutorME.service.StudentServiceIF;
 import com.ecse321.group3.tutorME.service.UniversityServiceIF;
 import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
 import org.springframework.transaction.annotation.Transactional;

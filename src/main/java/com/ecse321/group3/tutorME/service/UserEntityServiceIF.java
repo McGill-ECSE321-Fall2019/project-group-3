@@ -1,6 +1,5 @@
 package com.ecse321.group3.tutorME.service;
 
-import com.ecse321.group3.tutorME.domain.Course;
 import com.ecse321.group3.tutorME.domain.UserEntity;
 import org.springframework.stereotype.Service;
 

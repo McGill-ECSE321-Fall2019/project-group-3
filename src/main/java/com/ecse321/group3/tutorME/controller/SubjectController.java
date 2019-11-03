@@ -1,6 +1,5 @@
 package com.ecse321.group3.tutorME.controller;
 
-import com.ecse321.group3.tutorME.domain.Course;
 import com.ecse321.group3.tutorME.domain.Subject;
 import com.ecse321.group3.tutorME.service.SubjectServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
