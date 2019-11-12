@@ -4,6 +4,8 @@ var path = require('path')
 module.exports = {
   build: {
     env: require('./prod.env'),
+host: 'tutorme-ecse321-group3-web.herokuapp.com',
+backendHost: 'tutorme-ecse321-group3.herokuapp.com',
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
@@ -23,7 +25,10 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8080,
+host: '127.0.0.1',
+    port: 8087,
+backendHost: '127.0.0.1',
+backendPort: 8080,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
