@@ -1,0 +1,1 @@
+web: cd tutorMe-frontend && echo $PORT && export PORT && npm start
