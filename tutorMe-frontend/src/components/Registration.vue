@@ -1,7 +1,10 @@
 <template>
   <div>
       <center>
-    <b-form @submit="onSubmit" class="mainForm">
+    <b-form @submit="register(firstname,lastname,email,password)" 
+	type="submit"
+	value="Register"
+	class="mainForm">
       <b-form-group
         id="input-group-1"
         label="First Name:"
@@ -10,7 +13,7 @@
         <b-form-input
           id="input-1"
           v-model="form.firstname"
-          type="firstname"
+          type="text"
           required
           placeholder="Enter first name"
         ></b-form-input>
@@ -23,7 +26,7 @@
         <b-form-input
           id="input-2"
           v-model="form.lastname"
-          type="lastname"
+          type="text"
           required
           placeholder="Enter last name"
         ></b-form-input>
@@ -74,24 +77,8 @@
   </div>
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        form: {
-          email: '',
-          password: ''
-        }
-      }
-    },
-    methods: {
-      onSubmit(evt) {
-        evt.preventDefault()
-        alert(JSON.stringify(this.form))
-      }
-    }
-  }
-</script>
+<script src='./javascript/Registration.js'/>
+
 
 <style scoped>
 .mainForm{
