@@ -23,9 +23,15 @@ export default {
         }))
     }, 
     methods: {
-        deleteLesson: function(lessonId) {
-            AXIOS.delete('/api/lesson/delete?lessonId='+lessonId).then((response => {
+        deleteLesson: function(deleteId) {
+            AXIOS.delete('/api/lesson/delete?lessonId='+deleteId).then((response => {
                 console.log("i deleted the element!"); 
+                
+                for(let i = this.lessons.length - 1; i>=0; i--){
+                    if(this.lessons[i].lessonId === deleteId){
+                        this.lessons.splice(i, 1);
+                    }
+                }
             }))
         }
     }

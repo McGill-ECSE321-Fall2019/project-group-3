@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
-import Lesson from '@/components/Lesson'
+import Lesson from '@/components/Lesson/Lesson'
 import Welcome from '@/components/Welcome'
-import Course from '@/components/Course'
-import University from '@/components/University'
+import Course from '@/components/Course/Course'
+import University from '@/components/University/University'
 
 Vue.use(Router)
 

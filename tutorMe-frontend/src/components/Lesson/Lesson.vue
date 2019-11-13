@@ -3,7 +3,7 @@
     <br>
     <br>
 <div class = "mainForm">
-   <b-list-group-item href="#" class="flex-column align-items-start" v-for="lesson in lessons" :key="lesson">
+   <b-list-group-item href="#" class="flex-column align-items-start" v-for="(lesson,idx) in lessons" :key="idx">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Lesson ID: {{lesson.lessonId}}</h5>
        <b-button v-on:click="deleteLesson(lesson.lessonId)" pill variant="outline-danger">Delete</b-button>
@@ -25,7 +25,7 @@
   </center>
 </template>
 
-<script src='./javascript/lesson.js'/>
+<script src='../javascript/lesson.js'/>
 
 <style scoped>
 .mainForm{
