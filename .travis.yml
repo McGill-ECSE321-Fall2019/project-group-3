@@ -1,3 +1,19 @@
+matrix:
+  include:
+  - language: node_js
+    node_js:
+    - 10.15
+    cache: npm
+    before_install:
+    - cd tutorMe-frontend/
+    - npm install
+    script:
+    - npm run build
+    deploy:
+      provider: heroku
+      app: tutorme-ecse321-group3-web
+      api_key:
+	secure: Ix6By5rbljNfCX2N/iOw6tYZ1OwWU//wWdgSACG1K9YyDsXBgTI6/81swnTIqXtyO2ebWpOSQO7YwTYc/YbdzZ8YWD2wiB44dWDXtAOuoMy2b3BLWuFE9ADE97+/YAaiEuEXFrFf+AmKP+8EQbKjlPC9CXDe+Qboo5bBfXhCPiIUtdm+30TW6LW468k8z+Lmuy7K9fr/s40uht75BD8WXDebRQUNRQ8m4jnlOVznZ4BuFHFAqyF6FD24WXXQAxHLdNZ96TPMcqgkD+pSQ60DVKYz4vURll62fAhpxWe+RPPC+8cOYp4uSwVmsTLiK4LQshSALdcwRY3fJZbvSu8Xump8c6g4x/WvmqAAQ8dNCIOA9JORk7mvH2VozRdjFaQf972+Z8Pecabc2Ilz9kYJsf/3YuEY03gaghOlFfMHGKaXN0pd2ubOpBH1wgh34ctNRnTrk62rwBigGdMl12w4XJ+EmO7a2fJLcYPt6sVApoIuzAGZfPZssYaHGCOtABQoLJW78qdjpSKffQ6D8bZAdJjNzb82I7zo33NTB0rAoZwBDEqj4oCEzsxueS5+yfGAolgWQ9kTS1rl8d6lF47GWZliUYy9mV/jmnN/2lhywQ9xSbs2U3iG6uUJRrB9N9tBt+ux/7JLL2rd7Oz7VMZ59jThXhNxvTHb+hUazsB40B0=
 language: java
 script:
 - gradle build
@@ -6,3 +22,6 @@ deploy:
   api_key:
     secure: Ix6By5rbljNfCX2N/iOw6tYZ1OwWU//wWdgSACG1K9YyDsXBgTI6/81swnTIqXtyO2ebWpOSQO7YwTYc/YbdzZ8YWD2wiB44dWDXtAOuoMy2b3BLWuFE9ADE97+/YAaiEuEXFrFf+AmKP+8EQbKjlPC9CXDe+Qboo5bBfXhCPiIUtdm+30TW6LW468k8z+Lmuy7K9fr/s40uht75BD8WXDebRQUNRQ8m4jnlOVznZ4BuFHFAqyF6FD24WXXQAxHLdNZ96TPMcqgkD+pSQ60DVKYz4vURll62fAhpxWe+RPPC+8cOYp4uSwVmsTLiK4LQshSALdcwRY3fJZbvSu8Xump8c6g4x/WvmqAAQ8dNCIOA9JORk7mvH2VozRdjFaQf972+Z8Pecabc2Ilz9kYJsf/3YuEY03gaghOlFfMHGKaXN0pd2ubOpBH1wgh34ctNRnTrk62rwBigGdMl12w4XJ+EmO7a2fJLcYPt6sVApoIuzAGZfPZssYaHGCOtABQoLJW78qdjpSKffQ6D8bZAdJjNzb82I7zo33NTB0rAoZwBDEqj4oCEzsxueS5+yfGAolgWQ9kTS1rl8d6lF47GWZliUYy9mV/jmnN/2lhywQ9xSbs2U3iG6uUJRrB9N9tBt+ux/7JLL2rd7Oz7VMZ59jThXhNxvTHb+hUazsB40B0=
   app: tutorme-ecse321-group3
+language: java
+script:
+- gradle build
