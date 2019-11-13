@@ -2,8 +2,7 @@
   <div>
       <center>
     <b-form @submit="register(firstname,lastname,email,password)" 
-	type="submit"
-	value="Register"
+	value="register"
 	class="mainForm">
       <b-form-group
         id="input-group-1"
