@@ -1,22 +1,34 @@
 <template>
-<div>
-    <b-card class="text-center">
-    <div class="bg-secondary text-light">
-      This is some content within the default card.
-    </div>
-  </b-card>
-
-   <b-list-group-item href="#" class="flex-column align-items-start">
+  <center>
+    <br>
+    <br>
+<div class = "mainForm">
+   <b-list-group-item href="#" class="flex-column align-items-start" v-for="lesson in lessons" :key="lesson">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
+      <h5 class="mb-1">Lesson ID: {{lesson.lessonId}}</h5>
+       <b-button v-on:click="deleteLesson(lesson.lessonId)" pill variant="outline-danger">Delete</b-button>
     </div>
 
     <p class="mb-1">
-      Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+      <!-- This lesson is taught by {{lesson.tutor.name||"Tutor"}} for {{lesson.subject.subject_name||"Subject"}} + 
+      {{lesson.course.courseName||"Course"}} at {{lesson.university.university_name||"University"}}.  -->
+      This lesson goes from {{lesson.startTime}} to {{lesson.endTime}}
     </p>
 
-    <small class="text-muted">Donec id elit non mi porta.</small>
+    <small class="text-muted">Click to update the lesson.</small>
   </b-list-group-item>
+
+  <br/>
+  <br/>
+
 </div>
+  </center>
 </template>
+
+<script src='./javascript/lesson.js'/>
+
+<style scoped>
+.mainForm{
+  width: 80%; 
+}
+</style>
