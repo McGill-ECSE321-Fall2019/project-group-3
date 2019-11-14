@@ -6,7 +6,7 @@ import Welcome from '@/components/Welcome'
 import Course from '@/components/Course'
 import University from '@/components/University'
 import Registration from '@/components/Registration'
-import Homepage from '@components/Homepage'
+import Homepage from '@/components/Homepage'
 
 Vue.use(Router)
 
@@ -40,6 +40,12 @@ export default new Router({
       path: '/registration',
       name: 'Registration',
       component: Registration
+    },
+    {
+    path: '/homepage',
+    name: 'Homepage',
+    component: Homepage
     }
+
   ]
 })
