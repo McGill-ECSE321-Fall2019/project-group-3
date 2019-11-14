@@ -13,7 +13,7 @@
       This course falls under the "Subject"  at "University". 
     </p>
 
-    <small class="text-muted">Click to update the course.</small>
+    <small class="text-muted">Click to update the course.</small> 
   </b-list-group-item>
 
 </div>

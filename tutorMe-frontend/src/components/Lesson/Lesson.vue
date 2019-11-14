@@ -1,7 +1,9 @@
 <template>
   <div>
     <br />
-    <br />All Lessons
+    <br />
+    <span class = "title">All Lessons</span>
+    <router-link to="CreateLesson"><b-button pill variant="success" class="addButton">+</b-button></router-link>
     <hr />
     <center>
       <template v-if="hasLessons">
@@ -45,5 +47,15 @@
 <style scoped>
 .mainForm {
   width: 80%;
+}
+.title{
+  flex:1; 
+  text-align: center;
+}
+.addButton{
+  flex: 1;
+  float: right;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 </style>
