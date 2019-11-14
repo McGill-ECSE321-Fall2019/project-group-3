@@ -9,49 +9,58 @@ let AXIOS = axios.create({
     headers: { 'Access-Control-Allow-Origin': frontendUrl }
 });
 export default {
-	name: 'register',
     data() {
       return {
         form: {
-          email: '',
+			payroll: [],
+		user: {
+		  email: '',
+		  firstName: '',
+		  lastName: '',
 		  password: '',
-		  firstname: '',
-		  lastname: '',
-		  confirmpassword: '',
-		  status: 'not_accepted'
-        }
+		  verified: true
+		}
+	},
+	status: 'not_accepted'
       }
 	},
-	created: function (){
-	},
     methods: {
-            register(firstname, lastname, email, password) {
+            register: function(firstname, lastname, email, password) {
+				console.log("HALOOOOOOOOOOO");
             if (firstname == '') {
                 var errorMsg = "Invalid first name"
                 console.log(errorMsg)
                 this.errorRegister = errorMsg
-                return
+                return;
             }
             if (lastname == '') {
                 var errorMsg = "Invalid last name"
                 console.log(errorMsg)
                 this.errorRegister = errorMsg
-                return
+                return;
             }
             if (email == '') {
                 var errorMsg = "Invalid email"
                 console.log(errorMsg)
                 this.errorRegister = errorMsg
-                return
+                return;
             }
             if (password == '') {
                 var errorMsg = "Invalid password"
                 console.log(errorMsg)
                 this.errorRegister = errorMsg
-                return
-            }
-     
-				AXIOS.post(`/createManager/` + email + "?lastName=" + lastName + "&firstName=" + firstName + "&password=" + password, {}, {})
+                return;
+			}
+				console.log("working till here");
+				let newUser = {}; 
+				newUser.email=email;
+				newUser.firstName = firstname; 
+					newUser.lastName = lastname;
+					newUser.password=password;
+
+				this.form.user = newUser; 
+					console.dir(this.form);
+				AXIOS.post(`/api/manager`,this.data.form)
                 .then(response => {
                     // JSON responses are automatically parsed.
                     this.response = response.data
@@ -61,7 +70,6 @@ export default {
                     this.lastname= ''
                     this.email= ''
                     this.password= ''
-					alert("hello");
 				})
                 .catch(e => {
 					alert("didnt work");
@@ -70,7 +78,7 @@ export default {
                     this.errorRegister = errorMsg
                     this.response = ''
 				});
-				alert("hello")
 			}
 		}
 	}
+

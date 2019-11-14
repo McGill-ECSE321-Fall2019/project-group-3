@@ -10,6 +10,9 @@ import Homepage from '@/components/Homepage'
 import Course from '@/components/Course/Course'
 import University from '@/components/University/University'
 import CreateLesson from '@/components/Lesson/CreateLesson'
+import Homepage from '@/components/Homepage'
+import Room from '@/components/Room';
+
 
 Vue.use(Router)
 
@@ -53,11 +56,25 @@ export default new Router({
       path: '/registration',
       name: 'Registration',
       component: Registration
+<<<<<<< HEAD
     }, 
     {
       path: '/CreateLesson', 
       name: 'CreateLesson', 
       component: CreateLesson
+=======
+    },
+    {
+    path: '/homepage',
+    name: 'Homepage',
+    component: Homepage
+    },
+    {
+    path: '/room',
+    name: 'Room',
+    component: Room
+>>>>>>> 5ca990ad3d3446a313a7d5cad7f8733c31071bb5
     }
+
   ]
 })
