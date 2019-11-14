@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
 import Lesson from '@/components/Lesson'
 import Welcome from '@/components/Welcome'
 import Course from '@/components/Course'
