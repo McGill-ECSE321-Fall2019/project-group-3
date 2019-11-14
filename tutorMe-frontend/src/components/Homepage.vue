@@ -1,14 +1,28 @@
 <template>
 <div>
   <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand href="#">NavBar</b-navbar-brand>
+    <b-navbar-brand href="#">TutorME</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item href="#">Link</b-nav-item>
-        <b-nav-item href="#" disabled>Disabled</b-nav-item>
+        <b-nav-item href="#/lesson">Lesson</b-nav-item>
+        <b-nav-item href="#" enabled></b-nav-item>
+		<b-nav-item href="#/course">Course</b-nav-item>
+        <b-nav-item href="#" enabled></b-nav-item>
+		<b-nav-item href="#/university">University</b-nav-item>
+        <b-nav-item href="#" enabled></b-nav-item>
+		<b-nav-item href="#/room">Room</b-nav-item>
+        <b-nav-item href="#" enabled></b-nav-item>
+		<b-nav-item href="#">Group Lesson Requests</b-nav-item>
+        <b-nav-item href="#" enabled></b-nav-item>
+		<b-nav-item href="#/student">Student</b-nav-item>
+        <b-nav-item href="#" enabled></b-nav-item>
+		<b-nav-item href="#/tutor">Tutor</b-nav-item>
+        <b-nav-item href="#" enabled></b-nav-item>
+		<b-nav-item href="#/payroll">Payroll</b-nav-item>
+        <b-nav-item href="#" enabled></b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
