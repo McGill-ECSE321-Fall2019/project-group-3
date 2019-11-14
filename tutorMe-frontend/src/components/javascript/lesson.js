@@ -12,7 +12,8 @@ let AXIOS = axios.create({
 export default {
     data() {
         return {
-            lessons: null
+            lessons: null,
+            hasLessons: false
         }
     },
     mounted: function() {
@@ -20,11 +21,13 @@ export default {
             this.lessons = response.data; 
             console.log("made call");
             console.dir(this.lessons); 
+            if(this.lessons != null && this.lessons != undefined 
+                && this.lessons.length > 0) this.hasLessons = true; 
         }))
     }, 
     methods: {
-        deleteLesson: function(deleteId) {
-            AXIOS.delete('/api/lesson/delete?lessonId='+deleteId).then((response => {
+        deleteLesson: async function(deleteId) {
+            await AXIOS.delete('/api/lesson/delete?lessonId='+deleteId).then((response => {
                 console.log("i deleted the element!"); 
                 
                 for(let i = this.lessons.length - 1; i>=0; i--){
@@ -32,6 +35,8 @@ export default {
                         this.lessons.splice(i, 1);
                     }
                 }
+
+                if(this.lessons.length===0) this.hasLessons = false; 
             }))
         }
     }
