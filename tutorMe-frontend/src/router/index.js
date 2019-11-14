@@ -6,7 +6,6 @@ import Welcome from '@/components/Welcome'
 import Registration from '@/components/Registration'
 import Students from '@/components/Students'
 import Tutors from '@/components/Tutors'
-import Homepage from '@/components/Homepage'
 import Course from '@/components/Course/Course'
 import University from '@/components/University/University'
 import CreateLesson from '@/components/Lesson/CreateLesson'
@@ -43,12 +42,12 @@ export default new Router({
       component: University
     },
     {
-      path: '/tutors',
+      path: '/tutor',
       name: 'Tutors',
       component: Tutors
     },
      {
-      path: '/students',
+      path: '/student',
       name: 'Students',
       component: Students
     },
@@ -56,13 +55,11 @@ export default new Router({
       path: '/registration',
       name: 'Registration',
       component: Registration
-<<<<<<< HEAD
     }, 
     {
       path: '/CreateLesson', 
       name: 'CreateLesson', 
       component: CreateLesson
-=======
     },
     {
     path: '/homepage',
@@ -73,7 +70,6 @@ export default new Router({
     path: '/room',
     name: 'Room',
     component: Room
->>>>>>> 5ca990ad3d3446a313a7d5cad7f8733c31071bb5
     }
 
   ]
