@@ -51,7 +51,10 @@
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
-  <vue-cal style="height: 250px"></vue-cal>
+  <vue-cal style="height: 500px" :events="events" :time-from="9 * 60" :time-to="21 * 60" :time-step="30" hide-weekends
+  ></vue-cal>
 </div>
 </div>
 </template>
+
+<script src='./javascript/Homepage.js'/>
