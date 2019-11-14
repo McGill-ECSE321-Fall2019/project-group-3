@@ -6,6 +6,7 @@ import Welcome from '@/components/Welcome'
 import Course from '@/components/Course'
 import University from '@/components/University'
 import Registration from '@/components/Registration'
+import Students from '@/components/Students'
 
 import Tutors from '@/components/Tutors'
 
@@ -17,30 +18,35 @@ export default new Router({
       path: '/',
       name: 'Hello',
       component: Hello
-    }, 
+    },
     {
-      path: '/lesson', 
-      name: 'Lesson', 
+      path: '/lesson',
+      name: 'Lesson',
       component: Lesson
-    }, 
+    },
     {
       path: '/welcome',
-      name: 'Welcome', 
+      name: 'Welcome',
       component: Welcome
     }, {
-      path: '/course', 
-      name: 'Course', 
+      path: '/course',
+      name: 'Course',
       component: Course
-    }, 
+    },
     {
-      path: '/university', 
-      name: 'University', 
+      path: '/university',
+      name: 'University',
       component: University
     },
     {
-      path: '/tutors', 
-      name: 'Tutors', 
+      path: '/tutors',
+      name: 'Tutors',
       component: Tutors
+    },
+     {
+      path: '/students',
+      name: 'Students',
+      component: Students
     },
     {
       path: '/registration',

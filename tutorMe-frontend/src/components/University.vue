@@ -10,7 +10,7 @@
     </div>
 
     <p class="mb-1">
-      Some attributes to display for university. 
+      Some attributes to display for university.
     </p>
 
     <small class="text-muted">Click to update the university.</small>
@@ -22,6 +22,6 @@
 
 <style scoped>
 .mainForm{
-  width: 80%; 
+  width: 80%;
 }
 </style>
