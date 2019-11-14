@@ -18,6 +18,12 @@ Vue.config.productionTip = false
 Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
 Vue.component('multiselect', Multiselect)
 
+import VueCal from 'vue-cal'
+import 'vue-cal/dist/vuecal.css'
+
+Vue.use(BootstrapVue)
+Vue.config.productionTip = false
+Vue.component('VueCal', VueCal);
 
 /* eslint-disable no-new */
 new Vue({

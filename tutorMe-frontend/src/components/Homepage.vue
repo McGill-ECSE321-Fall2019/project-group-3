@@ -1,5 +1,6 @@
 <template>
 <div>
+	<div>
   <b-navbar toggleable="lg" type="dark" variant="info">
     <b-navbar-brand href="#">TutorME</b-navbar-brand>
 
@@ -50,5 +51,7 @@
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
+  <vue-cal style="height: 250px"></vue-cal>
+</div>
 </div>
 </template>
