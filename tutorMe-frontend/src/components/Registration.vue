@@ -64,11 +64,17 @@
           placeholder="Enter password again"
         ></b-form-input>
       </b-form-group>
-	   <b-form-group id="input-group-6">
-        <b-form-checkbox-group v-model="form.checked" id="checkboxes-6">
-          <b-form-checkbox value="terms&conditions">I agree to Terms&Conditions</b-form-checkbox>
-        </b-form-checkbox-group>
-      </b-form-group>
+	   <b-form-checkbox
+      id="checkbox-1"
+      v-model="status"
+      name="checkbox-1"
+      value="accepted"
+      unchecked-value="not_accepted"
+    >
+      I accept the Terms & Conditions
+    </b-form-checkbox>
+
+    <div>State: <strong>{{ status }}</strong></div>
 
       <b-button variant="primary">Sign Up</b-button>
     </b-form>
