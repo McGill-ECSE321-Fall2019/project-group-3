@@ -18,6 +18,7 @@
     "jquery": "^3.4.1",
     "popper.js": "^1.12.9",
     "vue": "^2.5.2",
+    "vue-cal": "^2.14.0",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
