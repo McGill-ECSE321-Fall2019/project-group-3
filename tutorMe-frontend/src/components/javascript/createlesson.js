@@ -12,6 +12,7 @@ let AXIOS = axios.create({
 export default {
     data() {
         return {
+            courseOps : ["hello", "you"],  
             form: {
                 course: null,
                 endTime: "",
@@ -19,7 +20,7 @@ export default {
                 startTime: "",
                 student: null,
                 tutor: null   
-            }
+            },
         }
     },
     methods: {
