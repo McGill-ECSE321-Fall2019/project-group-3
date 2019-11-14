@@ -1,9 +1,7 @@
 <template>
   <div>
       <center>
-    <b-form @submit="register(firstname,lastname,email,password)" 
-	value="register"
-	class="mainForm">
+    <b-form @submit="register(firstname,lastname,email,password)"	class="mainForm">
       <b-form-group
         id="input-group-1"
         label="First Name:"
@@ -11,7 +9,7 @@
       >
         <b-form-input
           id="input-1"
-          v-model="form.firstname"
+          v-model="form.user.firstName"
           type="text"
           required
           placeholder="Enter first name"
@@ -24,7 +22,7 @@
       >
         <b-form-input
           id="input-2"
-          v-model="form.lastname"
+          v-model="form.user.lastName"
           type="text"
           required
           placeholder="Enter last name"
@@ -38,7 +36,7 @@
       >
         <b-form-input
           id="input-3"
-          v-model="form.email"
+          v-model="form.user.email"
           type="email"
           required
           placeholder="Enter email"
@@ -48,7 +46,7 @@
       <b-form-group id="input-group-4" label="Password:" label-for="input-4">
         <b-form-input
           id="input-4"
-          v-model="form.password"
+          v-model="form.user.password"
           type="password"
           required
           placeholder="Enter password"
@@ -58,7 +56,7 @@
 	  <b-form-group id="input-group-5" label="Confirm Password:" label-for="input-5">
         <b-form-input
           id="input-5"
-          v-model="form.password"
+          v-model="form.user.password"
           type="password"
           required
           placeholder="Enter password again"
@@ -76,7 +74,11 @@
 
     <div>State: <strong>{{ status }}</strong></div>
 
-      <b-button variant="primary">Sign Up</b-button>
+                          <input @click="register(firstName, lastName, email, password)"
+                        type="submit"
+                        value="Register"
+                        class="btn btn-primary py-2 px-4 text-white"
+                        />
     </b-form>
     </center>
   </div>

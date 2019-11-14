@@ -10,6 +10,7 @@ import Homepage from '@/components/Homepage'
 import Course from '@/components/Course/Course'
 import University from '@/components/University/University'
 import Homepage from '@/components/Homepage'
+import Room from '@/components/Room';
 
 
 Vue.use(Router)
@@ -59,6 +60,11 @@ export default new Router({
     path: '/homepage',
     name: 'Homepage',
     component: Homepage
+    },
+    {
+    path: '/room',
+    name: 'Room',
+    component: Room
     }
 
   ]
