@@ -17,7 +17,8 @@ export default {
 		  password: '',
 		  firstname: '',
 		  lastname: '',
-		  confirmpassword: ''
+		  confirmpassword: '',
+		  status: 'not_accepted'
         }
       }
 	},
@@ -60,13 +61,16 @@ export default {
                     this.lastname= ''
                     this.email= ''
                     this.password= ''
-                })
+					alert("hello");
+				})
                 .catch(e => {
+					alert("didnt work");
                     var errorMsg = e.message
                     console.log(errorMsg)
                     this.errorRegister = errorMsg
                     this.response = ''
 				});
+				alert("hello")
 			}
 		}
 	}

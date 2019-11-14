@@ -7,8 +7,8 @@ import Course from '@/components/Course'
 import University from '@/components/University'
 import Registration from '@/components/Registration'
 import Students from '@/components/Students'
-
 import Tutors from '@/components/Tutors'
+import Homepage from '@components/Homepage'
 
 Vue.use(Router)
 
