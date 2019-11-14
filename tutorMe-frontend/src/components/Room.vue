@@ -15,15 +15,24 @@
             :key="idx"
           >
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">Room ID: {{room.roomId}}</h5>
+              <h5 class="mb-1">Room ID: {{room.room_id}}</h5>
               <b-button
-                v-on:click="deleteRoom(room.roomId)"
+                v-on:click="deleteRoom(room.room_id)"
                 pill
                 variant="outline-danger"
               >Delete</b-button>
             </div>
 
             <p class="mb-1">
+				<b-container class="bv-example-row">
+  <b-row>
+	<b-col><h5 class="mb-1">Lesson</h5>{{room.lesson}}</b-col>
+    <b-col> <h5 class="mb-1">Seats</h5>{{room.numberOfSeats}}</b-col>
+    <b-col><h5 class="mb-1">Size</h5>{{room.size}}</b-col>
+  </b-row>
+</b-container>
+             <!-- This lesson is taught by {{lesson.tutor.name||"Tutor"}} for {{lesson.subject.subject_name||"Subject"}} + 
+              {{lesson.course.courseName||"Course"}} at {{lesson.university.university_name||"University"}}.-->
               
             </p>
 

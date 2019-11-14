@@ -27,11 +27,11 @@ export default {
     }, 
     methods: {
         deleteRoom: async function(deleteId) {
-            await AXIOS.delete('/api/room/delete?roomId='+roomId).then((response => {
+            await AXIOS.delete('/api/room/delete?roomId='+deleteId).then((response => {
                 console.log("i deleted the element!"); 
                 
                 for(let i = this.rooms.length - 1; i>=0; i--){
-                    if(this.rooms[i].roomId === deleteId){
+                    if(this.rooms[i].room_id === deleteId){
                         this.rooms.splice(i, 1);
                     }
                 }
