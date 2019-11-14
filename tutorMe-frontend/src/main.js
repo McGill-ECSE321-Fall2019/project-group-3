@@ -6,14 +6,20 @@ import App from './App'
 import router from './router'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
+import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
+import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.umd.min.js'
+
 
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
+Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
+
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: { App,  }
 })

@@ -1,44 +1,19 @@
 <template>
-  <div>
-      <center>
-    <b-form @submit="onSubmit" class="mainForm">
-      <b-form-group
-        id="input-group-1"
-        label="Email address:"
-        label-for="input-1"
-      >
-        <b-form-input
-          id="input-1"
-          v-model="form.email"
-          type="email"
-          required
-          placeholder="Enter email"
-        ></b-form-input>
-      </b-form-group>
+<div>
+    component is here:
+    <div>
+            <VueCtkDateTimePicker
+            :no-value-to-custom-elem="(true|false)"
+              input-class="form-control"
+              name="start"
+              label="Please enter lesson start time"
+              v-model="form.startTime"
+              dark>
+            </VueCtkDateTimePicker>
 
-      <b-form-group id="input-group-2" label="Your Password:" label-for="input-2">
-        <b-form-input
-          id="input-2"
-          v-model="form.password"
-          type="password"
-          required
-          placeholder="Enter password"
-        ></b-form-input>
-      </b-form-group>
-
-      <b-button type="submit" variant="primary">Login!</b-button>
-      <b-button variant="primary">Or Sign Up!</b-button>
-    </b-form>
-    </center>
-  </div>
+            <button v-on:click="printDate()">show me your date</button>
+    </div>
+</div>
 </template>
 
-<script src = '../javascript/createlesson.js'/>
-
-<style scoped>
-.mainForm{
-    justify-content: center;
-    align-content: center;
-    width: 80%;
-}
-</style>
+<script src="../javascript/createlesson.js"/>

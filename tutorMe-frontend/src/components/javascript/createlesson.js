@@ -26,6 +26,9 @@ export default {
         onSubmit(evt) {
             evt.preventDefault()
             console.dir(this.form);
+        }, 
+        printDate(){
+            console.dir(this.form);
         }
     }
 }
