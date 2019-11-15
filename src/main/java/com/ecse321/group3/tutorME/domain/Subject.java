@@ -1,5 +1,7 @@
 package com.ecse321.group3.tutorME.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,7 +16,8 @@ public class Subject {
     @ManyToMany(mappedBy = "subjects")
     private List<University> universities;
 
-    @OneToMany(mappedBy = "subject")
+    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Course> courses;
 
     public Subject() {
