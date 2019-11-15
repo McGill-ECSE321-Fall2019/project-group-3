@@ -14,8 +14,9 @@
                   list="input-list"
                   id="input-with-list"
                   placeholder="Search up a course"
+                  @input="saveSelectionAndReset"
                 ></b-form-input>
-                <b-form-datalist id="input-list" :options="courseOps" v-model="form.course"></b-form-datalist>
+                <b-form-datalist id="input-list" :options="courseOps"></b-form-datalist>
               </b-form-group>
 
               <b-form-group

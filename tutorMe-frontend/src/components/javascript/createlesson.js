@@ -17,7 +17,7 @@ export default {
             studentOps: [],
             tutorOps: [],
             form: {
-                course: null,
+                course: "null",
                 endTime: "",
                 room: null,
                 startTime: "",
@@ -55,8 +55,15 @@ export default {
             console.dir(self.roomOps); 
     },
     methods: {
+        saveSelectionAndReset(e) {
+            let val = e.target.value;
+            if (val) {
+              this.optionVal = val;
+            }
+            e.target.value = "";
+          },
         onSubmit(evt) {
-            evt.preventDefault()
+            evt.preventDefault();
             console.dir(this.form);
         },
         getAllStudents: function () {
