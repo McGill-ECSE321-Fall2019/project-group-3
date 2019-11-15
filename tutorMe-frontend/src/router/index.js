@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Lesson from '@/components/Lesson'
 import Welcome from '@/components/Welcome'
-import Course from '@/components/Course'
 import University from '@/components/University'
 import Registration from '@/components/Registration'
 import Homepage from '@/components/Homepage'
 import Room from '@/components/Room';
+
 
 Vue.use(Router)
 
@@ -23,10 +22,6 @@ export default new Router({
       component: Lesson
     }, 
     {
-      path: '/welcome',
-      name: 'Welcome', 
-      component: Welcome
-    }, {
       path: '/course', 
       name: 'Course', 
       component: Course
