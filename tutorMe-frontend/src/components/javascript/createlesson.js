@@ -1,5 +1,6 @@
 import axios from 'axios';
 import config from '../../../config/index';
+import router from 'vue-router';
 
 let frontendUrl = 'http://' + config.dev.host + ":" + config.dev.port;
 let backendUrl = 'http://' + config.dev.backendHost;
@@ -78,7 +79,8 @@ export default {
                 self.form.tutor = self.map.get(self.form.tutor); 
             } 
             AXIOS.post('/api/lesson', self.form).then(resp => {
-                console.log("sent req");
+                alert("Lesson created! Redirecting");
+                this.$router.push("Lesson");
             }).catch(e => {
                 console.log("error: " + e);
             });
