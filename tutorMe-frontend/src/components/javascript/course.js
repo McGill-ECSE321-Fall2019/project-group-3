@@ -27,7 +27,7 @@ export default {
     }, 
     methods: {
         deleteCourse: async function(deleteId) {
-            await AXIOS.delete('/api/course/delete?courseName='+deleteId).then((response => {
+            await AXIOS.delete('/api/course?courseName='+deleteId).then((response => {
                 console.log("i deleted the element!"); 
                 
                 for(let i = this.courses.length - 1; i>=0; i--){
