@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -29,7 +29,7 @@ public class LessonController {
 
         //validate the input first.
         if(lesson == null || lesson.getLessonId() <= 0 || (lesson.getStartTime()!=null
-        && lesson.getStartTime().isBefore(LocalDate.now()))){
+        && lesson.getStartTime().isBefore(LocalDateTime.now()))){
             //invalid lesson entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
