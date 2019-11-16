@@ -19,7 +19,7 @@
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1">University Name: {{university.university_name}}</h5>
               <b-button
-                v-on:click="deleteLesson(university.university_name)"
+                v-on:click="deleteUniversity(university.university_name)"
                 pill
                 variant="outline-danger"
               >Delete</b-button>
