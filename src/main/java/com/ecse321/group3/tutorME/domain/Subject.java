@@ -1,5 +1,6 @@
 package com.ecse321.group3.tutorME.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -17,7 +18,7 @@ public class Subject {
     private List<University> universities;
 
     @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference(value = "subject-course")
     private List<Course> courses;
 
     public Subject() {

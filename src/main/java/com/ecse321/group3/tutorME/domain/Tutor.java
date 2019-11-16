@@ -2,6 +2,7 @@ package com.ecse321.group3.tutorME.domain;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public class Tutor extends UserEntity {
     private Schedule schedule;
 
     @OneToMany(mappedBy = "tutor")
+    @JsonManagedReference(value = "tutor-lesson")
     private List<Lesson> lesson;
 
     public Tutor() {}

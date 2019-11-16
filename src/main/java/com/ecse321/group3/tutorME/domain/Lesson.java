@@ -3,6 +3,9 @@ package com.ecse321.group3.tutorME.domain;
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.util.List;
 
 @Entity
@@ -20,12 +23,15 @@ public class Lesson {
     private LocalDateTime endTime;
 
     @ManyToOne
+    @JsonBackReference(value = "course-lesson")
     private Course course;
 
     @ManyToOne
+    @JsonBackReference(value = "room-lesson")
     private Room room;
 
     @ManyToOne
+    @JsonBackReference(value = "tutor-lesson")
     private Tutor tutor;
 
     @ManyToMany

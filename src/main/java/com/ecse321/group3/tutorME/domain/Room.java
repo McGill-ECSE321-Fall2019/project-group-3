@@ -1,6 +1,10 @@
 package com.ecse321.group3.tutorME.domain;
 
 import com.ecse321.group3.tutorME.domain.enums.RoomSize;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -23,12 +27,13 @@ public class Room {
 	@Column
 	private RoomSize size;
 
-	@OneToOne(mappedBy = "room")
-	private Lesson lesson;
+	@OneToMany(mappedBy = "room")
+    @JsonManagedReference(value = "room-lesson")
+	private List<Lesson> lesson;
 
 	public Room() {}
 
-	public Room(int room_id, int numberOfSeats, Schedule roomAvailability, RoomSize size, Lesson lesson) {
+	public Room(int room_id, int numberOfSeats, Schedule roomAvailability, RoomSize size, List<Lesson> lesson) {
 		super();
 		this.room_id = room_id;
 		this.numberOfSeats = numberOfSeats;
@@ -64,11 +69,11 @@ public class Room {
 		this.size = size;
 	}
 
-	public Lesson getLesson() {
+	public List<Lesson> getLesson() {
 		return lesson;
 	}
 
-	public void setLesson(Lesson lesson) {
+	public void setLesson(List<Lesson> lesson) {
 		this.lesson = lesson;
 	}
 }
