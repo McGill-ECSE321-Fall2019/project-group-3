@@ -32,7 +32,9 @@
                 ></multiselect>
               </b-form-group>
 
-              <b-button type="submit" variant="primary">Create University!</b-button>
+              <b-button type="submit" variant="primary" v-if="update">Update Lesson!</b-button>
+              <b-button type="submit" variant="primary" v-else-if="update==false">Create Lesson!</b-button>
+              
             </b-form>
           </b-card>
         </div>

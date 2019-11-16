@@ -13,6 +13,7 @@ let AXIOS = axios.create({
 export default {
     data() {
         return {
+            update: false,
             subjectOps: [],
             map : null,
             form: {
@@ -22,12 +23,16 @@ export default {
         }
     },
     mounted: async function getAllData() {
+        this.checkIfForUpdate();
         var self = this;
         self.map = new Map(); 
         AXIOS.get('api/subject/getall').then(response => {
-            let studentsObj = response.data; 
-            subjectOps.push(studentsObj.subject_name); 
-            self.map.set(studentsObj.subject_name, studentsObj);
+            let subjectObj = response.data; 
+            subjectObj.forEach(sub => {
+                this.subjectOps.push(sub.subject_name);
+                self.map.set(sub.subject_name, sub);
+            });
+            console.dir(this.subjectOps);
         });
     },
     methods: {
@@ -36,7 +41,8 @@ export default {
             let self = this;    
             if(self.form.subjects!=null && self.form.subjects!=undefined && self.form.subjects!=""){
                 let tempArr = []; 
-                self.form.subjects.forEach(subName => {tempArr.push(self.map.get(subName))}); 
+                self.form.subjects.forEach(subName => {
+                    tempArr.push(self.map.get(subName))}); 
                 self.form.subjects = []; 
                 tempArr.forEach(x => self.form.subjects.push(x)); 
             } 
@@ -46,6 +52,20 @@ export default {
             }).catch(e => {
                 console.log("error: " + e);
             });
+        },  checkIfForUpdate: async function () {
+            if(this.$route.query.update!=null && this.$route.query.update!=undefined){
+                //this component is for updating, preload data. 
+                console.log("its working again, hallelujah");
+                let uniBoi = this.$route.query.update; 
+                await AXIOS.get('/api/university?universityName='+uniBoi).then(resp => {
+                    let respData = resp.data; 
+                    this.form = respData;
+                    this.update = true;
+                    this.$forceUpdate();
+                }).catch(e => function(e){
+                    console.log(e);
+                });
+            }
         }
     }
 }

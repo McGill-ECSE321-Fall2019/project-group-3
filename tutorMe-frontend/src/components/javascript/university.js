@@ -37,6 +37,16 @@ export default {
 
                 if(this.universities.length===0) this.hasUniversities = false; 
             }))
+        }, updateUniversity: async function(universityName) {
+            await AXIOS.get('/api/university?universityName='+universityName).then(response => {
+                response = response.data;
+                this.$router.push({
+                    name: 'CreateUniversity',
+                    query: {
+                        update: universityName
+                    }
+                })
+            })            
         }
     }
 }

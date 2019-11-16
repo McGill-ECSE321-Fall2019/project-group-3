@@ -28,7 +28,7 @@
             <p class="mb-1">
             </p>
 
-            <small class="text-muted">Click to update the university.</small>
+            <small class="text-muted"  v-on:click="updateUniversity(university.university_name)">Click to update the university.</small>
           </b-list-group-item>
           <br />
           <br />
