@@ -1,7 +1,7 @@
 package com.ecse321.group3.tutorME.service.impl;
 import com.ecse321.group3.tutorME.domain.Student;
 
-import com.ecse321.group3.tutorME.repository.UserRoleRepository;
+import com.ecse321.group3.tutorME.repository.UserEntityRepository;
 import com.ecse321.group3.tutorME.service.StudentServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class StudentService implements StudentServiceIF {
 
 	@Autowired
-    private UserRoleRepository studentRepo;
+    private UserEntityRepository studentRepo;
 
     @Override
     public Student createStudent(Student student) throws Exception {
@@ -33,7 +33,7 @@ public class StudentService implements StudentServiceIF {
         Student student = null;
 
         try{
-            student = (Student) studentRepo.findByUserEmail(email);
+            student = (Student) studentRepo.getOne(email);
         } catch (Exception e){
             throw new Exception(e.getMessage());
         }
@@ -75,7 +75,7 @@ public class StudentService implements StudentServiceIF {
     public void deleteStudent(String email) throws Exception {
         Student studentToDelete = this.getStudent(email);
         try{
-            studentRepo.deleteById(studentToDelete.getUserId());
+            studentRepo.deleteById(studentToDelete.getEmail());
         } catch (Exception e){
             throw new Exception(e.getMessage());
         }

@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "student")
-public class Student extends UserRole {
+public class Student extends UserEntity {
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
     private List<Review> review;

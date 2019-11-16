@@ -21,7 +21,7 @@ public class ManagerController {
     @RequestMapping(value = "/api/manager", method = POST)
     public ResponseEntity<Manager> createManager(@RequestBody Manager manager){
 
-        if(manager == null || manager.getUser() == null || manager.getUser().getEmail().isEmpty()){
+        if(manager == null || manager.getEmail().isEmpty()){
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
@@ -69,8 +69,7 @@ public class ManagerController {
     @RequestMapping(value = "/api/manager/update", method = POST)
     public ResponseEntity<Manager> updateManager(@RequestParam String oldEmail, @RequestBody Manager manager){
 
-        if(oldEmail == null || oldEmail.isEmpty() || manager == null || manager.getUser() == null
-                || manager.getUser().getEmail().isEmpty()){
+        if(oldEmail == null || oldEmail.isEmpty() || manager == null || manager.getEmail().isEmpty()){
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 

@@ -1,7 +1,7 @@
 package com.ecse321.group3.tutorME.service.impl;
 
 import com.ecse321.group3.tutorME.domain.Manager;
-import com.ecse321.group3.tutorME.repository.UserRoleRepository;
+import com.ecse321.group3.tutorME.repository.UserEntityRepository;
 import com.ecse321.group3.tutorME.service.ManagerServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class ManagerService implements ManagerServiceIF {
 
     @Autowired
-    private UserRoleRepository managerRepo;
+    private UserEntityRepository managerRepo;
 
     @Override
     public Manager createManager(Manager manager) throws Exception {
@@ -33,7 +33,7 @@ public class ManagerService implements ManagerServiceIF {
         Manager manager = null;
 
         try{
-            manager = (Manager) managerRepo.findByUserEmail(email);
+            manager = (Manager) managerRepo.getOne(email);
         } catch (Exception e){
             throw new Exception(e.getMessage());
         }
@@ -76,7 +76,7 @@ public class ManagerService implements ManagerServiceIF {
     public void deleteManager(String email) throws Exception {
         Manager managerToDelete = this.getManager(email);
         try{
-            managerRepo.deleteById(managerToDelete.getUserId());
+            managerRepo.deleteById(managerToDelete.getEmail());
         } catch (Exception e){
             throw new Exception(e.getMessage());
         }

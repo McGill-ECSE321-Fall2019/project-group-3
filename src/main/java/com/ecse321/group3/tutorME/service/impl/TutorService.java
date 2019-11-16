@@ -1,8 +1,7 @@
 package com.ecse321.group3.tutorME.service.impl;
 
 import com.ecse321.group3.tutorME.domain.Tutor;
-import com.ecse321.group3.tutorME.domain.UserRole;
-import com.ecse321.group3.tutorME.repository.UserRoleRepository;
+import com.ecse321.group3.tutorME.repository.UserEntityRepository;
 import com.ecse321.group3.tutorME.service.TutorServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,18 +13,7 @@ import java.util.stream.Collectors;
 public class TutorService implements TutorServiceIF {
 
     @Autowired
-    private UserRoleRepository tutorRepo;
-    
-   // public UserRole findByUserEmailAddress(String emailAddress) {
-    	
-    	UserRole user = null;
-    //	user = tutorRepo.findById(id)
-   // }
-    
-    
-    
-    
-    
+    private UserEntityRepository tutorRepo;
 
     @Override
     public Tutor createTutor(Tutor tutor) throws Exception {
@@ -50,7 +38,7 @@ public class TutorService implements TutorServiceIF {
 
         //create the tutor, by saving to the database.
         try {
-            tutorCreated = (Tutor) tutorRepo.findByUserEmail(emailAddress);
+            tutorCreated = (Tutor) tutorRepo.getOne(emailAddress);
         } catch(Exception e){
             //if we get errors getting to database, throw an exception
             throw new Exception(e.getMessage());
@@ -100,7 +88,7 @@ public class TutorService implements TutorServiceIF {
         //delete the tutor
         Tutor tutorToBeDeleted = getTutor(emailAddress);
         try {
-        	tutorRepo.deleteById(tutorToBeDeleted.getUserId());
+        	tutorRepo.deleteById(tutorToBeDeleted.getEmail());
         } catch(Exception e){
             //if we get errors getting to database, throw an exception
             throw new Exception(e.getMessage());
