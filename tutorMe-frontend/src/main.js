@@ -9,6 +9,14 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
 import NavBar from './components/NavBar.vue'
+import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
+import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
+import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.umd.min.js'
+import Multiselect from 'vue-multiselect'
+import 'vue-multiselect/dist/vue-multiselect.min.css';
+
+Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
+Vue.component('multiselect', Multiselect)
 
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
