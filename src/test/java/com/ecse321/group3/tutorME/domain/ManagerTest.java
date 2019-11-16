@@ -1,32 +1,32 @@
-//package com.ecse321.group3.tutorME.domain;
+package com.ecse321.group3.tutorME.domain;
+
+import com.ecse321.group3.tutorME.repository.UserEntityRepository;
+import com.ecse321.group3.tutorME.service.ManagerServiceIF;
+import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
+
+@SpringBootTest
+@RunWith(SpringRunner.class)
+public class ManagerTest {
 //
-//import com.ecse321.group3.tutorME.repository.UserEntityRepository;
-//import com.ecse321.group3.tutorME.service.ManagerServiceIF;
-//import com.ecse321.group3.tutorME.utils.TestSuiteUtils;
-//import org.junit.Assert;
-//import org.junit.Before;
-//import org.junit.Test;
-//import org.junit.runner.RunWith;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.test.context.SpringBootTest;
-//import org.springframework.test.context.junit4.SpringRunner;
-//import org.springframework.transaction.annotation.Transactional;
-//
-//@SpringBootTest
-//@RunWith(SpringRunner.class)
-//public class ManagerTest {
-//
-//	@Autowired
-//    private ManagerServiceIF managerService;
-//
-//	@Autowired
-//    private UserEntityRepository managerRepo;
-//
+	@Autowired
+    private ManagerServiceIF managerService;
+
+	@Autowired
+    private UserEntityRepository managerRepo;
+
 //	@Autowired
 //    private TestSuiteUtils testUtils;
 //
-//	@Autowired
-//    private UserEntityRepository userEntityRepository;
 //
 //	Manager userForManager = null;
 //	String emailForUser = "testemail@test.com";
@@ -49,15 +49,18 @@
 //        }
 //    }
 //
-//    @Test
-//    @Transactional
-//    public void getManager() throws Exception {
-//
-//        userForManager = new Manager();
-//        userForManager.setEmail(emailForUser);
-//        userEntityRepository.save(userForManager);
-//        Assert.assertEquals(emailForUser, managerService.getManager(emailForUser).getEmail());
-//    }
+    @Test
+    @Transactional
+    public void getManager() throws Exception {
+        Manager manager = new Manager();
+        manager.setEmail("hello");
+        managerRepo.save(manager);
+
+        Optional<UserEntity> opt = managerRepo.findById(manager.getEmail());
+        System.out.println(opt.isPresent());
+        System.out.println(opt.get().getEmail());
+        System.out.println(managerService.getManager(manager.getEmail()));
+    }
 //
 //    @Test
 //    @Transactional
@@ -91,4 +94,4 @@
 //	    Assert.assertEquals(0, managerService.getManagers().size());
 //    }
 //
-//	}
+	}

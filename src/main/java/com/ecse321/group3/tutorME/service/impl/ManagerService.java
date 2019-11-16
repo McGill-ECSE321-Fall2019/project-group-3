@@ -33,7 +33,7 @@ public class ManagerService implements ManagerServiceIF {
         Manager manager = null;
 
         try{
-            manager = (Manager) managerRepo.getOne(email);
+            manager = (Manager) managerRepo.findById(email).get();
         } catch (Exception e){
             throw new Exception(e.getMessage());
         }
