@@ -8,10 +8,12 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
+import NavBar from './components/NavBar.vue'
 
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 Vue.component('VueCal', VueCal);
+Vue.component('NavBar',NavBar);
 
 /* eslint-disable no-new */
 new Vue({

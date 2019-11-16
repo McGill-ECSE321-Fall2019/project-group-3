@@ -1,5 +1,6 @@
 <template>
   <center>
+    <NavBar/>
     <br>
     <br>
 <div class = "mainForm">

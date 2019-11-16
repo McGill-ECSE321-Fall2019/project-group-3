@@ -23,6 +23,7 @@
 
 </div>
   </center>
+
 </template>
 
 <script src='./javascript/lesson.js'/>

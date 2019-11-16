@@ -9,12 +9,15 @@ let AXIOS = axios.create({
     headers: { 'Access-Control-Allow-Origin': frontendUrl }
 });
 
+
 export default {
+  
     data() {
+      
         return {
 			events: [      {
-        start: '2019-11-19 10:35',
-        end: '2019-11-19 11:30',
+        start: '2019-11-19 10:35:00',
+        end: '2019-11-19 11:30:00',
         title: 'Doctor appointment'
       }],
             lessons: null
@@ -25,9 +28,12 @@ export default {
         AXIOS.get('/api/lesson/getall').then((response => {
 			this.lessons = response.data; 
 				this.lessons.forEach(lesson=>{
-					let newevent={};
-					newevent.start=lesson.startTime;
-					newevent.end=lesson.endTime;
+          let newevent={};
+          var newFormattedStartTime = lesson.startTime.replace(/T/g, " ");
+          newevent.start=newFormattedStartTime;
+          console.log(lesson.startTime);
+          var newFormattedEndTime= lesson.endTime.replace(/T/g, " ");
+					newevent.end=newFormattedEndTime;
 					newevent.title="lesson #"+lesson.lessonId;
 					self.events.push(newevent);
 					console.dir(self.events);
@@ -35,6 +41,7 @@ export default {
 		}));
     }, 
     methods: {
+      
 		
 			
 		}

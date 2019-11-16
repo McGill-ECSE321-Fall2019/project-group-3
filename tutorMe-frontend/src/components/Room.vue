@@ -1,5 +1,6 @@
 <template>
   <div>
+    <NavBar/>
     <br />
     <br />
     <span class = "title">All Rooms</span>
