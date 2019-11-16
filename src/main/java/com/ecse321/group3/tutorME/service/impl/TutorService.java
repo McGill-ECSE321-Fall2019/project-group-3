@@ -86,9 +86,8 @@ public class TutorService implements TutorServiceIF {
     @Override
     public void deleteTutor(String emailAddress) throws Exception {
         //delete the tutor
-        Tutor tutorToBeDeleted = getTutor(emailAddress);
         try {
-        	tutorRepo.deleteById(tutorToBeDeleted.getEmail());
+        	tutorRepo.deleteById(emailAddress);
         } catch(Exception e){
             //if we get errors getting to database, throw an exception
             throw new Exception(e.getMessage());

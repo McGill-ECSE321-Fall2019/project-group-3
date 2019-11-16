@@ -73,9 +73,8 @@ public class StudentService implements StudentServiceIF {
 
     @Override
     public void deleteStudent(String email) throws Exception {
-        Student studentToDelete = this.getStudent(email);
         try{
-            studentRepo.deleteById(studentToDelete.getEmail());
+            studentRepo.deleteById(email);
         } catch (Exception e){
             throw new Exception(e.getMessage());
         }
