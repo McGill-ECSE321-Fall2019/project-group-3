@@ -50,7 +50,7 @@
   </div>
 </template>
 
-<script src='./javascript/Room.js'/>
+<script src='../javascript/Room.js'/>
 
 <style scoped>
 .mainForm {
