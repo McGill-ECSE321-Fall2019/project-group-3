@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 public class Student extends UserEntity {
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    @JsonManagedReference(value="student-review")
     private List<Review> review;
 
     @ManyToMany(mappedBy = "student")

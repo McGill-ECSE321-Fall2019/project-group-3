@@ -17,6 +17,7 @@ public class Tutor extends UserEntity {
     private List<Course> courses_taught;
 
     @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
+    @JsonManagedReference(value="tutor-review")
     private List<Review> reviews;
 
     @OneToOne

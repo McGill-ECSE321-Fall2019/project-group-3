@@ -2,6 +2,7 @@ package com.ecse321.group3.tutorME.domain;
 
 import com.ecse321.group3.tutorME.domain.enums.ReviewAuthor;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
@@ -18,11 +19,16 @@ public class Review {
 
 	@Column
 	private String comment;
+	
+	@Column
+	private boolean isVisible;
 
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonBackReference(value="tutor-review")
 	private Tutor tutor;
 
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonBackReference(value="student-review")
 	private Student student;
 
 	@Enumerated(EnumType.STRING)
@@ -33,7 +39,7 @@ public class Review {
 
 	
 
-	public Review(int review_id, int rating, String comment, Tutor tutor, Student student, ReviewAuthor reviewAuthor) {
+	public Review(int review_id, int rating, String comment, Tutor tutor, Student student, ReviewAuthor reviewAuthor, boolean isVisible) {
 		super();
 		this.review_id = review_id;
 		this.rating = rating;
@@ -41,6 +47,7 @@ public class Review {
 		this.tutor = tutor;
 		this.student = student;
 		this.reviewAuthor = reviewAuthor;
+		this.isVisible = isVisible;
 	}
 
 
@@ -89,6 +96,10 @@ public class Review {
 	public void setReviewAuthor(ReviewAuthor reviewAuthor) {
 		this.reviewAuthor = reviewAuthor;
 	}
-	
-	
+	public boolean getIsVisible() {
+		return isVisible;
+	}
+	public void setIsVisible(boolean isVisible) {
+		this.isVisible = isVisible;
+	}	
 }
