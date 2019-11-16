@@ -45,6 +45,7 @@
                     name="start"
                     label="Please enter lesson start time"
                     v-model="form.startTime"
+                    format="YYYY-MM-DDTHH:mm:ss"
                   ></VueCtkDateTimePicker>
                 </div>
               </b-form-group>
@@ -57,6 +58,7 @@
                     name="start"
                     label="Please enter lesson end time"
                     v-model="form.endTime"
+                    format="YYYY-MM-DDTHH:mm:ss"
                   ></VueCtkDateTimePicker>
                 </div>
               </b-form-group>
