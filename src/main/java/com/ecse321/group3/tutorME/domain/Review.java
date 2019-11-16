@@ -1,6 +1,7 @@
 package com.ecse321.group3.tutorME.domain;
 
 import com.ecse321.group3.tutorME.domain.enums.ReviewAuthor;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 
@@ -18,7 +19,7 @@ public class Review {
 	@Column
 	private String comment;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Tutor tutor;
 
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

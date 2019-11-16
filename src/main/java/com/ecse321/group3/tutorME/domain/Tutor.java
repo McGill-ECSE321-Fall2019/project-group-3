@@ -1,6 +1,9 @@
 package com.ecse321.group3.tutorME.domain;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 
 @Entity

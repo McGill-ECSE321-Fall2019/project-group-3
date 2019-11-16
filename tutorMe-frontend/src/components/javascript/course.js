@@ -13,7 +13,9 @@ export default {
     data() {
         return {
             courses: null,
-            hasCourses: false
+            hasCourses: false,
+            subjects: null,
+            hasSubjects: false
         }
     },
     mounted: async function() {
@@ -23,6 +25,12 @@ export default {
             console.dir(this.courses); 
             if(this.courses != null && this.courses != undefined 
                 && this.courses.length > 0) this.hasCourses = true; 
+        }));
+        AXIOS.get('/api/subject/getall').then((response => {
+            this.subjects = response.data;
+            console.log("made call");
+            console.dir(this.subjects);
+            if(this.subjects != null && this.subjects != undefined && this.subjects.length > 0) this.hasSubjects = true;
         }))
     }, 
     methods: {
@@ -37,6 +45,19 @@ export default {
                 }
 
                 if(this.courses.length===0) this.hasCourses = false; 
+            }))
+        },
+        deleteSubject: async function(deleteId) {
+            await AXIOS.delete('/api/subject?subject_name='+deleteId).then((response => {
+                console.log("i deleted the element!"); 
+                
+                for(let i = this.subjects.length - 1; i>=0; i--){
+                    if(this.subjects[i].subject_name === deleteId){
+                        this.subjects.splice(i, 1);
+                    }
+                }
+
+                if(this.subjects.length===0) this.hasSubjects = false; 
             }))
         }
     }
