@@ -13,6 +13,7 @@ let AXIOS = axios.create({
 export default {
     data() {
         return {
+            update: false,
             courseOps: [],
             roomOps: [],
             studentOps: [],
@@ -30,6 +31,7 @@ export default {
         }
     },
     mounted: async function getAllData() {
+        this.checkIfForUpdate();
         var self = this;
         self.map = new Map(); 
         axios.all([this.getAllStudents(), this.getAllTutors(), this.getAllCourse(), this.getAllRooms()])
@@ -97,5 +99,20 @@ export default {
         getAllRooms: function () {
             return AXIOS('/api/room/getall');
         },
+        checkIfForUpdate: async function () {
+            if(this.$route.query.update!=null && this.$route.query.update!=undefined){
+                //this component is for updating, preload data. 
+                console.log("Create Lesson is for Update Lesson :O")
+                let lessonId = this.$route.query.update; 
+                await AXIOS.get('/api/lesson?lessonId='+lessonId).then(resp => {
+                    let respData = resp.data; 
+                    this.form = respData;
+                    this.update = true;
+                    this.$forceUpdate();
+                }).catch(e => function(e){
+                    console.log(e);
+                });
+            }
+        }
     }
 }
