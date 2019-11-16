@@ -1,6 +1,7 @@
 package com.ecse321.group3.tutorME.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -22,7 +23,7 @@ public class Course {
     @JsonManagedReference(value = "course-lesson")
     private List<Lesson> lessons;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<Tutor> tutors;
 
     public Course() {

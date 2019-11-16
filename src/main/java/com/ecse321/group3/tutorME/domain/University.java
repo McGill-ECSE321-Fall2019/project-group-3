@@ -15,7 +15,8 @@ public class University {
     @Column
     private String university_name;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "universities", cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "university-subject")
     private List<Subject> subjects;
 
     public University() {}

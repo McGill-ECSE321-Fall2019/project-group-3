@@ -14,8 +14,9 @@ public class Subject {
     @Column
     private String subject_name;
 
-    @ManyToMany(mappedBy = "subjects")
-    private List<University> universities;
+    @ManyToOne
+    @JsonBackReference(value = "university-subject")
+    private University universities;
 
     @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
     @JsonManagedReference(value = "subject-course")
@@ -24,7 +25,7 @@ public class Subject {
     public Subject() {
     }
 
-    public Subject(String subjectName, List<University> universities, List<Course> courses) {
+    public Subject(String subjectName, University universities, List<Course> courses) {
         this.subject_name = subjectName;
         this.universities = universities;
         this.courses = courses;
@@ -38,11 +39,11 @@ public class Subject {
         this.subject_name = subject_name;
     }
 
-    public List<University> getUniversities() {
+    public University getUniversities() {
         return universities;
     }
 
-    public void setUniversities(List<University> universities) {
+    public void setUniversities(University universities) {
         this.universities = universities;
     }
 
