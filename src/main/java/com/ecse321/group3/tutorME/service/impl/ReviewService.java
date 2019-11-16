@@ -39,7 +39,7 @@ public class ReviewService implements ReviewServiceIF {
         Review review = null;
 
         try{
-            review = reviewRepo.getOne(review_id);
+            review = reviewRepo.findById(review_id).get();
         } catch (Exception e){
             throw new Exception(e.getMessage());
         }
