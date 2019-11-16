@@ -5,16 +5,14 @@ import com.ecse321.group3.tutorME.service.ManagerServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @RestController
+@CrossOrigin("*")
 public class ManagerController {
 
     @Autowired
@@ -23,7 +21,7 @@ public class ManagerController {
     @RequestMapping(value = "/api/manager", method = POST)
     public ResponseEntity<Manager> createManager(@RequestBody Manager manager){
 
-        if(manager == null || manager.getUser() == null || manager.getUser().getEmail().isEmpty()){
+        if(manager == null || manager.getEmail().isEmpty()){
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
@@ -71,8 +69,7 @@ public class ManagerController {
     @RequestMapping(value = "/api/manager/update", method = POST)
     public ResponseEntity<Manager> updateManager(@RequestParam String oldEmail, @RequestBody Manager manager){
 
-        if(oldEmail == null || oldEmail.isEmpty() || manager == null || manager.getUser() == null
-                || manager.getUser().getEmail().isEmpty()){
+        if(oldEmail == null || oldEmail.isEmpty() || manager == null || manager.getEmail().isEmpty()){
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 

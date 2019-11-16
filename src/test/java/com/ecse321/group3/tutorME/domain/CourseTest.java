@@ -24,7 +24,7 @@ public class CourseTest {
     private CourseRepository courseRepo;
     @Autowired
     private TestSuiteUtils testUtils;
-    
+
     @Before
     public void init(){
         testUtils.truncateDatabase();

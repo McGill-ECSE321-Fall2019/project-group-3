@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name="tutor")
-public class Tutor extends UserRole {
+public class Tutor extends UserEntity {
 
     @Column
     private double rate;
