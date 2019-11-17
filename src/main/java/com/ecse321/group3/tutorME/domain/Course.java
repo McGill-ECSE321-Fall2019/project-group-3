@@ -1,5 +1,7 @@
 package com.ecse321.group3.tutorME.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,7 +13,8 @@ public class Course {
     @Column
     private String courseName;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
     private Subject subject;
 
     @OneToMany

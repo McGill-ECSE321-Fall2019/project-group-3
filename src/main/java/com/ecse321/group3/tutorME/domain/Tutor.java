@@ -1,11 +1,14 @@
 package com.ecse321.group3.tutorME.domain;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 
 @Entity
 @Table(name="tutor")
-public class Tutor extends UserRole {
+public class Tutor extends UserEntity {
 
     @Column
     private double rate;
@@ -14,6 +17,7 @@ public class Tutor extends UserRole {
     private List<Course> courses_taught;
 
     @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
+    @JsonManagedReference(value="tutor-review")
     private List<Review> reviews;
 
     @OneToOne

@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name="manager")
-public class Manager extends UserRole {
+public class Manager extends UserEntity {
 
     public Manager() {
     }

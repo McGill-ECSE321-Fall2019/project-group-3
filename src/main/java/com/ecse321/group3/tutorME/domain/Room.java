@@ -10,6 +10,7 @@ public class Room {
 
 	@Id
 	@Column
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int room_id;
 
 	@Column
