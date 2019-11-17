@@ -2,10 +2,11 @@ matrix:
   include:
   - language: node_js
     node_js:
-    - 10.15
+    - 8.9.1
     cache: npm
     before_install:
     - cd tutorMe-frontend/
+    - if [[ `npm -v` != 5.5.1* ]]; then npm i -g npm@5.5.1; fi
     - npm install
     script:
     - npm run build
