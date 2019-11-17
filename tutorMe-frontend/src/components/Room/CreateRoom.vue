@@ -1,6 +1,7 @@
 <template>
   <div>
       <center>
+        <span class = "title"><b><font size="+3">Create a Room</font></b></span>
     <b-form class="mainForm">
       <b-form @submit="onSubmit">
       <b-form-group

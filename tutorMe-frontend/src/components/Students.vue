@@ -1,7 +1,12 @@
 <template>
+
   <center>
+    <NavBar/>
+    <span class = "title"><center><b><font size="+3">All Students</font></b></center></span>
     <br>
     <br>
+    
+    
 <div class = "mainForm">
   <b-card-group deck v-for="(student,idx) in students"
             :key="idx">
@@ -21,7 +26,7 @@
             </p>
           </div>
     <b-list-group>
-      <b-list-group-item href="#" class="flex-column align-items-start" v-for="(review, review_idx) in student.reviews">
+      <b-list-group-item href="#" class="flex-column align-items-start" v-for="(review, review_idx) in student.reviews" :key="review_idx">
     </b-list-group-item>
     </b-list-group>
     <div align = "left">
