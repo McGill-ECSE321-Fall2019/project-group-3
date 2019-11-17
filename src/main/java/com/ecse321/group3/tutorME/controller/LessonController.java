@@ -1,6 +1,7 @@
 package com.ecse321.group3.tutorME.controller;
 
 import com.ecse321.group3.tutorME.domain.Lesson;
+import com.ecse321.group3.tutorME.dto.EventsDTO;
 import com.ecse321.group3.tutorME.service.LessonServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -119,6 +120,21 @@ public class LessonController {
         }
         //if no errors, we're going to return the lesson with an ok status
         return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/api/lesson/getCourseRoom", method = GET)
+    public ResponseEntity<EventsDTO> getCourseRoom(@RequestParam int lessonId){
+        if(lessonId<0) return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
+        EventsDTO result = null;
+
+        try{
+            result = lessonService.getCourseAndRoom(lessonId);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 }
