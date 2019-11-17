@@ -9,19 +9,19 @@
       <b-navbar-nav>
         <b-nav-item href="#/lesson">Lesson</b-nav-item>
         <b-nav-item href="#" enabled></b-nav-item>
-		    <b-nav-item href="#course">Course</b-nav-item>
+		    <b-nav-item href="#/course">Course</b-nav-item>
         <b-nav-item href="#" enabled></b-nav-item>
-		    <b-nav-item href="#university">University</b-nav-item>
+		    <b-nav-item href="#/university">University</b-nav-item>
         <b-nav-item href="#" enabled></b-nav-item>
-		    <b-nav-item href="#room">Room</b-nav-item>
+		    <b-nav-item href="#/room">Room</b-nav-item>
         <b-nav-item href="#" enabled></b-nav-item>
 		    <b-nav-item href="#">Group Lesson Requests</b-nav-item>
         <b-nav-item href="#" enabled></b-nav-item>
-		    <b-nav-item href="#student">Student</b-nav-item>
+		    <b-nav-item href="#/student">Student</b-nav-item>
         <b-nav-item href="#" enabled></b-nav-item>
-		    <b-nav-item href="#tutor">Tutor</b-nav-item>
+		    <b-nav-item href="#/tutor">Tutor</b-nav-item>
         <b-nav-item href="#" enabled></b-nav-item>
-		    <b-nav-item href="#payroll">Payroll</b-nav-item>
+		    <b-nav-item href="#/payroll">Payroll</b-nav-item>
         <b-nav-item href="#" enabled></b-nav-item>
       </b-navbar-nav>
 
