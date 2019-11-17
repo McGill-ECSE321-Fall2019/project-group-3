@@ -10,6 +10,7 @@ import Course from '@/components/Course/Course'
 import University from '@/components/University/University'
 import CreateLesson from '@/components/Lesson/CreateLesson'
 import CreateCourse from '@/components/Course/CreateCourse'
+import CreateSubject from '@/components/Course/CreateSubject'
 import Homepage from '@/components/Homepage'
 import Room from '@/components/Room';
 
@@ -65,6 +66,11 @@ export default new Router({
       path: '/CreateCourse', 
       name: 'CreateCourse', 
       component: CreateCourse
+    },
+    {
+      path: '/CreateSubject', 
+      name: 'CreateSubject', 
+      component: CreateSubject
     },
     {
     path: '/homepage',

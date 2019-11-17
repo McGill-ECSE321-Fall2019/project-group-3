@@ -28,7 +28,7 @@ export default {
     }, 
     methods: {
         deleteTutor: async function(deleteId) {
-            await AXIOS.delete('/api/tutor/delete?tutorId='+deleteId).then((response => {
+            await AXIOS.delete('/api/tutor/delete?emailAddress='+deleteId).then((response => {
                 console.log("i deleted the element!"); 
                 
                 for(let i = this.tutors.length - 1; i>=0; i--){
@@ -40,5 +40,18 @@ export default {
                 if(this.tutors.length===0) this.hasTutors = false; 
             }))
         }
+        // setVisibility: async function(deleteId) {
+        //     await AXIOS.delete('/api/tutor/delete?emailAddress='+deleteId).then((response => {
+        //         console.log("i deleted the element!"); 
+                
+        //         for(let i = this.tutors.length - 1; i>=0; i--){
+        //             if(this.tutors[i].email === deleteId){
+        //                 this.tutors.splice(i, 1);
+        //             }
+        //         }
+
+        //         if(this.tutors.length===0) this.hasTutors = false; 
+        //     }))
+        // }
     }
 }
