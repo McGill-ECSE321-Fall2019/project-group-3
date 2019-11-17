@@ -14,6 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
@@ -54,14 +56,13 @@ public class LessonTest {
     @Transactional
     public void updateLesson() throws Exception {
        Lesson lesson = new Lesson();
-       LocalDate date = LocalDate.of(2019,10,03);
+       LocalDateTime date = LocalDateTime.of(LocalDate.now(),LocalTime.now());
        lesson.setStartTime(date);
 
 
         lessonService.createLesson(lesson);
 
         Lesson newLesson = new Lesson();
-        date = LocalDate.now();
         newLesson.setStartTime(date);
 
         try {

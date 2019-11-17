@@ -1,6 +1,6 @@
 package com.ecse321.group3.tutorME.domain;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.*;
 
@@ -17,10 +17,10 @@ public class Lesson {
     private int lessonId;
     
     @Column
-    private LocalDate startTime;
+    private LocalDateTime startTime;
     
     @Column
-    private LocalDate endTime;
+    private LocalDateTime endTime;
 
     @ManyToOne
     @JsonBackReference(value = "course-lesson")
@@ -40,7 +40,7 @@ public class Lesson {
 
     public Lesson() {}
 
-    public Lesson(int lessonId, LocalDate startTime, LocalDate endTime, Course course, Room room) {
+    public Lesson(int lessonId, LocalDateTime startTime, LocalDateTime endTime, Course course, Room room) {
 		super();
 		this.lessonId = lessonId;
 		this.startTime = startTime;
@@ -89,19 +89,19 @@ public class Lesson {
         this.student = student;
     }
 
-	public LocalDate getStartTime() {
+	public LocalDateTime getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(LocalDate startTime) {
+	public void setStartTime(LocalDateTime startTime) {
 		this.startTime = startTime;
 	}
 
-	public LocalDate getEndTime() {
+	public LocalDateTime getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(LocalDate endTime) {
+	public void setEndTime(LocalDateTime endTime) {
 		this.endTime = endTime;
 	}
     
