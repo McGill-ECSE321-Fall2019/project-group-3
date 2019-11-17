@@ -78,10 +78,10 @@
             </div>
             <b-button
                 class = "deleteButton"
-                v-on:click="deleteCourse(course.course_name)"
+                v-on:click="deleteCourse(course.courseName)"
                 pill
                 variant="outline-danger"
-              >Delete Subject</b-button>
+              >Delete Course</b-button>
 
             <p class="mb-1">
               Course information. 

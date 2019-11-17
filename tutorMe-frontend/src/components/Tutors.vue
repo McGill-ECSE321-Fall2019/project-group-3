@@ -22,11 +22,11 @@
         <b-list-group>
           <b-list-group-item href="#" class="flex-column align-items-start" v-for="(review,review_idx) in tutor.reviews" :key="review_idx">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">Example course {{tutor.email}} </h5>
+              <h5 class="mb-1"> {{review.rating}} </h5>
             </div>
 
             <p class="mb-1">
-              Course information. 
+              {{review.comment}} 
             </p>
 
           </b-list-group-item>
