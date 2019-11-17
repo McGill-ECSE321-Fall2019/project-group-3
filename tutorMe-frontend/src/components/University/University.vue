@@ -1,27 +1,60 @@
 <template>
-  <center>
-    <br>
-    <br>
-<div class = "mainForm">
-   <b-list-group-item href="#" class="flex-column align-items-start" v-for="index in 10" :key="index">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">University Name: university</h5>
-       <b-button pill variant="outline-danger">Delete</b-button>
-    </div>
+  <div>
+    <br />
+    <br />
+    <span class="title">All Universities</span>
+    <router-link to="CreateUniversity">
+      <b-button pill variant="success" class="addButton">+</b-button>
+    </router-link>
+    <hr />
+    <center>
+      <template v-if="hasUniversities">
+        <div class="mainForm">
+          <b-list-group-item
+            href="#"
+            class="flex-column align-items-start"
+            v-for="(university,idx) in universities"
+            :key="idx"
+          >
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">University Name: {{university.university_name}}</h5>
+              <b-button
+                v-on:click="deleteUniversity(university.university_name)"
+                pill
+                variant="outline-danger"
+              >Delete</b-button>
+            </div>
 
-    <p class="mb-1">
-      Some attributes to display for university.
-    </p>
+            <p class="mb-1">
+            </p>
 
-    <small class="text-muted">Click to update the university.</small>
-  </b-list-group-item>
-
-</div>
-  </center>
+            <small class="text-muted"  v-on:click="updateUniversity(university.university_name)">Click to update the university.</small>
+          </b-list-group-item>
+          <br />
+          <br />
+        </div>
+      </template>
+      <template v-else>
+        <div>Uh-oh, there are no universities to display!</div>
+      </template>
+    </center>
+  </div>
 </template>
 
+<script src='../javascript/university.js'/>
+
 <style scoped>
-.mainForm{
+.mainForm {
   width: 80%;
+}
+.title {
+  flex: 1;
+  text-align: center;
+}
+.addButton {
+  flex: 1;
+  float: right;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 </style>

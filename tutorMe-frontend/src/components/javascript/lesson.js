@@ -2,7 +2,7 @@ import axios from 'axios';
 import config from '../../../config/index';
 
 let frontendUrl = 'http://' + config.dev.host + ":" + config.dev.port;
-let backendUrl = 'https://cors-anywhere.herokuapp.com/' + 'http://' +  config.dev.backendHost;
+let backendUrl =  'http://' +  config.dev.backendHost;
 
 let AXIOS = axios.create({
     baseURL: backendUrl,
@@ -38,6 +38,16 @@ export default {
 
                 if(this.lessons.length===0) this.hasLessons = false; 
             }))
+        }, updateLesson: async function(lessonId) {
+            await AXIOS.get('/api/lesson/?lessonId='+lessonId).then(response => {
+                response = response.data;
+                this.$router.push({
+                    name: 'CreateLesson',
+                    query: {
+                        update: lessonId
+                    }
+                })
+            })            
         }
     }
 }

@@ -31,7 +31,7 @@
               This lesson goes from {{lesson.startTime}} to {{lesson.endTime}}
             </p>
 
-            <small class="text-muted">Click to update the lesson.</small>
+            <small class="text-muted" v-on:click="updateLesson(lesson.lessonId)">Click me to update the lesson.</small>
           </b-list-group-item>
           <br />
           <br />

@@ -14,8 +14,9 @@
                   list="input-list"
                   id="input-with-list"
                   placeholder="Search up a course"
+                  v-model="form.course"
                 ></b-form-input>
-                <b-form-datalist id="input-list" :options="courseOps" v-model="form.course"></b-form-datalist>
+                <b-form-datalist id="input-list" :options="courseOps"></b-form-datalist>
               </b-form-group>
 
               <b-form-group
@@ -27,6 +28,7 @@
                   list="input-list-21"
                   id="input-with-list-21"
                   placeholder="Search up a room"
+                  v-model="form.room"
                 ></b-form-input>
                 <b-form-datalist id="input-list-21" :options="roomOps" v-model="form.room"></b-form-datalist>
               </b-form-group>
@@ -43,6 +45,7 @@
                     name="start"
                     label="Please enter lesson start time"
                     v-model="form.startTime"
+                    format="YYYY-MM-DDTHH:mm:ss"
                   ></VueCtkDateTimePicker>
                 </div>
               </b-form-group>
@@ -55,6 +58,7 @@
                     name="start"
                     label="Please enter lesson end time"
                     v-model="form.endTime"
+                    format="YYYY-MM-DDTHH:mm:ss"
                   ></VueCtkDateTimePicker>
                 </div>
               </b-form-group>
@@ -81,7 +85,8 @@
                 ></multiselect>
               </b-form-group>
 
-              <b-button type="submit" variant="primary">Create Lesson!</b-button>
+              <b-button type="submit" variant="primary" v-if="update">Update Lesson!</b-button>
+              <b-button type="submit" variant="primary" v-else-if="update==false">Create Lesson!</b-button>
             </b-form>
           </b-card>
         </div>

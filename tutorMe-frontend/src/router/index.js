@@ -8,6 +8,7 @@ import Students from '@/components/Students'
 import Tutors from '@/components/Tutors'
 import Course from '@/components/Course/Course'
 import University from '@/components/University/University'
+import CreateUniversity from '@/components/University/CreateUniversity'
 import CreateLesson from '@/components/Lesson/CreateLesson'
 import CreateCourse from '@/components/Course/CreateCourse'
 import Homepage from '@/components/Homepage'
@@ -56,6 +57,11 @@ export default new Router({
       name: 'Registration',
       component: Registration
     }, 
+    {
+      path: '/CreateUniversity',
+      name: 'CreateUniversity',
+      component: CreateUniversity
+    },
     {
       path: '/CreateLesson', 
       name: 'CreateLesson', 
