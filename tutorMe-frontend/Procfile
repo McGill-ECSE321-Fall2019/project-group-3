@@ -1,1 +1,1 @@
-web: echo $PORT && export PORT && npm build
+web: echo $PORT && export PORT && npm run-script build

@@ -21,8 +21,6 @@
         <b-nav-item href="#" enabled></b-nav-item>
 		    <b-nav-item href="#/tutor">Tutor</b-nav-item>
         <b-nav-item href="#" enabled></b-nav-item>
-		    <b-nav-item href="#/payroll">Payroll</b-nav-item>
-        <b-nav-item href="#" enabled></b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->

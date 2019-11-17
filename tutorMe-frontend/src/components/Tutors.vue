@@ -1,5 +1,7 @@
 <template>
   <center>
+    <NavBar/>
+    <span class = "title"><center><b><font size="+3">All Tutors</font></b></center></span>
     <br>
     <br>
     <div class = "mainForm">

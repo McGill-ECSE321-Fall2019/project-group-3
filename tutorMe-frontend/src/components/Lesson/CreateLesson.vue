@@ -2,6 +2,7 @@
   <div>
     <div>
       <div>
+        <span class = "title"><center><b><font size="+3">Create a Lesson</font></b></center></span>
         <div class="mainForm">
           <b-card>
             <b-form @submit="onSubmit">
