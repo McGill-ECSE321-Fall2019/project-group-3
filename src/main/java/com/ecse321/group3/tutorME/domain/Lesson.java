@@ -34,7 +34,8 @@ public class Lesson {
     @JsonBackReference(value = "tutor-lesson")
     private Tutor tutor;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="lesson_students", joinColumns=@JoinColumn(name="student_email"), inverseJoinColumns=@JoinColumn(name="lessonId"))
     private List<Student> student;
 
     public Lesson() {}

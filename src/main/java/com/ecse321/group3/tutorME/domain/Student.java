@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -16,6 +17,7 @@ public class Student extends UserEntity {
     private List<Review> review;
 
     @ManyToMany(mappedBy = "student")
+    @JsonIgnoreProperties(value = "student")
     private List<Lesson> lesson;
 
     public Student() {
