@@ -33,3 +33,11 @@
 
 <script src="../javascript/createroom.js"/>
 
+
+<style scoped>
+.mainForm{
+    justify-content: center;
+    align-content: center;
+    width: 30%;
+}
+</style>
