@@ -66,6 +66,11 @@ export default new Router({
     component: Room
     },
     {
+    path: '/tutor',
+    name: 'Tutors',
+    component: Tutors
+    },
+    {
       path: '/createroom',
       name: 'CreateRoom',
       component: CreateRoom
