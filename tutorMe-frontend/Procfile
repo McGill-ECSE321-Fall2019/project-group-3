@@ -1,1 +1,1 @@
-web: echo $PORT && export PORT && npm run-script build
+web: echo $PORT && export PORT && npm run-script build && serve -l 3000 -s dist
