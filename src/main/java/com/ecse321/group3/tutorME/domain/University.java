@@ -1,6 +1,10 @@
 package com.ecse321.group3.tutorME.domain;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 
 @Entity
@@ -11,7 +15,8 @@ public class University {
     @Column
     private String university_name;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "universities", cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "university-subject")
     private List<Subject> subjects;
 
     public University() {}

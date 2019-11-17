@@ -28,9 +28,6 @@ public class TestSuiteUtils {
     private ScheduleRepository scheduleRepo;
 
     @Autowired
-    private UserRoleRepository userRoleRepo;
-
-    @Autowired
     private SubjectRepository subjectRepo;
 
     @Autowired
@@ -49,11 +46,7 @@ public class TestSuiteUtils {
     	payrollRepo.deleteAll();
     	scheduleRepo.deleteAll();
     	reviewRepo.deleteAll();
-    	userRoleRepo.deleteAll();
         userEntityRepository.deleteAll();
-        
-       
-        
     }
     
 }

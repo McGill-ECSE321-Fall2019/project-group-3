@@ -4,8 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "userentity")
-public class UserEntity {
+public abstract class UserEntity {
 
 	@Id
     @NotNull
@@ -22,22 +21,6 @@ public class UserEntity {
 
 	@Column
 	private String password;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	private UserRole userRole;
-
-	public UserEntity() {
-		this.isVerified = false;
-	}
-
-	public UserEntity(String email, String firstName, String lastName, Boolean isVerified, String password, UserRole userRole) {
-		this.email = email;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.isVerified = isVerified;
-		this.password = password;
-		this.userRole = userRole;
-	}
 
 	public String getFirstName() {
 		return firstName;
@@ -70,13 +53,5 @@ public class UserEntity {
 
 	public void setVerified(Boolean verified) {
 		isVerified = verified;
-	}
-
-	public UserRole getUserRole() {
-		return userRole;
-	}
-
-	public void setUserRole(UserRole userRole) {
-		this.userRole = userRole;
 	}
 }

@@ -4,14 +4,20 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "student")
-public class Student extends UserRole {
+public class Student extends UserEntity {
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    @JsonManagedReference(value="student-review")
     private List<Review> review;
 
     @ManyToMany(mappedBy = "student")
+    @JsonIgnoreProperties(value = "student")
     private List<Lesson> lesson;
 
     public Student() {
