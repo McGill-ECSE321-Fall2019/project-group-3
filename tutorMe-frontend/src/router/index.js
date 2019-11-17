@@ -6,15 +6,13 @@ import Registration from '@/components/Registration'
 import Students from '@/components/Students'
 import Tutors from '@/components/Tutors'
 import Course from '@/components/Course/Course'
-import University from '@/components/University/University'
 import CreateLesson from '@/components/Lesson/CreateLesson'
 import CreateCourse from '@/components/Course/CreateCourse'
 import CreateSubject from '@/components/Course/CreateSubject'
 import Homepage from '@/components/Homepage'
 import Room from '@/components/Room/Room';
 import CreateRoom from '@/components/Room/CreateRoom'
-import Course from '@/components/Course';
-import Lesson from '@/components/Lesson';
+import Lesson from '@/components/Lesson/Lesson';
 
 
 Vue.use(Router)

@@ -26,7 +26,7 @@
 
 </template>
 
-<script src='./javascript/lesson.js'/>
+<script src='../javascript/lesson.js'/>
 
 <style scoped>
 .mainForm{

@@ -20,7 +20,7 @@
             <b-card-sub-title> rate: {{tutor.rate}}</b-card-sub-title>
           </div>
         <b-list-group>
-          <b-list-group-item href="#" class="flex-column align-items-start" v-for="(review,review_idx) in tutor.reviews">
+          <b-list-group-item href="#" class="flex-column align-items-start" v-for="(review,review_idx) in tutor.reviews" :key="review_idx">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1">Example course {{tutor.email}} </h5>
             </div>
@@ -33,7 +33,7 @@
         </b-list-group>
 
         <b-list-group>
-          <b-list-group-item href="#" class="flex-column align-items-start" v-for="(course,course_idx) in tutor.courses_taught">
+          <b-list-group-item href="#" class="flex-column align-items-start" v-for="(course,course_idx) in tutor.courses_taught":key="course_idx">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1">Example course {{tutor.email}} </h5>
             </div>
