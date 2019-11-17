@@ -1,56 +1,10 @@
-
-
-<!-- <template>
-  <center>
-    <div role="tablist">
-      <template v-if="hasSubjects">
-        <div class="mainForm">
-          <b-list-group-item
-            href="#"
-            class="flex-column align-items-start"
-            v-for="(subject, idx) in subjects"
-            :key="idx"
-          >
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">Subject Name: {{subject.subject_name}}</h5>
-              <b-button
-                v-on:click="deleteSubject(subject.subject_name)"
-                pill
-                variant="outline-danger"
-              >Delete</b-button>
-            </div>
-            <b-list-group-item
-            href="#"
-            class="flex-column align-items-start"
-            v-for="(course, idy) in courses"
-            :key="idy"
-          >
-          <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">Course Name: {{course.courseName}}</h5>
-              <b-button
-                v-on:click="deleteCourse(course.courseName)"
-                pill
-                variant="outline-danger"
-              >Delete</b-button>
-            </div>
-            <small class="text-muted">Click to update the course.</small>
-          </b-list-group-item>
-                    </b-list-group-item>
-
-          <br />
-          <br />
-        </div>
-      </template>
-    </div>
-  </center>
-</template> -->
-
 <template>
 
   <center>
     <NavBar/>
     <br>
     <br>
+    <span class = "title"><b><font size="+3">All Courses</font></b></span>
     <hr />
     <router-link to="CreateSubject">
       <b-button pill variant="success" class="addSubjectButton">+</b-button>

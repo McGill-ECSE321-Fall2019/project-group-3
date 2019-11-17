@@ -1,8 +1,9 @@
 <template>
   <div>
+    <NavBar/>
     <br />
     <br />
-    <span class="title">All Lessons</span>
+    <span class = "title"><center><b><font size="+3">All Lessons</font></b></center></span>
     <router-link to="CreateLesson">
       <b-button pill variant="success" class="addButton">+</b-button>
     </router-link>

@@ -3,7 +3,7 @@
     <NavBar/>
     <br />
     <br />
-    <span class = "title"><b><font size="+3">All Rooms</font></b></span>
+    <span class = "title"><center><b><font size="+3">All Rooms</font></b></center></span>
     <router-link to="CreateRoom"><b-button pill variant="success" class="addButton">+</b-button></router-link>
     <hr />
     <center>
