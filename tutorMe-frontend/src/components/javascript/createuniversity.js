@@ -42,7 +42,7 @@ export default {
             if(self.form.subjects!=null && self.form.subjects!=undefined && self.form.subjects!=""){
                 let tempArr = []; 
                 self.form.subjects.forEach(subName => {
-                    tempArr.push(self.map.get(subName))}); 
+                tempArr.push(self.map.get(subName))}); 
                 self.form.subjects = []; 
                 tempArr.forEach(x => self.form.subjects.push(x)); 
             } 

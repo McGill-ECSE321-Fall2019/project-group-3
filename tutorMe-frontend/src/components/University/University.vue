@@ -3,10 +3,10 @@
     <NavBar/>
     <br />
     <br />
-    <span class = "title"><center><b><font size="+3">All Universities</font></b></center></span>
     <router-link to="CreateUniversity">
-      <b-button pill variant="success" class="addButton">+</b-button>
+      <b-button pill variant="info" class="addButton">Create University</b-button>
     </router-link>
+    <span class = "title"><center><b><font size="+3">All Universities</font></b></center></span>
     <hr />
     <center>
       <template v-if="hasUniversities">
@@ -18,7 +18,7 @@
             :key="idx"
           >
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">University Name: {{university.university_name}}</h5>
+              <h5 class="mb-1"><b>University Name: {{university.university_name}}</b></h5>
               <b-button
                 v-on:click="deleteUniversity(university.university_name)"
                 pill

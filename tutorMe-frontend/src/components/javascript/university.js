@@ -31,7 +31,7 @@ export default {
                 
                 for(let i = this.universities.length - 1; i>=0; i--){
                     if(this.universities[i].university_name === deleteId){
-                        this.lessons.splice(i, 1);
+                        this.universities.splice(i, 1);
                     }
                 }
 

@@ -3,8 +3,8 @@
     <NavBar/>
     <br />
     <br />
+    <router-link to="CreateRoom"><b-button pill variant="info" class="addButton" >Create Room</b-button></router-link>
     <span class = "title"><center><b><font size="+3">All Rooms</font></b></center></span>
-    <router-link to="CreateRoom"><b-button pill variant="success" class="addButton">+</b-button></router-link>
     <hr />
     <center>
       <template v-if="hasRooms">

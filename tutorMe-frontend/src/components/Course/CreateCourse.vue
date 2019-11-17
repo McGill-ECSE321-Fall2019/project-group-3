@@ -1,5 +1,10 @@
 <template>
   <div>
+    <NavBar/>
+    <br />
+    <br />
+    <span class = "title"><center><b><font size="+3">Create/Update a Course</font></b></center></span>
+    <hr />
     <div>
       <div>
         <div class="mainForm">

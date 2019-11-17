@@ -1,7 +1,11 @@
 <template>
   <div>
-      <center>
-        <span class = "title"><b><font size="+3">Create a Room</font></b></span>
+    <NavBar/>
+    <br />
+    <br />
+    <center>
+        <span class = "title"><b><font size="+3">Create/Update a Room</font></b></span>
+        <hr />
     <b-form class="mainForm">
       <b-form @submit="onSubmit">
       <b-form-group
