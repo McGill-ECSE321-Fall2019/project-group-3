@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Welcome from '@/components/Welcome'
-import University from '@/components/University'
 import Registration from '@/components/Registration'
 import Students from '@/components/Students'
 import Tutors from '@/components/Tutors'
 import Course from '@/components/Course/Course'
+import University from '@/components/University/University'
+import CreateUniversity from '@/components/University/CreateUniversity'
 import CreateLesson from '@/components/Lesson/CreateLesson'
 import CreateCourse from '@/components/Course/CreateCourse'
 import CreateSubject from '@/components/Course/CreateSubject'
@@ -68,6 +69,16 @@ export default new Router({
       path: '/createroom',
       name: 'CreateRoom',
       component: CreateRoom
+    },
+    {
+      path: '/CreateUniversity',
+      name: 'CreateUniversity',
+      component: CreateUniversity
+    },
+    {
+      path: '/CreateLesson', 
+      name: 'CreateLesson', 
+      component: CreateLesson
     }
   ]
 })

@@ -27,6 +27,16 @@ export default {
             AXIOS.delete('/api/lesson/delete?lessonId='+lessonId).then((response => {
                 console.log("i deleted the element!"); 
             }))
+        }, updateLesson: async function(lessonId) {
+            await AXIOS.get('/api/lesson/?lessonId='+lessonId).then(response => {
+                response = response.data;
+                this.$router.push({
+                    name: 'CreateLesson',
+                    query: {
+                        update: lessonId
+                    }
+                })
+            })            
         }
     }
 }

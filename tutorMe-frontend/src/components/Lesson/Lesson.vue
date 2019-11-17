@@ -24,6 +24,17 @@
 </div>
   </center>
 
+            <small class="text-muted" v-on:click="updateLesson(lesson.lessonId)">Click me to update the lesson.</small>
+          </b-list-group-item>
+          <br />
+          <br />
+        </div>
+      </template>
+      <template v-else>
+        <div>Uh-oh, there are no lessons to display!</div>
+      </template>
+    </center>
+  </div>
 </template>
 
 <script src='../javascript/lesson.js'/>
