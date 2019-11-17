@@ -2,6 +2,7 @@
   <div>
       <center>
     <b-form class="mainForm">
+      <b-form @submit="onSubmit">
       <b-form-group
         id="input-group-1"
         label="Number of Seats"
@@ -10,6 +11,7 @@
         <b-form-input
           id="input-1"
           type="number"
+          v-model="form.numberOfSeats"
           required
           placeholder="Enter Number of Seats:"
         ></b-form-input>
@@ -19,43 +21,10 @@
                 label="Select Room size:"
                 label-for="input-2"
               >
-              <b-form-select :v-model="size_selected" :options="size_options"></b-form-select>
+              <b-form-select :v-model="form.roomSize" :options="size_options"></b-form-select>
        </b-form-group>
-
-        <b-form-group
-                id="input-group-3"
-                label="Choose room starting availability:"
-                label-for="input-3"
-              >
-                <div>
-                  <VueCtkDateTimePicker
-                    :no-value-to-custom-elem="(true|false)"
-                    input-class="form-control"
-                    name="start"
-                    label="Please enter lesson start time"
-                    v-model="form.startTime"
-                  ></VueCtkDateTimePicker>
-                </div>
-              </b-form-group>
-
-              <b-form-group
-                id="input-group-3"
-                label="Choose room ending availability:"
-                label-for="input-3"
-              >
-                <div>
-                  <VueCtkDateTimePicker
-                    :no-value-to-custom-elem="(true|false)"
-                    input-class="form-control"
-                    name="start"
-                    label="Please enter Room availability ending time"
-                    v-model="form.startTime"
-                  ></VueCtkDateTimePicker>
-                </div>
-              </b-form-group>
-
-      
-      <b-button variant="primary">Create Room</b-button>
+      <b-button type="submit" variant="primary">Create Room</b-button>
+    </b-form>
     </b-form>
     </center>
   </div>
