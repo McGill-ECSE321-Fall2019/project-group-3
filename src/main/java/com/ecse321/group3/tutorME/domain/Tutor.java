@@ -2,6 +2,8 @@ package com.ecse321.group3.tutorME.domain;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.List;
@@ -13,7 +15,8 @@ public class Tutor extends UserEntity {
     @Column
     private double rate;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="tutor_courses_approved", joinColumns=@JoinColumn(name="tutor_email"), inverseJoinColumns=@JoinColumn(name="course_name"))
     private List<Course> courses_taught;
 
     @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
@@ -24,6 +27,7 @@ public class Tutor extends UserEntity {
     private Schedule schedule;
 
     @OneToMany(mappedBy = "tutor")
+    @JsonManagedReference(value = "tutor-lesson")
     private List<Lesson> lesson;
 
     public Tutor() {}

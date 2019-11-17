@@ -1,6 +1,9 @@
 package com.ecse321.group3.tutorME.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,13 +17,15 @@ public class Course {
     private String courseName;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JsonBackReference
+    @JsonBackReference(value = "subject-course")
     private Subject subject;
 
     @OneToMany
+    @JsonManagedReference(value = "course-lesson")
     private List<Lesson> lessons;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "courses_taught")
+    @JsonIgnoreProperties(value = "courses_taught")
     private List<Tutor> tutors;
 
     public Course() {
