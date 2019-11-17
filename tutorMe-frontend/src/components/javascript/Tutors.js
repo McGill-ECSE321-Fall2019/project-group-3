@@ -14,6 +14,7 @@ export default {
     data() {
         return {
             tutors: null,
+            review_scores:[],
             hasTutors: false
         }
     },
@@ -23,10 +24,26 @@ export default {
             console.log("made call");
             console.dir(this.tutors); 
             if(this.tutors != null && this.tutors != undefined 
-                && this.tutors.length > 0) this.hasTutors = true; 
-        }))
+                && this.tutors.length > 0) {
+                this.hasTutors = true; 
+            for(let i = 0; i < this.tutors.length; i++){
+                let average = 0;
+                for(let j = 0; j < this.tutors[i].reviews.length; j++){
+                    average += this.tutors[i].reviews[j].rating; 
+                }
+                console.log("avg" + average);
+                average /= this.tutors[i].reviews.length;
+                this.review_scores[i] = (average);
+                console.log(review_scores);
+            }
+        }
+    }))
+
     }, 
     methods: {
+        getReviewScore: function(reviewIndex) {
+            return this.review_scores[reviewIndex];
+        },
         deleteTutor: async function(deleteId) {
             await AXIOS.delete('/api/tutor/delete?emailAddress='+deleteId).then((response => {
                 console.log("i deleted the element!"); 
