@@ -27,9 +27,12 @@
             </div>
 
             <p class="mb-1">
-              <!-- This lesson is taught by {{lesson.tutor.name||"Tutor"}} for {{lesson.subject.subject_name||"Subject"}} + 
-              {{lesson.course.courseName||"Course"}} at {{lesson.university.university_name||"University"}}.-->
-              This lesson goes from {{lesson.startTime}} to {{lesson.endTime}}
+				    <b-container class="bv-example-row">
+            <b-row>
+            <b-col> <h5 class="mb-1"> <img src="@/assets/date.png" width="35" height="40"><b><font size="+1.5"> Date</font></b></h5>{{"\n" + lesson.startTime.substr(0,10)}}</b-col>
+            <b-col><h5 class="mb-1"> <img src="@/assets/time.png" width="60" height="30"><b><font size="+1.5">  Time</font></b></h5>{{"\n" + lesson.startTime.substr(11,19)+"-"+lesson.endTime.substr(11,19)}}</b-col>
+            </b-row>
+            </b-container>
             </p>
 
             <small class="text-muted" v-on:click="updateLesson(lesson.lessonId)">Click me to update the lesson.</small>
