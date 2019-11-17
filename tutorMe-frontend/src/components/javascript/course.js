@@ -38,11 +38,16 @@ export default {
             await AXIOS.delete('/api/course?courseName='+deleteId).then((response => {
                 console.log("i deleted the element!"); 
                 
-                for(let i = this.courses.length - 1; i>=0; i--){
-                    if(this.courses[i].courseName === deleteId){
-                        this.courses.splice(i, 1);
+                console.dir(this.subjects);
+                this.subjects.forEach(subject => {
+                if(subject.courses!=null && subject.courses!=undefined){
+                for (let i = subject.courses.length - 1; i >= 0; i--){
+                    if(subject.courses[i].courseName === deleteId) {
+                        console.log("hello boi");
+                        subject.courses.splice(i, 1);
                     }
-                }
+                }  }
+                })
 
                 if(this.courses.length===0) this.hasCourses = false; 
             }))

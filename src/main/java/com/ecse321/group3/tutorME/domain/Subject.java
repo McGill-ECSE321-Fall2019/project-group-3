@@ -18,7 +18,7 @@ public class Subject {
     @JsonBackReference(value = "university-subject")
     private University universities;
 
-    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "subject", cascade = CascadeType.ALL)
     @JsonManagedReference(value = "subject-course")
     private List<Course> courses;
 
