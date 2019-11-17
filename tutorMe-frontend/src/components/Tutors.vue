@@ -32,30 +32,43 @@
                 {{review.comment}} 
               </p>
 
-            </b-list-group-item>
-          </b-list-group>
+              <div>
+                <b-form-checkbox
+                id="checkbox-1"
+                v-model="review.isVisible"
+                name="checkbox-1"
+                @click.native="toggleVisibility(review, tutor)"
+                >
+                Visible Review
+              </b-form-checkbox>
 
-          <b-list-group>
-            <b-list-group-item href="#" class="flex-column align-items-start" v-for="(course,course_idx) in tutor.courses_taught":key="course_idx">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Example course {{tutor.email}} </h5>
-              </div>
+              <div>State: <strong>{{ review.isVisible }}</strong></div>
+            </div>
 
-              <p class="mb-1">
-                Course information. 
-              </p>
+          </b-list-group-item>
+        </b-list-group>
 
-            </b-list-group-item>
-          </b-list-group>
-        </b-card>
-      </b-card-group>
-    </template>
-    <template v-else>
-      <div>Uh-oh, there are no tutors to display!</div>
-    </template>
+        <b-list-group>
+          <b-list-group-item href="#" class="flex-column align-items-start" v-for="(course,course_idx) in tutor.courses_taught":key="course_idx">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Example course {{tutor.email}} </h5>
+            </div>
+
+            <p class="mb-1">
+              Course information. 
+            </p>
+
+          </b-list-group-item>
+        </b-list-group>
+      </b-card>
+    </b-card-group>
+  </template>
+  <template v-else>
+    <div>Uh-oh, there are no tutors to display!</div>
+  </template>
 
 
-  </div>
+</div>
 </center>
 </template>
 

@@ -39,19 +39,22 @@ export default {
 
                 if(this.tutors.length===0) this.hasTutors = false; 
             }))
-        }
-        // setVisibility: async function(deleteId) {
-        //     await AXIOS.delete('/api/tutor/delete?emailAddress='+deleteId).then((response => {
-        //         console.log("i deleted the element!"); 
-                
-        //         for(let i = this.tutors.length - 1; i>=0; i--){
-        //             if(this.tutors[i].email === deleteId){
-        //                 this.tutors.splice(i, 1);
-        //             }
-        //         }
+        },
+        toggleVisibility: async function(review, reviewedTutor) {
+            await AXIOS.post('api/review/update?review_id='+review.review_id, 
+            {
+                review_id: review.review_id,
+                rating: review.rating,
+                comment: review.comment,
+                isVisible: !review.isVisible,
+                reviewAuthor:review.reviewAuthor,
+                tutor: {email: reviewedTutor.email}
 
-        //         if(this.tutors.length===0) this.hasTutors = false; 
-        //     }))
-        // }
+            }
+            ).then((response => {
+                console.log("Toggled review");
+                window.location.reload(true);
+            }))
+        }
     }
 }
