@@ -2,7 +2,7 @@ import axios from 'axios';
 import config from '../../../config/index';
 
 let frontendUrl = 'http://' + config.dev.host + ":" + config.dev.port;
-let backendUrl = 'https://cors-anywhere.herokuapp.com/' + 'http://' +  config.dev.backendHost;
+let backendUrl = 'https://cors-anywhere.herokuapp.com/' + 'http://' + config.dev.backendHost;
 
 let AXIOS = axios.create({
     baseURL: backendUrl,
@@ -38,6 +38,17 @@ export default {
 
                 if(this.rooms.length===0) this.hasRooms = false; 
             }))
+        },
+            updateRoom: async function(roomId) {
+            await AXIOS.get('/api/room/?roomId='+roomId).then(response => {
+                response = response.data;
+                this.$router.push({
+                    name: 'CreateRoom',
+                    query: {
+                        update: roomId
+                    }
+                })
+            })            
         }
     }
 }

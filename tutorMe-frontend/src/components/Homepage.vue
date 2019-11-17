@@ -1,57 +1,14 @@
 <template>
 <div>
 	<div>
-  <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand href="#">TutorME</b-navbar-brand>
-
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
-        <b-nav-item href="#/lesson">Lesson</b-nav-item>
-        <b-nav-item href="#" enabled></b-nav-item>
-		<b-nav-item href="#/course">Course</b-nav-item>
-        <b-nav-item href="#" enabled></b-nav-item>
-		<b-nav-item href="#/university">University</b-nav-item>
-        <b-nav-item href="#" enabled></b-nav-item>
-		<b-nav-item href="#/room">Room</b-nav-item>
-        <b-nav-item href="#" enabled></b-nav-item>
-		<b-nav-item href="#">Group Lesson Requests</b-nav-item>
-        <b-nav-item href="#" enabled></b-nav-item>
-		<b-nav-item href="#/student">Student</b-nav-item>
-        <b-nav-item href="#" enabled></b-nav-item>
-		<b-nav-item href="#/tutor">Tutor</b-nav-item>
-        <b-nav-item href="#" enabled></b-nav-item>
-		<b-nav-item href="#/payroll">Payroll</b-nav-item>
-        <b-nav-item href="#" enabled></b-nav-item>
-      </b-navbar-nav>
-
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
-        <b-nav-form>
-          <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
-          <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-        </b-nav-form>
-
-        <b-nav-item-dropdown text="Lang" right>
-          <b-dropdown-item href="#">EN</b-dropdown-item>
-          <b-dropdown-item href="#">ES</b-dropdown-item>
-          <b-dropdown-item href="#">RU</b-dropdown-item>
-          <b-dropdown-item href="#">FA</b-dropdown-item>
-        </b-nav-item-dropdown>
-
-        <b-nav-item-dropdown right>
-          <!-- Using 'button-content' slot -->
-          <template v-slot:button-content>
-            <em>User</em>
-          </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-        </b-nav-item-dropdown>
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
-  <vue-cal style="height: 250px"></vue-cal>
+  <NavBar></NavBar>
+  
+  <vue-cal style="height: 700px" :events="events" :time-from="9 * 60" :time-to="21 * 60" :time-step="30" hide-weekends
+  class="vuecal--blue-theme"
+  
+  ></vue-cal>
 </div>
 </div>
 </template>
+
+<script src='./javascript/Homepage.js'/>

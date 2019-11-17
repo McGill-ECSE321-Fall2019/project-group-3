@@ -1,8 +1,9 @@
 <template>
   <div>
+    <NavBar/>
     <br />
     <br />
-    <span class = "title">All Rooms</span>
+    <span class = "title"><b><font size="+3">All Rooms</font></b></span>
     <router-link to="CreateRoom"><b-button pill variant="success" class="addButton">+</b-button></router-link>
     <hr />
     <center>
@@ -15,7 +16,7 @@
             :key="idx"
           >
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">Room ID: {{room.room_id}}</h5>
+              <h5 class="mb-1"><b>Room ID: {{room.room_id}}</b></h5>
               <b-button
                 v-on:click="deleteRoom(room.room_id)"
                 pill
@@ -26,17 +27,13 @@
             <p class="mb-1">
 				<b-container class="bv-example-row">
   <b-row>
-	<b-col><h5 class="mb-1">Lesson</h5>{{room.lesson}}</b-col>
-    <b-col> <h5 class="mb-1">Seats</h5>{{room.numberOfSeats}}</b-col>
-    <b-col><h5 class="mb-1">Size</h5>{{room.size}}</b-col>
+    <b-col> <h5 class="mb-1"> <img src="@/assets/chairlogo.png" width="30" height="30"><b><font size="+1.5"> Seats</font></b></h5>{{"\n" + room.numberOfSeats}}</b-col>
+    <b-col><h5 class="mb-1"> <img src="@/assets/room.png" width="30" height="30"><b><font size="+1.5">  Size</font></b></h5>{{"\n" + room.size}}</b-col>
   </b-row>
 </b-container>
-             <!-- This lesson is taught by {{lesson.tutor.name||"Tutor"}} for {{lesson.subject.subject_name||"Subject"}} + 
-              {{lesson.course.courseName||"Course"}} at {{lesson.university.university_name||"University"}}.-->
-              
             </p>
 
-            <small class="text-muted">Click to update the room.</small>
+            <small class="text-muted" v-on:click="updateRoom(room.room_id)"> Click to update the room.</small>
           </b-list-group-item>
           <br />
           <br />
@@ -49,7 +46,7 @@
   </div>
 </template>
 
-<script src='./javascript/Room.js'/>
+<script src='../javascript/Room.js'/>
 
 <style scoped>
 .mainForm {

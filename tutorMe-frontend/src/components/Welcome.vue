@@ -1,7 +1,7 @@
 <template>
   <div>
       <center>
-    <b-form @submit="onSubmit" class="mainForm">
+    <b-form class="mainForm">
       <b-form-group
         id="input-group-1"
         label="Email address:"
@@ -27,31 +27,14 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-button type="submit" variant="primary">Login!</b-button>
-      <b-button variant="primary">Or Sign Up!</b-button>
+      <b-button type="submit" variant="primary" v-on:click="checkPassword()">Login</b-button>
+      <b-button type="submit" @click="$router.push('registration')">Or Sign Up!</b-button>
     </b-form>
     </center>
   </div>
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        form: {
-          email: '',
-          password: ''
-        }
-      }
-    },
-    methods: {
-      onSubmit(evt) {
-        evt.preventDefault()
-        alert(JSON.stringify(this.form))
-      }
-    }
-  }
-</script>
+<script src='./javascript/Welcome.js'/>
 
 <style scoped>
 .mainForm{

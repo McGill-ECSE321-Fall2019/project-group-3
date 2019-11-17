@@ -16,8 +16,8 @@ export default {
             subjectOps: [],
             map: null,
             form: {
-                subject: null,
-                courseName: null
+                university: null,
+                subject_name: null
             },
         }
     },
@@ -44,15 +44,16 @@ export default {
         onSubmit(evt) {
             var self = this;
             evt.preventDefault()
-            if (self.form.subject != null && self.form.subject != undefined && self.form.subject != "") {
-                self.form.subject = self.map.get(self.form.subject);
+            if (self.form.university != null && self.form.university != undefined && self.form.university != "") {
+                self.form.university = self.map.get(self.form.university);
             }
-            AXIOS.post('/api/course', self.form).then(resp => {
+            AXIOS.post('/api/subject', self.form).then(resp => {
                 console.log("sent req");
             }).catch(e => {
                 console.log("error: " + e);
             });
             this.$router.push("Course");
+
         },
         getAllUniversities: function () {
             return AXIOS('/api/university/getall');

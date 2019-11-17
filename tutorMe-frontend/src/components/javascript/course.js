@@ -48,7 +48,7 @@ export default {
             }))
         },
         deleteSubject: async function(deleteId) {
-            await AXIOS.delete('/api/subject?subject_name='+deleteId).then((response => {
+            await AXIOS.delete('/api/subject?subjectName='+deleteId).then((response => {
                 console.log("i deleted the element!"); 
                 
                 for(let i = this.subjects.length - 1; i>=0; i--){

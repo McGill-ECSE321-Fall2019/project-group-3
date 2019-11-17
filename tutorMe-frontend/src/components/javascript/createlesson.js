@@ -62,7 +62,7 @@ export default {
                     }
                 });
             }));
-            console.dir(self.roomOps); 
+            console.dir(self.roomOps);
     },
     methods: {
         onSubmit(evt) {
