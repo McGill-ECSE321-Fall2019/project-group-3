@@ -14,7 +14,7 @@
       This course falls under the "Subject"  at "University". 
     </p>
 
-    <small class="text-muted">Click to update the course.</small>
+    <small class="text-muted" v-on:click="updateRoom(room.roomId)"> Click to update the course.</small>
   </b-list-group-item>
 
 </div>

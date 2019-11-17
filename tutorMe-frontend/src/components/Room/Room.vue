@@ -37,7 +37,7 @@
               
             </p>
 
-            <small class="text-muted">Click to update the room.</small>
+            <small class="text-muted" v-on:click="updateRoom(room.room_id)"> Click to update the course.</small>
           </b-list-group-item>
           <br />
           <br />

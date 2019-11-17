@@ -34,7 +34,7 @@ export default {
           console.log(lesson.startTime);
           var newFormattedEndTime= lesson.endTime.replace(/T/g, " ");
 					newevent.end=newFormattedEndTime;
-					newevent.title="lesson #"+lesson.lessonId;
+					newevent.title=lesson.course.courseName+"\n"+"Room:"+lesson.room.room_id;
 					self.events.push(newevent);
 					console.dir(self.events);
 		})

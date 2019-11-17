@@ -1,7 +1,7 @@
 <template>
   <div>
       <center>
-    <b-form @submit="onSubmit" class="mainForm">
+    <b-form class="mainForm">
       <b-form-group
         id="input-group-1"
         label="Email address:"
@@ -27,8 +27,8 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-button type="submit" variant="primary" v-on:click="login()">Login>Login!</b-button>
-      <b-button variant="primary">Or Sign Up!</b-button>
+      <b-button type="submit" variant="primary" v-on:click="checkPassword()">Login</b-button>
+      <b-button type="submit" @click="$router.push('registration')">Or Sign Up!</b-button>
     </b-form>
     </center>
   </div>
