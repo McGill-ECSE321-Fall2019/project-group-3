@@ -70,6 +70,11 @@ export default new Router({
     name: 'Tutors',
     component: Tutors
     },
+        {
+    path: '/student',
+    name: 'Students',
+    component: Students
+    },
     {
       path: '/createroom',
       name: 'CreateRoom',
