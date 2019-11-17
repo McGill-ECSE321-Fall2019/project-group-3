@@ -17,21 +17,22 @@
         </template>
           <div align = "left">
             <p class="card-text mt-2">
-              E-mail: {{student.email}}
+              <b>E-mail:</b> {{student.email}}
             </p>
           </div>
     <b-list-group>
-      <b-list-group-item href="#" class="flex-column align-items-start" v-for="(review, review_idx) in student.reviews">
-    </b-list-group-item>
-    </b-list-group>
-    <div align = "left">
-    <p class="card-text mt-2">
-      Review: {{student.reviews}}
-    </p>
-  </div>
-  </b-card>
-  </b-card-group>
+        <b-list-group-item href="#" class="flex-column align-items-start"  v-for="(review, review_idx) in student.reviews" :key="review_idx">
 
+          <div align = "left">
+            <p class="card-text mt-2">
+              <b>Review:</b> {{review.comment}}
+            </p>
+          </div>
+
+          </b-list-group-item>
+      </b-list-group>
+    </b-card>
+  </b-card-group>
 </div>
   </center>
 </template>
