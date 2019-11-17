@@ -5,10 +5,10 @@
     <br>
     <br>
     <span class = "title"><b><font size="+3">All Courses</font></b></span>
-    <hr />
-    <router-link to="CreateSubject">
+        <router-link to="CreateSubject">
       <b-button pill variant="success" class="addSubjectButton">+</b-button>
     </router-link>
+    <hr />
     <div class = "mainForm">
       <b-card-group deck v-for="(subject, idx) in subjects"
       :key="idx">
@@ -17,7 +17,7 @@
           <h5 class="mb-1"> Subject Name: {{subject.subject_name}} </h5>
           <b-button
                 class = "deleteButton"
-                v-on:click="deleteSubject(subect.subject_name)"
+                v-on:click="deleteSubject(subject.subject_name)"
                 pill
                 variant="outline-danger"
               >Delete Subject</b-button>
