@@ -11,7 +11,8 @@ let AXIOS = axios.create({
 export default {
     data() {
       return {
-		managers:null,
+        managers:null,
+        hasManagers:false,
 		form: {
 		  email: '',
 		  firstName: '',
@@ -28,7 +29,8 @@ export default {
             this.managers = response.data; 
             console.log("made call");
             console.dir(this.managers); 
-            
+            if(this.managers != null && this.managers != undefined 
+                && this.managers.length > 0) this.hasManagers = true; 
             }))
     }, 
     methods: {
