@@ -9,7 +9,6 @@
     </router-link>
     <span class = "title"><b><font size="+3">All Courses</font></b></span>
     <hr />
-    
     <div class = "mainForm">
       <b-card-group deck v-for="(subject, idx) in subjects"
       :key="idx">

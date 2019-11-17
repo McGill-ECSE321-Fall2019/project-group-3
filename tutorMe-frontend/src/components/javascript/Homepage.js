@@ -33,9 +33,14 @@ export default {
           newevent.start=newFormattedStartTime;
           console.log(lesson.startTime);
           var newFormattedEndTime= lesson.endTime.replace(/T/g, " ");
-					newevent.end=newFormattedEndTime;
-					newevent.title=lesson.course.courseName+"\n"+"Room:"+lesson.room.room_id;
-					self.events.push(newevent);
+          newevent.end=newFormattedEndTime;
+          AXIOS.get('/api/lesson/getCourseRoom?lessonId='+lesson.lessonId).then(resp => {
+            let respData = resp.data;
+            newevent.title=respData.course.courseName+"\n"+"Room:"+respData.room.room_id;
+            self.events.push(newevent);
+          }).catch(e => function(e){
+            console.log(e);
+          });
 					console.dir(self.events);
 		})
 		}));

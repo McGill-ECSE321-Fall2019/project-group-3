@@ -62,7 +62,8 @@ export default {
                     this.form = respData;
                     this.update = true;
                     this.$forceUpdate();
-                }).catch(e => function(e){
+                }).then(() => AXIOS.delete('/api/university/delete?universityName='+uniBoi))
+                    .catch(e => function(e){
                     console.log(e);
                 });
             }
