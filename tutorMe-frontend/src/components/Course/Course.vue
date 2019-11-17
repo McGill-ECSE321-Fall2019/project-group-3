@@ -4,17 +4,18 @@
     <NavBar/>
     <br>
     <br>
+    <router-link to="CreateCourse">
+      <b-button pill variant="info" class="addSubjectButton" >Create Course</b-button>
+    </router-link>
     <span class = "title"><b><font size="+3">All Courses</font></b></span>
     <hr />
-    <router-link to="CreateSubject">
-      <b-button pill variant="success" class="addSubjectButton">+</b-button>
-    </router-link>
+    
     <div class = "mainForm">
       <b-card-group deck v-for="(subject, idx) in subjects"
       :key="idx">
       <b-card>
         <template v-slot:header>
-          <h5 class="mb-1"> Subject Name: {{subject.subject_name}} </h5>
+          <h5 class="mb-1"><b>Subject Name: {{subject.subject_name}}</b> </h5>
           <b-button
                 class = "deleteButton"
                 v-on:click="deleteSubject(subect.subject_name)"

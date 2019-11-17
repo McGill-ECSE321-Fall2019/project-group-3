@@ -59,12 +59,14 @@ export default {
                 this.errorRegister = errorMsg
                 return;
             }
+            if (this.managers != null){
             for(let i = this.managers.length - 1; i>=0; i--){
                     if(this.form.email === this.managers[i].email){
                        alert("This email is already taken. Please use another/sign in!");
                        valid=false;
                     }
                 }
+            }
             if (valid != false){
 			console.log("working till here"); 
 			console.dir(this.form);

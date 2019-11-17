@@ -1,8 +1,12 @@
 <template>
   <div>
+    <NavBar/>
+    <br />
+    <br />
     <div>
       <div>
-        <span class = "title"><center><b><font size="+3">Create a Lesson</font></b></center></span>
+        <span class = "title"><center><b><font size="+3">Create/Update a Lesson</font></b></center></span>
+        <hr />
         <div class="mainForm">
           <b-card>
             <b-form @submit="onSubmit">
