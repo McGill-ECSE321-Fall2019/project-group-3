@@ -53,16 +53,6 @@
         ></b-form-input>
       </b-form-group>
 
-	  <b-form-group id="input-group-5" label="Confirm Password:" label-for="input-5">
-        <b-form-input
-          id="input-5"
-          v-model="form.password"
-          type="password"
-          required
-          placeholder="Enter password again"
-        ></b-form-input>
-      </b-form-group>
-
                         <b-button 
                         v-on:click="register()"
                         value="Register"
