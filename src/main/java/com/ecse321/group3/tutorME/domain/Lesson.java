@@ -22,15 +22,15 @@ public class Lesson {
     @Column
     private LocalDateTime endTime;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonBackReference(value = "course-lesson")
     private Course course;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonBackReference(value = "room-lesson")
     private Room room;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonBackReference(value = "tutor-lesson")
     private Tutor tutor;
 

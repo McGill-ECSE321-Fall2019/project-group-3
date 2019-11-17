@@ -26,7 +26,7 @@ public class Tutor extends UserEntity {
     @OneToOne
     private Schedule schedule;
 
-    @OneToMany(mappedBy = "tutor")
+    @OneToMany(mappedBy="tutor",cascade = CascadeType.ALL)
     @JsonManagedReference(value = "tutor-lesson")
     private List<Lesson> lesson;
 

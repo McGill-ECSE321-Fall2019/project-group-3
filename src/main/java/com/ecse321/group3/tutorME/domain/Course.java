@@ -20,7 +20,7 @@ public class Course {
     @JsonBackReference(value = "subject-course")
     private Subject subject;
 
-    @OneToMany
+    @OneToMany(mappedBy="course",cascade = CascadeType.ALL)
     @JsonManagedReference(value = "course-lesson")
     private List<Lesson> lessons;
 
