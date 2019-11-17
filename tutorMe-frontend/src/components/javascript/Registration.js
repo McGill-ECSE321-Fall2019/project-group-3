@@ -11,65 +11,70 @@ let AXIOS = axios.create({
 export default {
     data() {
       return {
-        form: {
-			payroll: [],
-		user: {
+		managers:null,
+		form: {
 		  email: '',
 		  firstName: '',
 		  lastName: '',
 		  password: '',
-		  verified: true
-		}
+          verified: true,
+          payroll: []
 	},
 	status: 'not_accepted'
       }
-	},
+    },
+    mounted: function() {
+        AXIOS.get('/api/manager/getall').then((response => {
+            this.managers = response.data; 
+            console.log("made call");
+            console.dir(this.managers); 
+            
+            }))
+    }, 
     methods: {
-            register: function(firstname, lastname, email, password) {
+            register: function() {
+                let valid=true;
 				console.log("HALOOOOOOOOOOO");
-            if (firstname == '') {
+            if (this.form.firstName == '') {
                 var errorMsg = "Invalid first name"
                 console.log(errorMsg)
                 this.errorRegister = errorMsg
                 return;
             }
-            if (lastname == '') {
+            if (this.form.lastName == '') {
                 var errorMsg = "Invalid last name"
                 console.log(errorMsg)
                 this.errorRegister = errorMsg
                 return;
             }
-            if (email == '') {
+            if (this.form.email == '') {
                 var errorMsg = "Invalid email"
                 console.log(errorMsg)
                 this.errorRegister = errorMsg
                 return;
             }
-            if (password == '') {
+            if (this.form.password == '') {
                 var errorMsg = "Invalid password"
                 console.log(errorMsg)
                 this.errorRegister = errorMsg
                 return;
-			}
-				console.log("working till here");
-				let newUser = {}; 
-				newUser.email=email;
-				newUser.firstName = firstname; 
-					newUser.lastName = lastname;
-					newUser.password=password;
-
-				this.form.user = newUser; 
-					console.dir(this.form);
-				AXIOS.post(`/api/manager`,this.data.form)
+            }
+            for(let i = this.managers.length - 1; i>=0; i--){
+                    if(this.form.email === this.managers[i].email){
+                       alert("This email is already taken. Please use another/sign in!");
+                       valid=false;
+                    }
+                }
+            if (valid != false){
+			console.log("working till here"); 
+			console.dir(this.form);
+				AXIOS.post(`/api/manager`,this.form)
                 .then(response => {
                     // JSON responses are automatically parsed.
                     this.response = response.data
                     console.log(this.response)
                     this.response = "Account Registered!"
-                    this.firstname= ''
-                    this.lastname= ''
-                    this.email= ''
-                    this.password= ''
+                    this.$router.push("/");
 				})
                 .catch(e => {
 					alert("didnt work");
@@ -77,7 +82,8 @@ export default {
                     console.log(errorMsg)
                     this.errorRegister = errorMsg
                     this.response = ''
-				});
+                });
+            }
 			}
 		}
 	}

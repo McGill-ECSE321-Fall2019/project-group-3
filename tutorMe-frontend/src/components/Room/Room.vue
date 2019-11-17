@@ -1,8 +1,9 @@
 <template>
   <div>
+    <NavBar/>
     <br />
     <br />
-    <span class = "title">All Rooms</span>
+    <span class = "title"><b><font size="+3">All Rooms</font></b></span>
     <router-link to="CreateRoom"><b-button pill variant="success" class="addButton">+</b-button></router-link>
     <hr />
     <center>
@@ -15,7 +16,7 @@
             :key="idx"
           >
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">Room ID: {{room.room_id}}</h5>
+              <h5 class="mb-1"><b>Room ID: {{room.room_id}}</b></h5>
               <b-button
                 v-on:click="deleteRoom(room.room_id)"
                 pill
@@ -36,7 +37,7 @@
               
             </p>
 
-            <small class="text-muted">Click to update the room.</small>
+            <small class="text-muted" v-on:click="updateRoom(room.room_id)"> Click to update the course.</small>
           </b-list-group-item>
           <br />
           <br />
@@ -49,7 +50,7 @@
   </div>
 </template>
 
-<script src='./javascript/Room.js'/>
+<script src='../javascript/Room.js'/>
 
 <style scoped>
 .mainForm {

@@ -48,6 +48,7 @@
 <template>
 
   <center>
+    <NavBar/>
     <br>
     <br>
     <hr />
@@ -90,6 +91,7 @@
         </b-list-group>
       </b-card>
     </b-card-group>
+
 
 
   </div>

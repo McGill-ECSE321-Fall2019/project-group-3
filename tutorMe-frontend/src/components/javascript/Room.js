@@ -38,6 +38,17 @@ export default {
 
                 if(this.rooms.length===0) this.hasRooms = false; 
             }))
+        },
+            updateRoom: async function(roomId) {
+            await AXIOS.get('/api/room/?roomId='+roomId).then(response => {
+                response = response.data;
+                this.$router.push({
+                    name: 'CreateRoom',
+                    query: {
+                        update: roomId
+                    }
+                })
+            })            
         }
     }
 }

@@ -42,17 +42,3 @@ The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/projec
 | Jason Daou | N/A  | N/A|
 
 * Note: Every team member was reponsible for the implementation and testing of their own methods, specified in the report
-
-## Deliverable 3
-
-The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/project-group-3/wiki/Deliverable-3-Report)
-
-| Team member| Total hours| Responsibility |
-|------------------ |:-------------:| ---------------|
-| Karl Eid     |  | | 
-| Preyansh Kaushik|  | |
-| Nicolas Abdelnour | | g |
-| Elie Elia |  |  |
-| Jason Daou |  | |
-
-* Note: Every team member was reponsible for the implementation and testing of their own methods, specified in the report
