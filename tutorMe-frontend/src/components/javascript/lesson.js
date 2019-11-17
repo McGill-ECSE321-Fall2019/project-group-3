@@ -2,7 +2,7 @@ import axios from 'axios';
 import config from '../../../config/index';
 
 let frontendUrl = 'http://' + config.dev.host + ":" + config.dev.port;
-let backendUrl = 'http://' +  config.dev.backendHost;
+let backendUrl =  'http://' +  config.dev.backendHost;
 
 let AXIOS = axios.create({
     baseURL: backendUrl,
@@ -12,7 +12,8 @@ let AXIOS = axios.create({
 export default {
     data() {
         return {
-            lessons: null
+            lessons: null,
+            hasLessons: false
         }
     },
     mounted: function() {
@@ -20,12 +21,22 @@ export default {
             this.lessons = response.data; 
             console.log("made call");
             console.dir(this.lessons); 
+            if(this.lessons != null && this.lessons != undefined 
+                && this.lessons.length > 0) this.hasLessons = true; 
         }))
     }, 
     methods: {
-        deleteLesson: function(lessonId) {
-            AXIOS.delete('/api/lesson/delete?lessonId='+lessonId).then((response => {
+        deleteLesson: async function(deleteId) {
+            await AXIOS.delete('/api/lesson/delete?lessonId='+deleteId).then((response => {
                 console.log("i deleted the element!"); 
+                
+                for(let i = this.lessons.length - 1; i>=0; i--){
+                    if(this.lessons[i].lessonId === deleteId){
+                        this.lessons.splice(i, 1);
+                    }
+                }
+
+                if(this.lessons.length===0) this.hasLessons = false; 
             }))
         }, updateLesson: async function(lessonId) {
             await AXIOS.get('/api/lesson/?lessonId='+lessonId).then(response => {
