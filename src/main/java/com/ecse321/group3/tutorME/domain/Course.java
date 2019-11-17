@@ -1,7 +1,6 @@
 package com.ecse321.group3.tutorME.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -16,7 +15,7 @@ public class Course {
     @Column
     private String courseName;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
     @JsonBackReference(value = "subject-course")
     private Subject subject;
 
