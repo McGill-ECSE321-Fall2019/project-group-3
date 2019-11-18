@@ -12,6 +12,7 @@ let AXIOS = axios.create({
 export default {
     data() {
         return {
+            update: false,
             universityOps: [],
             subjectOps: [],
             map: null,
@@ -22,6 +23,7 @@ export default {
         }
     },
     mounted: async function getAllData() {
+        this.checkIfForUpdate();
         var self = this;
         self.map = new Map();
         axios.all([this.getAllUniversities(), this.getAllSubjects()])
@@ -60,5 +62,21 @@ export default {
         getAllSubjects: function () {
             return AXIOS('/api/subject/getall');
         },
+        checkIfForUpdate: async function () {
+            if(this.$route.query.update!=null && this.$route.query.update!=undefined){
+                //this component is for updating, preload data. 
+                console.log("its working again, hallelujah");
+                let courseyBoi = this.$route.query.update; 
+                await AXIOS.get('/api/course?courseName='+courseyBoi).then(resp => {
+                    let respData = resp.data; 
+                    this.form = respData;
+                    this.update = true;
+                    this.$forceUpdate();
+                }).then(() => AXIOS.delete('/api/course?courseName='+courseyBoi))
+                    .catch(e => function(e){
+                    console.log(e);
+                });
+            }
+        }
     }
 }

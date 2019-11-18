@@ -64,6 +64,17 @@ export default {
 
                 if(this.subjects.length===0) this.hasSubjects = false; 
             }))
+        },
+        updateCourse: async function(courseName) {
+            await AXIOS.get('/api/course?courseName='+courseName).then(response => {
+                response = response.data;
+                this.$router.push({
+                    name: 'CreateCourse',
+                    query: {
+                        update: courseName
+                    }
+                })
+            })            
         }
     }
 }
