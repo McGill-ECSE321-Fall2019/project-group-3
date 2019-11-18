@@ -36,7 +36,6 @@ export default {
     methods: {
             register: function() {
                 let valid=true;
-				console.log("HALOOOOOOOOOOO");
             if (this.form.firstName == '') {
                 var errorMsg = "Invalid first name"
                 console.log(errorMsg)
