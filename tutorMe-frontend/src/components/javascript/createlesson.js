@@ -72,16 +72,16 @@ export default {
         onSubmit(evt) {
             evt.preventDefault();
             let self = this;    
-            if(self.form.course!=null && self.form.course!=undefined && self.form.course!=""){
+            if(self.form.course!=null && self.form.course!=undefined){
                 self.form.course = self.map.get(self.form.course);  
             } 
-            if(self.form.room!=null && self.form.room!=undefined && self.form.room!=""){
+            if(self.form.room!=null && self.form.room!=undefined){
                 self.form.room = self.map.get(self.form.course); 
             } 
             if(self.form.student!=null && self.form.student!=undefined){
                 self.form.student = self.map.get(self.form.student); 
             } 
-            if(self.form.tutor!=null && self.form.tutor!=undefined && self.form.tutor!=""){
+            if(self.form.tutor!=null && self.form.tutor!=undefined){
                 self.form.tutor = self.map.get(self.form.tutor); 
             } 
             AXIOS.post('/api/lesson', self.form).then(resp => {
