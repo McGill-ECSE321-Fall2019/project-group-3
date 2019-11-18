@@ -7,15 +7,14 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item href="#/lesson">Lesson</b-nav-item>
+        <b-nav-item-dropdown><template v-slot:button-content>Lesson</template>
+        <b-dropdown-item href="#/lesson">View Lessons</b-dropdown-item></b-nav-item-dropdown>
         <b-nav-item href="#" enabled></b-nav-item>
 		    <b-nav-item href="#/course">Course</b-nav-item>
         <b-nav-item href="#" enabled></b-nav-item>
 		    <b-nav-item href="#/university">University</b-nav-item>
         <b-nav-item href="#" enabled></b-nav-item>
 		    <b-nav-item href="#/room">Room</b-nav-item>
-        <b-nav-item href="#" enabled></b-nav-item>
-		    <b-nav-item href="#">Group Lesson Requests</b-nav-item>
         <b-nav-item href="#" enabled></b-nav-item>
 		    <b-nav-item href="#/student">Student</b-nav-item>
         <b-nav-item href="#" enabled></b-nav-item>
@@ -28,11 +27,10 @@
       
 
         <b-nav-item-dropdown right>
-          <!-- Using 'button-content' slot -->
-          <template v-slot:button-content>
-            <em>User</em>
-          </template>
-          <b-dropdown-item href="/welcome">Sign Out</b-dropdown-item>
+        <template v-slot:button-content>
+        <em>User</em>
+        </template>
+        <b-dropdown-item href="/welcome">Sign Out</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
