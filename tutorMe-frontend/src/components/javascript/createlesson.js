@@ -63,6 +63,9 @@ export default {
                     }
                 });
             }));
+            if (this.getAllCourse() ==0){
+                alert("Please create a course before creating a lesson");
+            }
             console.dir(self.roomOps);
     },
     methods: {

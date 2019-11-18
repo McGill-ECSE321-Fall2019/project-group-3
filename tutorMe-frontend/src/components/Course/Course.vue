@@ -4,7 +4,7 @@
     <NavBar/>
     <br>
     <br>
-    <router-link to="CreateCourse">
+    <router-link to="CreateSubject">
       <b-button pill variant="info" class="addSubjectButton"><b>Create Subject</b></b-button>
     </router-link>
     <span class = "title"><b><font size="+3">All Courses</font></b></span>
@@ -21,7 +21,7 @@
     </router-link>
           <b-button
             class = "deleteButton"
-            v-on:click="deleteSubject(subect.subject_name)"
+            v-on:click="deleteSubject(subject.subject_name)"
             pill
             variant="outline-danger"
           >Delete Subject</b-button>
