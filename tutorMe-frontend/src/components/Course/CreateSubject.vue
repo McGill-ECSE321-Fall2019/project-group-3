@@ -1,5 +1,6 @@
 <template>
   <div>
+    <NavBar/>
     <div>
       <div>
         <div class="mainForm">
