@@ -51,10 +51,10 @@ Frontend deployment URL in order to view the application can be found [here](htt
 
 | Team member| Total hours| Responsibility |
 |------------------ |:-------------:| ---------------|
-| Karl Eid     | 35 | | 
+| Karl Eid     | 35 | Implementation and Integration of Student Frontend and Backend services, Project Management and Architechture Model | 
 | Preyansh Kaushik| 35 | Continuous Integration, and Delivery. Lesson/University, Integration of Web Frontend with Backend Services |
 | Nicolas Abdelnour | 35 |  Integration of Web Frontend with Backend Services, Continuous Integration and Delivery. Course/Subject Page|
-| Elie Elia | 35 | Build System, Continuous Integration, and Delivery. Login + Registration, Rooms, Homepage, Navigation Bar|
+| Elie Elia | 35 | Build System, Continuous Integration and Delivery. Login + Registration, Rooms, Homepage, Navigation Bar|
 | Jason Daou | 35 ||
 
 * Note: Every team member was reponsible for the implementation and testing of their own methods, specified in the report
