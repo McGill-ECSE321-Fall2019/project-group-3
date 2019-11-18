@@ -39,7 +39,7 @@
           v-model="form.email"
           type="email"
           required
-          placeholder="Enter email"
+          placeholder="example@example.com"
         ></b-form-input>
       </b-form-group>
 

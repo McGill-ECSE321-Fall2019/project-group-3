@@ -5,7 +5,7 @@
     <br>
     <br>
     <router-link to="CreateSubject">
-      <b-button pill variant="info" class="addSubjectButton"><b>Create Subject</b></b-button>
+      <b-button pill variant="info" class="addSubjectButton">Create Subject</b-button>
     </router-link>
     <span class = "title"><b><font size="+3">All Courses</font></b></span>
     <hr />
@@ -21,7 +21,7 @@
     </router-link>
           <b-button
             class = "deleteButton"
-            v-on:click="deleteSubject(subect.subject_name)"
+            v-on:click="deleteSubject(subject.subject_name)"
             pill
             variant="outline-danger"
           >Delete Subject</b-button>
@@ -31,12 +31,15 @@
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"><b>Course Name: {{course.courseName}}</b> </h5>
             </div>
+                          <div align = " right">
+
             <b-button
                 class = "deleteButton"
                 v-on:click="deleteCourse(course.courseName)"
                 pill
                 variant="outline-danger"
               >Delete Course</b-button>
+            </div>
 
               <small class="text-muted"  v-on:click="updateCourse(course.courseName)">Click to update the Course.</small>
 

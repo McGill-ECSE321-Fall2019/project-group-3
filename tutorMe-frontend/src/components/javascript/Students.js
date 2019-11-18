@@ -13,7 +13,7 @@ export default {
     data() {
         return {
             students: null,
-            hasLessons: false
+            hasStudents: false
         }
     },
     mounted: function() {
@@ -27,16 +27,33 @@ export default {
     },
     methods: {
         deleteStudent: async function(deleteId) {
-            await AXIOS.delete('/api/student/delete?studentd='+deleteId).then((response => {
-                console.log("i deleted the element!");
+            await AXIOS.delete('/api/student/delete?emailAddress='+deleteId).then((response => {
+                console.log("I deleted the element!");
 
                 for(let i = this.students.length - 1; i>=0; i--){
-                    if(this.students[i].studentId === deleteId){
+                    if(this.students[i].email === deleteId){
                         this.students.splice(i, 1);
                     }
                 }
 
                 if(this.students.length===0) this.hasStudents = false;
+            }))
+        },
+        toggleVisibility: async function(review, reviewedStudent) {
+            await AXIOS.post('api/review/update?review_id='+review.review_id,
+
+            {
+                review_id: review.review_id,
+                rating: review.rating,
+                comment: review.comment,
+                isVisible: !review.isVisible,
+                reviewAuthor:review.reviewAuthor,
+                student: {email: reviewedStudent.email}
+
+            }
+            ).then((response => {
+                console.log("Toggled review");
+                window.location.reload(true);
             }))
         }
     }
