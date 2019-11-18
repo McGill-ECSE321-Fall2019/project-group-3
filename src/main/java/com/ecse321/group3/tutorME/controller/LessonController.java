@@ -29,8 +29,7 @@ public class LessonController {
     public ResponseEntity<Lesson> createLesson(@RequestBody Lesson lesson){
 
         //validate the input first.
-        if(lesson == null || lesson.getLessonId() <= 0 || (lesson.getStartTime()!=null
-        && lesson.getStartTime().isBefore(LocalDateTime.now()))){
+        if(lesson == null || lesson.getLessonId() < 0){
             //invalid lesson entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
