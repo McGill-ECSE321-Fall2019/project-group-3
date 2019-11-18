@@ -23,11 +23,11 @@ public class Review {
 	@Column
 	private boolean isVisible;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.MERGE, CascadeType.PERSIST })
     @JsonBackReference(value="tutor-review")
 	private Tutor tutor;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.MERGE, CascadeType.PERSIST })
     @JsonBackReference(value="student-review")
 	private Student student;
 

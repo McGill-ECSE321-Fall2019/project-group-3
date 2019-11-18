@@ -40,6 +40,6 @@
 .mainForm{
     justify-content: center;
     align-content: center;
-    width: 80%;
+    width: 30%;
 }
 </style>

@@ -1,7 +1,12 @@
 <template>
   <div>
+    <NavBar/>
+    <br />
+    <br />
     <div>
       <div>
+        <span class = "title"><center><b><font size="+3">Create/Update a Lesson</font></b></center></span>
+        <hr />
         <div class="mainForm">
           <b-card>
             <b-form @submit="onSubmit">
@@ -45,6 +50,7 @@
                     name="start"
                     label="Please enter lesson start time"
                     v-model="form.startTime"
+                    format="YYYY-MM-DDTHH:mm:ss"
                   ></VueCtkDateTimePicker>
                 </div>
               </b-form-group>
@@ -57,6 +63,7 @@
                     name="start"
                     label="Please enter lesson end time"
                     v-model="form.endTime"
+                    format="YYYY-MM-DDTHH:mm:ss"
                   ></VueCtkDateTimePicker>
                 </div>
               </b-form-group>
@@ -83,8 +90,8 @@
                 ></multiselect>
               </b-form-group>
 
-              <b-button type="submit" variant="primary" v-if="update">Update Lesson!</b-button>
-              <b-button type="submit" variant="primary" v-else-if="update==false">Create Lesson!</b-button>
+              <b-button type="submit" variant="info" v-if="update">Update Lesson!</b-button>
+              <b-button type="submit" variant="info" v-else-if="update==false">Create Lesson!</b-button>
             </b-form>
           </b-card>
         </div>

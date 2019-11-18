@@ -11,7 +11,8 @@ let AXIOS = axios.create({
 export default {
     data() {
       return {
-		managers:null,
+        managers:null,
+        hasManagers:false,
 		form: {
 		  email: '',
 		  firstName: '',
@@ -28,13 +29,13 @@ export default {
             this.managers = response.data; 
             console.log("made call");
             console.dir(this.managers); 
-            
+            if(this.managers != null && this.managers != undefined 
+                && this.managers.length > 0) this.hasManagers = true; 
             }))
     }, 
     methods: {
             register: function() {
                 let valid=true;
-				console.log("HALOOOOOOOOOOO");
             if (this.form.firstName == '') {
                 var errorMsg = "Invalid first name"
                 console.log(errorMsg)
@@ -59,12 +60,14 @@ export default {
                 this.errorRegister = errorMsg
                 return;
             }
+            if (this.managers != null){
             for(let i = this.managers.length - 1; i>=0; i--){
                     if(this.form.email === this.managers[i].email){
                        alert("This email is already taken. Please use another/sign in!");
                        valid=false;
                     }
                 }
+            }
             if (valid != false){
 			console.log("working till here"); 
 			console.dir(this.form);

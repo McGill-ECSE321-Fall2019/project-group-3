@@ -1,6 +1,11 @@
 <template>
   <div>
-      <center>
+    <NavBar/>
+    <br />
+    <br />
+    <center>
+        <span class = "title"><b><font size="+3">Create/Update a Room</font></b></span>
+        <hr />
     <b-form class="mainForm">
       <b-form @submit="onSubmit">
       <b-form-group
@@ -23,8 +28,8 @@
               >
               <b-form-select v-model="form.size" :options="size_options"></b-form-select>
        </b-form-group>
-      <b-button type="submit" variant="primary" v-if="update">Update Room</b-button>
-      <b-button type="submit" variant="primary" v-else-if="update==false">Create Room</b-button>
+      <b-button type="submit" variant="info" v-if="update">Update Room</b-button>
+      <b-button type="submit" variant="info" v-else-if="update==false">Create Room</b-button>
     </b-form>
     </b-form>
     </center>

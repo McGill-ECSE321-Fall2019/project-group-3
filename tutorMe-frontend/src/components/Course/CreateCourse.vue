@@ -1,5 +1,10 @@
 <template>
   <div>
+    <NavBar/>
+    <br />
+    <br />
+    <span class = "title"><center><b><font size="+3">Create/Update a Course</font></b></center></span>
+    <hr />
     <div>
       <div>
         <div class="mainForm">
@@ -33,7 +38,7 @@
                   v-model="form.courseName"
                 ></b-form-input>
               </b-form-group>
-              <b-button type="submit" variant="primary">Create Course!</b-button>
+              <b-button type="submit" variant="info">Create Course!</b-button>
 
             </b-form>
           </b-card>

@@ -1,10 +1,11 @@
 package com.ecse321.group3.tutorME.domain;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.List;
 
@@ -17,20 +18,20 @@ public class Lesson {
     private int lessonId;
     
     @Column
-    private LocalDate startTime;
+    private LocalDateTime startTime;
     
     @Column
-    private LocalDate endTime;
+    private LocalDateTime endTime;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.MERGE, CascadeType.PERSIST })
     @JsonBackReference(value = "course-lesson")
     private Course course;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.MERGE, CascadeType.PERSIST })
     @JsonBackReference(value = "room-lesson")
     private Room room;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.MERGE, CascadeType.PERSIST })
     @JsonBackReference(value = "tutor-lesson")
     private Tutor tutor;
 
@@ -40,7 +41,7 @@ public class Lesson {
 
     public Lesson() {}
 
-    public Lesson(int lessonId, LocalDate startTime, LocalDate endTime, Course course, Room room) {
+    public Lesson(int lessonId, LocalDateTime startTime, LocalDateTime endTime, Course course, Room room) {
 		super();
 		this.lessonId = lessonId;
 		this.startTime = startTime;
@@ -89,19 +90,19 @@ public class Lesson {
         this.student = student;
     }
 
-	public LocalDate getStartTime() {
+	public LocalDateTime getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(LocalDate startTime) {
+	public void setStartTime(LocalDateTime startTime) {
 		this.startTime = startTime;
 	}
 
-	public LocalDate getEndTime() {
+	public LocalDateTime getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(LocalDate endTime) {
+	public void setEndTime(LocalDateTime endTime) {
 		this.endTime = endTime;
 	}
     

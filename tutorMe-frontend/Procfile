@@ -1,1 +1,1 @@
-web: cd tutorMe-frontend && echo $PORT && export PORT && npm start
+web: echo $PORT && export PORT && node --optimize_for_size --max_old_space_size=460 --gc_interval=100 build/dev-server.js

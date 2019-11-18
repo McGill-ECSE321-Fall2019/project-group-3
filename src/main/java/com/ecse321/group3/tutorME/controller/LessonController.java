@@ -1,16 +1,14 @@
 package com.ecse321.group3.tutorME.controller;
 
 import com.ecse321.group3.tutorME.domain.Lesson;
+import com.ecse321.group3.tutorME.dto.EventsDTO;
 import com.ecse321.group3.tutorME.service.LessonServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -18,6 +16,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 
 @RestController
+@CrossOrigin("*")
 public class LessonController {
 
     @Autowired
@@ -31,7 +30,7 @@ public class LessonController {
 
         //validate the input first.
         if(lesson == null || lesson.getLessonId() <= 0 || (lesson.getStartTime()!=null
-        && lesson.getStartTime().isBefore(LocalDate.now()))){
+        && lesson.getStartTime().isBefore(LocalDateTime.now()))){
             //invalid lesson entered, return a bad request.
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -121,6 +120,21 @@ public class LessonController {
         }
         //if no errors, we're going to return the lesson with an ok status
         return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/api/lesson/getCourseRoom", method = GET)
+    public ResponseEntity<EventsDTO> getCourseRoom(@RequestParam int lessonId){
+        if(lessonId<0) return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
+        EventsDTO result = null;
+
+        try{
+            result = lessonService.getCourseAndRoom(lessonId);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 }

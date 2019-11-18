@@ -1,5 +1,10 @@
 <template>
   <div>
+    <NavBar/>
+    <br />
+    <br />
+    <span class = "title"><center><b><font size="+3">Create/Update a University</font></b></center></span>
+    <hr />
     <div>
       <div>
         <div class="mainForm">
@@ -32,8 +37,8 @@
                 ></multiselect>
               </b-form-group>
 
-              <b-button type="submit" variant="primary" v-if="update">Update Lesson!</b-button>
-              <b-button type="submit" variant="primary" v-else-if="update==false">Create Lesson!</b-button>
+              <b-button type="submit" variant="info" v-if="update">Update University</b-button>
+              <b-button type="submit" variant="info" v-else-if="update==false">Create University</b-button>
               
             </b-form>
           </b-card>

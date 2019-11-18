@@ -27,7 +27,7 @@ public class Room {
 	@Column
 	private RoomSize size;
 
-	@OneToMany(mappedBy = "room")
+	@OneToMany(mappedBy="room",cascade = CascadeType.ALL)
     @JsonManagedReference(value = "room-lesson")
 	private List<Lesson> lesson;
 

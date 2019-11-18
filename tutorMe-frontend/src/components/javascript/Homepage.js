@@ -15,17 +15,17 @@ export default {
     data() {
       
         return {
-			events: [      {
-        start: '2019-11-19 10:35:00',
-        end: '2019-11-19 11:30:00',
-        title: 'Doctor appointment'
+			events: [{
+        start: '',
+        end: '',
+        title: ''
       }],
             lessons: null
         }
     },
     mounted: function() {
 		var self = this; 
-        AXIOS.get('/api/lesson/getall').then((response => {
+      AXIOS.get('/api/lesson/getall').then((response => {
 			this.lessons = response.data; 
 				this.lessons.forEach(lesson=>{
           let newevent={};
@@ -33,9 +33,22 @@ export default {
           newevent.start=newFormattedStartTime;
           console.log(lesson.startTime);
           var newFormattedEndTime= lesson.endTime.replace(/T/g, " ");
-					newevent.end=newFormattedEndTime;
-					newevent.title=lesson.course.courseName+"\n"+"Room:"+lesson.room.room_id;
-					self.events.push(newevent);
+          newevent.end=newFormattedEndTime;
+          AXIOS.get('/api/lesson/getCourseRoom?lessonId='+lesson.lessonId).then(resp => {
+            let respData = resp.data;
+            if (respData.course==null && respData.room ==null){
+            newevent.title="No Course/Room assigned yet";
+            } else if (respData.course != null && respData.room !=null){
+            newevent.title=respData.course.courseName+"\n"+"<b>Room:</b>"+respData.room.room_id;
+            } else if (respData.course != null && respData.room == null){
+            newevent.title=respData.course.couseName+"\n"+"<b>Room:</b> N/A";
+            } else if (respData.course == null && respData.room != null){
+            newevent.title="<b>Room:</b>"+respData.room.room_id+"\n"+"<b>Course:</b> N/A";
+            }
+            self.events.push(newevent);
+          }).catch(e => function(e){
+            console.log(e);
+          });
 					console.dir(self.events);
 		})
 		}));
