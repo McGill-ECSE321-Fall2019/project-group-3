@@ -7,17 +7,22 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item-dropdown><template v-slot:button-content>Lesson</template>
-        <b-dropdown-item href="#/lesson">View Lessons</b-dropdown-item></b-nav-item-dropdown>
-        <b-nav-item href="#" enabled></b-nav-item>
-		    <b-nav-item href="#/course">Course</b-nav-item>
-        <b-nav-item href="#" enabled></b-nav-item>
-		    <b-nav-item href="#/university">University</b-nav-item>
-        <b-nav-item href="#" enabled></b-nav-item>
-		    <b-nav-item href="#/room">Room</b-nav-item>
-        <b-nav-item href="#" enabled></b-nav-item>
-		    <b-nav-item href="#/student">Student</b-nav-item>
-        <b-nav-item href="#" enabled></b-nav-item>
+        <b-nav-item-dropdown text="Lesson">
+        <b-dropdown-item href="#/lesson">View Lessons</b-dropdown-item>
+        <b-dropdown-item href="#/createlesson">Create Lesson</b-dropdown-item></b-nav-item-dropdown>
+        <b-nav-item-dropdown text="Course">
+        <b-dropdown-item href="#/course">View Courses</b-dropdown-item>
+        <b-dropdown-item href="#/createcourse">Create Course</b-dropdown-item></b-nav-item-dropdown>
+         <b-nav-item-dropdown text="University">
+        <b-dropdown-item href="#/university">View Universities</b-dropdown-item>
+        <b-dropdown-item href="#/createuniversity">Create Universities</b-dropdown-item></b-nav-item-dropdown>
+         <b-nav-item-dropdown text="Room">
+        <b-dropdown-item href="#/lesson">View Rooms</b-dropdown-item>
+        <b-dropdown-item href="#/createlesson">Create Room</b-dropdown-item></b-nav-item-dropdown>
+        <b-nav-item-dropdown text="Student">
+        <b-dropdown-item href="#/lesson">View Students</b-dropdown-item>
+        <b-dropdown-item href="#/createlesson">Create Student</b-dropdown-item></b-nav-item-dropdown>
+        
 		    <b-nav-item href="#/tutor">Tutor</b-nav-item>
         <b-nav-item href="#" enabled></b-nav-item>
       </b-navbar-nav>
