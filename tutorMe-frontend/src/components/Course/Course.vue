@@ -5,7 +5,7 @@
     <br>
     <br>
     <router-link to="CreateSubject">
-      <b-button pill variant="info" class="addSubjectButton"><b>Create Subject</b></b-button>
+      <b-button pill variant="info" class="addSubjectButton">Create Subject</b-button>
     </router-link>
     <span class = "title"><b><font size="+3">All Courses</font></b></span>
     <hr />
