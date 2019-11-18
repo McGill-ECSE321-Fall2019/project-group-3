@@ -20,6 +20,7 @@
                   id="input-with-list"
                   placeholder="Search up a course"
                   v-model="form.course"
+                  required
                 ></b-form-input>
                 <b-form-datalist id="input-list" :options="courseOps"></b-form-datalist>
               </b-form-group>

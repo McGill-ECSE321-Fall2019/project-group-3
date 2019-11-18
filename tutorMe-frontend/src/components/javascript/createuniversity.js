@@ -36,7 +36,7 @@ export default {
         });
     },
     methods: {
-        onSubmit(evt) {
+        async onSubmit(evt) {
             evt.preventDefault();
             let self = this;    
             if(self.form.subjects!=null && self.form.subjects!=undefined && self.form.subjects!=""){
@@ -46,7 +46,7 @@ export default {
                 self.form.subjects = []; 
                 tempArr.forEach(x => self.form.subjects.push(x)); 
             } 
-            AXIOS.post('/api/university', self.form).then(resp => {
+            await AXIOS.post('/api/university', self.form).then(resp => {
                 alert("University created! Redirecting");
                 this.$router.push("University");
             }).catch(e => {

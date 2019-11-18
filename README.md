@@ -47,12 +47,14 @@ The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/projec
 
 The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/project-group-3/wiki/Deliverable-3-Report)
 
+Frontend deployment URL in order to view the application can be found [here](http://tutorme-ecse321-group3-web.herokuapp.com/#/)
+
 | Team member| Total hours| Responsibility |
 |------------------ |:-------------:| ---------------|
-| Karl Eid     |  | | 
-| Preyansh Kaushik|  |  |
-| Nicolas Abdelnour | |  |
-| Elie Elia | |  |
-| Jason Daou |  ||
+| Karl Eid     | 35 | | 
+| Preyansh Kaushik| 35 | Continuous Integration, and Delivery. Lesson/University, Integration of Web Frontend with Backend Services |
+| Nicolas Abdelnour | 35 |  Integration of Web Frontend with Backend Services, Continuous Integration and Delivery. Course/Subject Page|
+| Elie Elia | 35 | Build System, Continuous Integration, and Delivery. Login + Registration, Rooms, Homepage, Navigation Bar|
+| Jason Daou | 35 ||
 
 * Note: Every team member was reponsible for the implementation and testing of their own methods, specified in the report

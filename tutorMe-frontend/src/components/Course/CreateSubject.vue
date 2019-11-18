@@ -33,7 +33,7 @@
                   v-model="form.subject_name"
                 ></b-form-input>
               </b-form-group>
-              <b-button type="submit" variant="info">Create Subject!</b-button>
+              <b-button type="submit" variant="info">Create Subject</b-button>
             </b-form>
           </b-card>
         </div>

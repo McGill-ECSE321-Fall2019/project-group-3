@@ -4,9 +4,11 @@
     <span class = "title"><center><b><font size="+3">All Students</font></b></center></span>
     <br>
     <br>
-    <div class = "mainForm">
-
-        <b-card-group deck v-for="(student,idx) in students"
+    <hr />
+    
+    
+<div class = "mainForm">
+  <b-card-group deck v-for="(student,idx) in students"
             :key="idx">
         <b-card>
           <template v-slot:header>

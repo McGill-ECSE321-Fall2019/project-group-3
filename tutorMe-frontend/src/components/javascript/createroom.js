@@ -37,11 +37,11 @@ let AXIOS = axios.create({
         self.map = new Map(); 
     },
     methods: {
-      onSubmit(evt) {
+      async onSubmit(evt) {
         evt.preventDefault();
         let self = this;
         console.dir(self.form);
-        AXIOS.post('/api/room', self.form).then(resp => {
+        await AXIOS.post('/api/room', self.form).then(resp => {
                 alert("Room created! Redirecting");
                 this.$router.push("Room");
             }).catch(e => {

@@ -41,17 +41,18 @@ export default {
             }));
     },
     methods: {
-        onSubmit(evt) {
+        async onSubmit(evt) {
             var self = this;
             evt.preventDefault()
             if (self.form.subject != null && self.form.subject != undefined && self.form.subject != "") {
                 self.form.subject = self.map.get(self.form.subject);
             }
-            AXIOS.post('/api/course', self.form).then(resp => {
+            await AXIOS.post('/api/course', self.form).then(resp => {
                 console.log("sent req");
             }).catch(e => {
                 console.log("error: " + e);
             });
+            alert("Course created!");
             this.$router.push("Course");
         },
         getAllUniversities: function () {

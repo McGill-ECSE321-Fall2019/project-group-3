@@ -119,7 +119,7 @@ export default {
             }))
         },
         toggleVisibility: async function(review, reviewedTutor) {
-            await AXIOS.post('api/tutor/update?oldId='+tutor.email,
+            await AXIOS.post('api/review/update?review_id='+review.review_id, 
             {
                 review_id: review.review_id,
                 rating: review.rating,
