@@ -3,6 +3,7 @@
     <NavBar/>
     <span class = "title"><center><b><font size="+3">All Tutors</font></b></center></span>
     <br>
+    <h5 class="mb-1"> For all payroll-related information, please visit our payment partner: <a href="https://www.paypal.com">PayPal</a> </h5>
     <br>
     <hr />
     <div class = "mainForm">
