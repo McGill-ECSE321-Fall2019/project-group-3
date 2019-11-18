@@ -52,6 +52,7 @@ export default {
             }).catch(e => {
                 console.log("error: " + e);
             });
+            alert("Subject created! Redirecting");
             this.$router.push("Course");
 
         },

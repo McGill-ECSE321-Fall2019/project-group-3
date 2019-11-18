@@ -52,6 +52,7 @@ export default {
             }).catch(e => {
                 console.log("error: " + e);
             });
+            alert("Course created!");
             this.$router.push("Course");
         },
         getAllUniversities: function () {
