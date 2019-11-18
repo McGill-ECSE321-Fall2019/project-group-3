@@ -21,7 +21,7 @@
     </router-link>
           <b-button
             class = "deleteButton"
-            v-on:click="deleteSubject(subect.subject_name)"
+            v-on:click="deleteSubject(subject.subject_name)"
             pill
             variant="outline-danger"
           >Delete Subject</b-button>

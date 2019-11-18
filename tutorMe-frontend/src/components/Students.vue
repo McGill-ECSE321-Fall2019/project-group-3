@@ -5,6 +5,7 @@
     <span class = "title"><center><b><font size="+3">All Students</font></b></center></span>
     <br>
     <br>
+    <hr />
     
     
 <div class = "mainForm">
