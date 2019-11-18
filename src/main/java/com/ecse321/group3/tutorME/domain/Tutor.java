@@ -17,8 +17,7 @@ public class Tutor extends UserEntity {
     @JoinTable(name="tutor_courses_approved", joinColumns=@JoinColumn(name="tutor_email"), inverseJoinColumns=@JoinColumn(name="course_name"))
     private List<Course> courses_taught;
     
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name="tutor_courses_applied", joinColumns=@JoinColumn(name="tutor_email"), inverseJoinColumns=@JoinColumn(name="course_name"))
+    @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<Course> courses_applied;
 
     @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)

@@ -30,7 +30,7 @@
             <p class="mb-1">
 				    <b-container class="bv-example-row">
             <b-row>
-            <b-col> <h5 class="mb-1"> <img src="@/assets/date.png" width="35" height="40"><b><font size="+1.5"> Date</font></b></h5>{{"\n" + lesson.startTime.substr(0,10)}}</b-col>
+            <b-col><h5 class="mb-1"> <img src="@/assets/date.png" width="35" height="40"><b><font size="+1.5"> Date</font></b></h5>{{"\n" + lesson.startTime.substr(0,10)}}</b-col>
             <b-col><h5 class="mb-1"> <img src="@/assets/time.png" width="60" height="30"><b><font size="+1.5">  Time</font></b></h5>{{"\n" + lesson.startTime.substr(11,19)+"-"+lesson.endTime.substr(11,19)}}</b-col>
             </b-row>
             </b-container>
