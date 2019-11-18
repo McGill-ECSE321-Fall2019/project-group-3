@@ -57,8 +57,69 @@ export default {
                 if(this.tutors.length===0) this.hasTutors = false; 
             }))
         },
+        rejectCourse: async function(tutor, applied_course) {
+            for(let i = tutor.courses_applied.length - 1; i>=0; i--){
+                tutor.courses_applied[i].tutors = null;
+                if(tutor.courses_applied[i].courseName === applied_course.courseName){
+                    tutor.courses_applied.splice(i, 1);
+                }
+            }
+            for(let i = tutor.courses_taught.length - 1; i>=0; i--){
+                tutor.courses_taught[i].tutors = null;
+
+            }
+            await AXIOS.post('api/tutor/update?oldId='+tutor.email, 
+            {
+                email: tutor.email,
+                firstName: tutor.firstName,
+                lastName: tutor.lastName,
+                password: tutor.password,
+                rate: tutor.rate,
+                courses_taught: tutor.courses_taught,
+                courses_applied : tutor.courses_applied,
+                reviews: tutor.reviews,
+                schedule: tutor.schedule,
+                lesson: tutor.lesson,
+                verified: tutor.verified
+
+            }
+            ).then((response => {
+                console.log("Rejected tutor");
+            }))
+        },
+        approveCourse: async function(tutor, applied_course) {
+            for(let i = tutor.courses_applied.length - 1; i>=0; i--){
+                tutor.courses_applied[i].tutors = null;
+                if(tutor.courses_applied[i].courseName === applied_course.courseName){
+                    tutor.courses_applied.splice(i, 1);
+                }
+            }
+            for(let i = tutor.courses_taught.length - 1; i>=0; i--){
+                tutor.courses_taught[i].tutors = null;
+
+            }
+            tutor.courses_taught.push(applied_course);
+            await AXIOS.post('api/tutor/update?oldId='+tutor.email, 
+            {
+                email: tutor.email,
+                firstName: tutor.firstName,
+                lastName: tutor.lastName,
+                password: tutor.password,
+                rate: tutor.rate,
+                courses_taught: tutor.courses_taught,
+                courses_applied : tutor.courses_applied,
+                reviews: tutor.reviews,
+                schedule: tutor.schedule,
+                lesson: tutor.lesson,
+                verified: tutor.verified
+
+            }
+            ).then((response => {
+                console.log("Approved tutor");
+            }))
+        },
         toggleVisibility: async function(review, reviewedTutor) {
-            await AXIOS.post('api/review/update?review_id='+review.review_id, 
+            await AXIOS.post('api/tutor/update?oldId='+tutor.email, 
             {
                 review_id: review.review_id,
                 rating: review.rating,
