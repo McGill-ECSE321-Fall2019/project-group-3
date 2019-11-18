@@ -24,6 +24,7 @@
                 pill
                 variant="outline-danger"
               >Delete</b-button>
+              
             </div>
 
             <p class="mb-1">
@@ -35,7 +36,7 @@
             </b-container>
             </p>
 
-            <small class="text-muted" v-on:click="updateLesson(lesson.lessonId)">Click me to update the lesson.</small>
+            <small class="text-muted" v-on:click="updateLesson(lesson.lessonId)">Click here to update the lesson.</small>
           </b-list-group-item>
           <br />
           <br />
