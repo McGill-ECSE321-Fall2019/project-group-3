@@ -26,7 +26,7 @@
                 label="Select Room size:"
                 label-for="input-2"
               >
-              <b-form-select v-model="form.size" :options="size_options"></b-form-select>
+              <b-form-select required v-model="form.size" :options="size_options"></b-form-select>
        </b-form-group>
       <b-button type="submit" variant="info" v-if="update">Update Room</b-button>
       <b-button type="submit" variant="info" v-else-if="update==false">Create Room</b-button>
