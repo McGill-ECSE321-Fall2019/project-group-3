@@ -41,9 +41,8 @@
               >Delete Course</b-button>
             </div>
 
-            <p class="mb-1">
-              Course information. 
-            </p>
+              <small class="text-muted"  v-on:click="updateCourse(course.courseName)">Click to update the Course.</small>
+
 
           </b-list-group-item>
         </b-list-group>
