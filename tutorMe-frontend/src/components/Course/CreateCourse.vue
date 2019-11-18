@@ -38,7 +38,7 @@
                   v-model="form.courseName"
                 ></b-form-input>
               </b-form-group>
-              <b-button type="submit" variant="primary">Create Course!</b-button>
+              <b-button type="submit" variant="info">Create Course!</b-button>
 
             </b-form>
           </b-card>
