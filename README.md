@@ -46,6 +46,7 @@ The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/projec
 ## Deliverable 3
 
 The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/project-group-3/wiki/Deliverable-3-Report)
+
 Frontend deployment URL in order to view the application can be found [here](http://tutorme-ecse321-group3-web.herokuapp.com/#/)
 
 | Team member| Total hours| Responsibility |
