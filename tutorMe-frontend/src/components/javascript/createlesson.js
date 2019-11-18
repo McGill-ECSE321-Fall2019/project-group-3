@@ -34,6 +34,7 @@ export default {
         this.checkIfForUpdate();
         var self = this;
         self.map = new Map(); 
+        self.map.set("", null);
         axios.all([this.getAllStudents(), this.getAllTutors(), this.getAllCourse(), this.getAllRooms()])
             .then(axios.spread(function (students, tutors, courses, rooms) {
                 students.data.forEach(obj => {
@@ -68,7 +69,7 @@ export default {
         onSubmit(evt) {
             evt.preventDefault();
             let self = this;    
-            if(self.form.course!=null && self.form.course!=undefined && self.form.room!=""){
+            if(self.form.course!=null && self.form.course!=undefined && self.form.course!=""){
                 self.form.course = self.map.get(self.form.course);  
             } 
             if(self.form.room!=null && self.form.room!=undefined && self.form.room!=""){
@@ -84,20 +85,20 @@ export default {
                 alert("Lesson created! Redirecting");
                 this.$router.push("Lesson");
             }).catch(e => {
-                console.log("error: " + e);
+                alert("error: " + e);
             });
         },
         getAllStudents: function () {
-            return AXIOS('/api/student/getall');
+            return AXIOS.get('/api/student/getall');
         },
         getAllTutors: function () {
-            return AXIOS('/api/tutor/getall');
+            return AXIOS.get('/api/tutor/getall');
         },
         getAllCourse: function () {
-            return AXIOS('/api/course/getall');
+            return AXIOS.get('/api/course/getall');
         },
         getAllRooms: function () {
-            return AXIOS('/api/room/getall');
+            return AXIOS.get('/api/room/getall');
         },
         checkIfForUpdate: async function () {
             if(this.$route.query.update!=null && this.$route.query.update!=undefined){
