@@ -39,7 +39,7 @@ export default {
                 if(this.lessons.length===0) this.hasLessons = false; 
             }))
         }, updateLesson: async function(lessonId) {
-            await AXIOS.get('/api/lesson/?lessonId='+lessonId).then(response => {
+            await AXIOS.get('/api/lesson?lessonId='+lessonId).then(response => {
                 response = response.data;
                 this.$router.push({
                     name: 'CreateLesson',
