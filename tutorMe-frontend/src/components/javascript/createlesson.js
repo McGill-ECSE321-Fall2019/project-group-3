@@ -34,6 +34,7 @@ export default {
         this.checkIfForUpdate();
         var self = this;
         self.map = new Map(); 
+        self.map.set("", null);
         axios.all([this.getAllStudents(), this.getAllTutors(), this.getAllCourse(), this.getAllRooms()])
             .then(axios.spread(function (students, tutors, courses, rooms) {
                 students.data.forEach(obj => {
@@ -68,39 +69,39 @@ export default {
             console.dir(self.roomOps);
     },
     methods: {
-        onSubmit(evt) {
+        async onSubmit(evt) {
             evt.preventDefault();
             let self = this;    
-            if(self.form.course!=null && self.form.course!=undefined && self.form.room!=""){
+            if(self.form.course!=null && self.form.course!=undefined){
                 self.form.course = self.map.get(self.form.course);  
             } 
-            if(self.form.room!=null && self.form.room!=undefined && self.form.room!=""){
+            if(self.form.room!=null && self.form.room!=undefined){
                 self.form.room = self.map.get(self.form.course); 
             } 
             if(self.form.student!=null && self.form.student!=undefined){
                 self.form.student = self.map.get(self.form.student); 
             } 
-            if(self.form.tutor!=null && self.form.tutor!=undefined && self.form.tutor!=""){
+            if(self.form.tutor!=null && self.form.tutor!=undefined){
                 self.form.tutor = self.map.get(self.form.tutor); 
             } 
-            AXIOS.post('/api/lesson', self.form).then(resp => {
+            await AXIOS.post('/api/lesson', self.form).then(resp => {
                 alert("Lesson created! Redirecting");
                 this.$router.push("Lesson");
             }).catch(e => {
-                console.log("error: " + e);
+                alert("error: " + e);
             });
         },
         getAllStudents: function () {
-            return AXIOS('/api/student/getall');
+            return AXIOS.get('/api/student/getall');
         },
         getAllTutors: function () {
-            return AXIOS('/api/tutor/getall');
+            return AXIOS.get('/api/tutor/getall');
         },
         getAllCourse: function () {
-            return AXIOS('/api/course/getall');
+            return AXIOS.get('/api/course/getall');
         },
         getAllRooms: function () {
-            return AXIOS('/api/room/getall');
+            return AXIOS.get('/api/room/getall');
         },
         checkIfForUpdate: async function () {
             if(this.$route.query.update!=null && this.$route.query.update!=undefined){

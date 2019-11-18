@@ -31,12 +31,15 @@
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"><b>Course Name: {{course.courseName}}</b> </h5>
             </div>
+                          <div align = " right">
+
             <b-button
                 class = "deleteButton"
                 v-on:click="deleteCourse(course.courseName)"
                 pill
                 variant="outline-danger"
               >Delete Course</b-button>
+            </div>
 
             <p class="mb-1">
               Course information. 
