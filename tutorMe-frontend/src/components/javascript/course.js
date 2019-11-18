@@ -19,19 +19,21 @@ export default {
         }
     },
     mounted: async function() {
-        AXIOS.get('/api/course/getall').then((response => {
+        await AXIOS.get('/api/course/getall').then((response => {
             this.courses = response.data; 
             console.log("made call");
             console.dir(this.courses); 
             if(this.courses != null && this.courses != undefined 
                 && this.courses.length > 0) this.hasCourses = true; 
-        }));
-        AXIOS.get('/api/subject/getall').then((response => {
+        })).then(
+            AXIOS.get('/api/subject/getall').then((response => {
             this.subjects = response.data;
             console.log("made call");
             console.dir(this.subjects);
             if(this.subjects != null && this.subjects != undefined && this.subjects.length > 0) this.hasSubjects = true;
-        }))
+        }))).catch(exp => function(exp){
+            console.log(exp); 
+        });
     }, 
     methods: {
         deleteCourse: async function(deleteId) {

@@ -68,7 +68,7 @@ export default {
             console.dir(self.roomOps);
     },
     methods: {
-        onSubmit(evt) {
+        async onSubmit(evt) {
             evt.preventDefault();
             let self = this;    
             if(self.form.course!=null && self.form.course!=undefined && self.form.room!=""){
@@ -83,7 +83,7 @@ export default {
             if(self.form.tutor!=null && self.form.tutor!=undefined && self.form.tutor!=""){
                 self.form.tutor = self.map.get(self.form.tutor); 
             } 
-            AXIOS.post('/api/lesson', self.form).then(resp => {
+            await AXIOS.post('/api/lesson', self.form).then(resp => {
                 alert("Lesson created! Redirecting");
                 this.$router.push("Lesson");
             }).catch(e => {
