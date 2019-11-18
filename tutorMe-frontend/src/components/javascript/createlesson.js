@@ -38,15 +38,15 @@ export default {
         axios.all([this.getAllStudents(), this.getAllTutors(), this.getAllCourse(), this.getAllRooms()])
             .then(axios.spread(function (students, tutors, courses, rooms) {
                 students.data.forEach(obj => {
-                    if (obj.user != null && obj.user.firstName != null && obj.user.firstName != undefined) {
-                        self.studentOps.push(obj.user.firstName);
-                        self.map.set(obj.user.firstName, obj);
+                    if (obj != null && obj.email != null && obj.email != undefined) {
+                        self.studentOps.push(obj.email);
+                        self.map.set(obj.email, obj);
                     }
                 });
                 tutors.data.forEach(obj => {
-                    if (obj.user != null && obj.user.firstName != null && obj.user.firstName != undefined) {
-                        self.tutorOps.push(obj.user.firstName);
-                        self.map.set(obj.user.firstName, obj);
+                    if (obj != null && obj.email != null && obj.email != undefined) {
+                        self.tutorOps.push(obj.email);
+                        self.map.set(obj.email, obj);
                     }
                 });
                 courses.data.forEach(obj => {
@@ -63,10 +63,7 @@ export default {
                     }
                 });
             }));
-            if (this.getAllCourse() ==0){
-                alert("Please create a course before creating a lesson");
-            }
-            console.dir(self.roomOps);
+            console.log("checking");
     },
     methods: {
         async onSubmit(evt) {
@@ -112,6 +109,8 @@ export default {
                     let respData = resp.data; 
                     this.form = respData;
                     this.update = true;
+                    this.form.student = this.form.student.email;
+                    this.form.tutor = this.form.tutor.email; 
                     this.$forceUpdate();
                 }).catch(e => function(e){
                     console.log(e);
