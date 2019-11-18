@@ -8,6 +8,7 @@
       <template v-if="hasStudents">
         <b-card-group deck v-for="(student,idx) in students"
         :key="idx">
+
         <b-card>
           <template v-slot:header>
             <h5 class="mb-1"> {{student.firstName}} {{student.lastName}} </h5>

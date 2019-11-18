@@ -4,6 +4,7 @@
     <span class = "title"><center><b><font size="+3">All Tutors</font></b></center></span>
     <br>
     <br>
+    <hr />
     <div class = "mainForm">
       <template v-if="hasTutors">
         <b-card-group deck v-for="(tutor,idx) in tutors"
