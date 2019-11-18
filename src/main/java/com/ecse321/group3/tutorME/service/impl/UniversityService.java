@@ -69,6 +69,11 @@ public class UniversityService implements UniversityServiceIF {
 
     @Override
     public University updateUniversity(String oldName, University university) throws Exception {
+        if(university!=null && university.getUniversity_name()!=null && !university.getUniversity_name().isEmpty()
+                && !university.getUniversity_name().equals(oldName)){
+            university = universityRepo.getOne(oldName);
+            university.setUniversity_name(university.getUniversity_name());
+        }
         University universityUpdated = null;
         try {
             universityRepo.deleteById(oldName);

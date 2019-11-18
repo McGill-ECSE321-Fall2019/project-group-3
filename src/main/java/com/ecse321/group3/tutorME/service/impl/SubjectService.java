@@ -55,7 +55,11 @@ public class SubjectService implements SubjectServiceIF {
 
     public Subject updateSubject(String subjectName, Subject subject) throws Exception{
         Subject subjectUpdated = null;
-
+        if(subject!=null && subject.getSubject_name()!=null && !subject.getSubject_name().isEmpty()
+                && !subject.getSubject_name().equals(subjectName)){
+            subject = subjectRepo.getOne(subjectName);
+            subject.setSubject_name(subject.getSubject_name());
+        }
         try {
             deleteSubject(subjectName);
             subjectUpdated = createSubject(subject);

@@ -78,6 +78,11 @@ public class CourseService implements CourseServiceIF {
     @Override
     public Course updateCourse(String oldName, Course course) throws Exception {
         //delete the course
+        if(course!=null && course.getCourseName()!=null && !course.getCourseName().isEmpty()
+            && !course.getCourseName().equals(oldName)){
+                course = courseRepo.getOne(oldName);
+                course.setCourseName(course.getCourseName());
+        }
         Course courseUpdated = null;
         try {
             courseRepo.deleteById(oldName);
