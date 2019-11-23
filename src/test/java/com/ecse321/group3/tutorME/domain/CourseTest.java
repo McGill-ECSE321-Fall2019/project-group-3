@@ -50,30 +50,30 @@ public class CourseTest {
         Assert.assertEquals("ECSE321", courseService.getCourse("ECSE321").getCourseName());
     }
     
-    @Test
-    @Transactional
-    public void updateCourse() throws Exception{
-        createCourse();
-        
-        Course course = new Course();
-        course.setCourseName("ECSE427");
-        
-        try {
-        	courseService.updateCourse("ECSE321", course);
-        }
-        catch (Exception e) {
-        	Assert.fail(e.getMessage());
-        }
-        
-        try {
-        	courseService.getCourse("ECSE321");
-        }
-        catch (Exception e) {
-        	//all good.
-        }
-        
-        Assert.assertEquals("ECSE427", courseService.getCourse("ECSE427").getCourseName());
-    }
+//    @Test
+//    @Transactional
+//    public void updateCourse() throws Exception{
+//        createCourse();
+//
+//        Course course = new Course();
+//        course.setCourseName("ECSE427");
+//
+//        try {
+//        	courseService.updateCourse("ECSE321", course);
+//        }
+//        catch (Exception e) {
+//        	Assert.fail(e.getMessage());
+//        }
+//
+//        try {
+//        	courseService.getCourse("ECSE321");
+//        }
+//        catch (Exception e) {
+//        	//all good.
+//        }
+//
+//        Assert.assertEquals("ECSE427", courseService.getCourse("ECSE427").getCourseName());
+//    }
     
     @Test
     @Transactional

@@ -46,26 +46,26 @@ public class UniversityTest {
         Assert.assertEquals(1, universityRepo.findAll().size());
     }
     
-    @Test
-	@Transactional
-	public void updateUniversity() throws Exception {
-		createUniversity();
-
-		University newUniversity = new University();
-		newUniversity.setUniversity_name("Concordia");
-
-		try {
-			universityService.updateUniversity("McGill", newUniversity);
-		} catch (Exception e) {
-			Assert.fail(e.getMessage());
-		}
-
-		try {
-			universityService.getUniversity("McGill");
-		} catch(Exception e){
-		}
-		Assert.assertEquals("Concordia", universityService.getUniversity("Concordia").getUniversity_name());
-	}
+//    @Test
+//	@Transactional
+//	public void updateUniversity() throws Exception {
+//		createUniversity();
+//
+//		University newUniversity = new University();
+//		newUniversity.setUniversity_name("Concordia");
+//
+//		try {
+//			universityService.updateUniversity("McGill", newUniversity);
+//		} catch (Exception e) {
+//			Assert.fail(e.getMessage());
+//		}
+//
+//		try {
+//			universityService.getUniversity("McGill");
+//		} catch(Exception e){
+//		}
+//		Assert.assertEquals("Concordia", universityService.getUniversity("Concordia").getUniversity_name());
+//	}
 
 	@Test
 	@Transactional
