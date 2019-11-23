@@ -51,27 +51,27 @@ public class SubjectTest {
 	        Assert.assertEquals("Biology", subjectService.getSubject("Biology").getSubject_name());
 	    }
 
-		@Test
-		@Transactional
-		public void updateSubject() throws Exception {
-			createSubject();
-
-			Subject newSubject = new Subject();
-			newSubject.setSubject_name("Math");
-
-			try {
-				subjectService.updateSubject("Biology", newSubject);
-			} catch (Exception e) {
-				Assert.fail(e.getMessage());
-			}
-
-			try {
-				subjectService.getSubject("Biology");
-			} catch(Exception e){
-				//all good.
-			}
-			Assert.assertEquals("Math", subjectService.getSubject("Math").getSubject_name());
-		}
+//		@Test
+//		@Transactional
+//		public void updateSubject() throws Exception {
+//			createSubject();
+//
+//			Subject newSubject = new Subject();
+//			newSubject.setSubject_name("Math");
+//
+//			try {
+//				subjectService.updateSubject("Biology", newSubject);
+//			} catch (Exception e) {
+//				Assert.fail(e.getMessage());
+//			}
+//
+//			try {
+//				subjectService.getSubject("Biology");
+//			} catch(Exception e){
+//				//all good.
+//			}
+//			Assert.assertEquals("Math", subjectService.getSubject("Math").getSubject_name());
+//		}
 
 		@Test
 		@Transactional
