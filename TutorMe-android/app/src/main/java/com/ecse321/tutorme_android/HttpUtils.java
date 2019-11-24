@@ -4,6 +4,8 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import cz.msebera.android.httpclient.entity.StringEntity;
+
 public class HttpUtils {
     public static final String DEFAULT_BASE_URL = "http://tutorme-ecse321-group3.herokuapp.com/";
 
@@ -28,6 +30,10 @@ public class HttpUtils {
 
     public static void post(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
         client.post(getAbsoluteUrl(url), params, responseHandler);
+    }
+
+    public static void postJson(String url, RequestParams params, StringEntity jsonEntity, AsyncHttpResponseHandler responseHandler){
+        client.post(null, getAbsoluteUrl(url), jsonEntity, "application/json", responseHandler);
     }
 
     public static void getByUrl(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
