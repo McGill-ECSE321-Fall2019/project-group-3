@@ -40,6 +40,14 @@ public class RegistrationActivity extends AppCompatActivity {
     public void registration(View V)  {
         error = "";
         Button signUp_button = findViewById(R.id.signUp_button);
+        final TextView loginText = findViewById(R.id.login_text);
+        loginText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
+                finish();
+            }
+        });
 
         final JSONObject requestObject = new JSONObject();
         try {

@@ -89,7 +89,7 @@
         />
 
     <TextView
-        android:id="@+id/signUp_text"
+        android:id="@+id/login_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="115dp"
@@ -97,6 +97,7 @@
         android:fontFamily="sans-serif"
         android:padding="10dp"
         android:text="Return to Login"
+        android:onClick="registration"
         android:textAllCaps="true"
         android:textColor="#009688"
         android:textSize="15dp"
