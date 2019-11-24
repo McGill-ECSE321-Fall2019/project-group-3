@@ -30,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
-    public void login (View V){
-        TextView signUp_text = findViewById(R.id.signUp_text);
+    public void login (View V) {
+        System.out.println("hello");
+        final TextView signUp_text = findViewById(R.id.signUp_text);
         email.getText().toString();
         password.getText().toString();
         signUp_text.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 
     @Override

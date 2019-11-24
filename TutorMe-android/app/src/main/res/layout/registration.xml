@@ -84,7 +84,9 @@
         android:text="REGISTER"
         android:textAlignment="center"
         android:textColor="#F1E9E9"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:onClick="registration"
+        />
 
     <TextView
         android:id="@+id/signUp_text"

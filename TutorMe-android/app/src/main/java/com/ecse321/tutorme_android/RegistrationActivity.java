@@ -3,10 +3,12 @@ package com.ecse321.tutorme_android;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.JsonHttpResponseHandler;
 
 import androidx.appcompat.app.AppCompatActivity;
 import cz.msebera.android.httpclient.Header;
@@ -35,34 +37,39 @@ public class RegistrationActivity extends AppCompatActivity {
         lastName = (EditText) findViewById(R.id.lastName);
     }
 
-    public void registration(View V) throws JSONException {
+    public void registration(View V)  {
         error = "";
-        TextView signUp_button = findViewById(R.id.signUp_button);
-        email.getText().toString();
-        password.getText().toString();
-        firstName.getText().toString();
-        lastName.getText().toString();
+        Button signUp_button = findViewById(R.id.signUp_button);
+
         final JSONObject requestObject = new JSONObject();
-        requestObject.put("email", email);
-        requestObject.put("password", password);
-        requestObject.put("firstName", firstName);
-        requestObject.put("lastName", lastName);
-        requestObject.put("payroll", null);
-        requestObject.put("verified", true);
+        try {
+            requestObject.put("email", email.getText().toString());
+            requestObject.put("password", password.getText().toString());
+            requestObject.put("firstName", firstName.getText().toString());
+            requestObject.put("lastName", lastName.getText().toString());
+            requestObject.put("payroll", null);
+            requestObject.put("verified", true);
+        } catch (Exception e){
+            System.out.println("nope");
+        }
         signUp_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
                     StringEntity jsonEntity = new StringEntity(requestObject.toString());
-                    HttpUtils.postJson("/api/manager", jsonEntity, new AsyncHttpResponseHandler() {
+                    HttpUtils.postJson("/api/manager", jsonEntity, new JsonHttpResponseHandler(){
                         @Override
-                        public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                            System.out.println("We have succeeded");
-                        }
+                        public void onSuccess(int statusCode, Header[] headers, String response) {
+                            error += "Success";
 
+                        }
                         @Override
-                        public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                            System.out.println("we have failed");
+                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                            try {
+                                error += statusCode+" " + throwable.getMessage();
+                            } catch (Exception e) {
+                                error += e.getMessage();
+                            }
                         }
                     });
                 } catch (UnsupportedEncodingException e) {
