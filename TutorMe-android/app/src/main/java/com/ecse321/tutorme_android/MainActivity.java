@@ -32,13 +32,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void login (View V){
         TextView signUp_text = findViewById(R.id.signUp_text);
-        String email = email.getText().toString();
-        String password = password.getText().toString();
-
-
-        JSONObject requestObject = new JSONObject();
-        requestObject.put("Email", email);
-        requestObject.put("Password", password);
+        email.getText().toString();
+        password.getText().toString();
         signUp_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

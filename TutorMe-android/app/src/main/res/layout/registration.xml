@@ -74,7 +74,7 @@
         app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/signUp_button"
         style="@android:style/Widget.DeviceDefault.Button"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
