@@ -36,7 +36,7 @@
                   placeholder="Search up a room"
                   v-model="form.room"
                 ></b-form-input>
-                <b-form-datalist id="input-list-21" :options="roomOps" v-model="form.room"></b-form-datalist>
+                <b-form-datalist id="input-list-21" :options="roomOps"></b-form-datalist>
               </b-form-group>
 
               <b-form-group

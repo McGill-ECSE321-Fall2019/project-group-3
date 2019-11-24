@@ -41,7 +41,7 @@ export default {
             } else if (respData.course != null && respData.room !=null){
             newevent.title=respData.course.courseName+"\n"+"<b>Room:</b>"+respData.room.room_id;
             } else if (respData.course != null && respData.room == null){
-            newevent.title=respData.course.couseName+"\n"+"<b>Room:</b> N/A";
+            newevent.title=respData.course.courseName+"\n"+"<b>Room:</b> N/A";
             } else if (respData.course == null && respData.room != null){
             newevent.title="<b>Room:</b>"+respData.room.room_id+"\n"+"<b>Course:</b> N/A";
             }
