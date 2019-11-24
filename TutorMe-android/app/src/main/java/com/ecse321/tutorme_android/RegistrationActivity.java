@@ -6,10 +6,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.loopj.android.http.AsyncHttpResponseHandler;
+
 import androidx.appcompat.app.AppCompatActivity;
+import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
 
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -36,7 +42,7 @@ public class RegistrationActivity extends AppCompatActivity {
         password.getText().toString();
         firstName.getText().toString();
         lastName.getText().toString();
-        JSONObject requestObject = new JSONObject();
+        final JSONObject requestObject = new JSONObject();
         requestObject.put("email", email);
         requestObject.put("password", password);
         requestObject.put("firstName", firstName);
@@ -46,7 +52,22 @@ public class RegistrationActivity extends AppCompatActivity {
         signUp_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
+                    StringEntity jsonEntity = new StringEntity(requestObject.toString());
+                    HttpUtils.postJson("/api/manager", jsonEntity, new AsyncHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                            System.out.println("We have succeeded");
+                        }
 
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                            System.out.println("we have failed");
+                        }
+                    });
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

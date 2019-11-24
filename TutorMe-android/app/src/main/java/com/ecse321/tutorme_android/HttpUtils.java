@@ -32,7 +32,7 @@ public class HttpUtils {
         client.post(getAbsoluteUrl(url), params, responseHandler);
     }
 
-    public static void postJson(String url, RequestParams params, StringEntity jsonEntity, AsyncHttpResponseHandler responseHandler){
+    public static void postJson(String url, StringEntity jsonEntity, AsyncHttpResponseHandler responseHandler){
         client.post(null, getAbsoluteUrl(url), jsonEntity, "application/json", responseHandler);
     }
 
