@@ -2,27 +2,43 @@ package com.ecse321.tutorme_android;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.content.Intent;
 
+import org.json.JSONObject;
+
 public class MainActivity extends AppCompatActivity {
+    private String error = "";
+    private EditText email;
+    private EditText password;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        email = (EditText) findViewById(R.id.email);
+        password = (EditText) findViewById(R.id.password);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+    }
+    public void login (View V){
         TextView signUp_text = findViewById(R.id.signUp_text);
+        String email = email.getText().toString();
+        String password = password.getText().toString();
+
+
+        JSONObject requestObject = new JSONObject();
+        requestObject.put("Email", email);
+        requestObject.put("Password", password);
         signUp_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
