@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        refreshErrorMessage();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         email = (EditText) findViewById(R.id.email);
@@ -76,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                                     if (foundPassword.equals(password.getText().toString())) {
                                         error += "Account Exists! Logging you in";
                                         refreshErrorMessage();
-                                        startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
+                                        startActivity(new Intent(MainActivity.this, Homepage.class));
                                     }else{
                                         error += "Invalid Username/Password";
                                     }
