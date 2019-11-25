@@ -19,26 +19,23 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.UnsupportedEncodingException;
-
 import cz.msebera.android.httpclient.Header;
-import cz.msebera.android.httpclient.entity.StringEntity;
+
 
 public class MainActivity extends AppCompatActivity {
-    private String error = " ";
+    private String error = null;
     private EditText email;
     private EditText password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        refreshErrorMessage();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        refreshErrorMessage();
     }
     private void refreshErrorMessage() {
         // set the error message
@@ -53,38 +50,39 @@ public class MainActivity extends AppCompatActivity {
     }
     public void login (View V) {
         error = "";
-        System.out.println("hello");
         Button signIN_button = findViewById(R.id.signIN_button);
         signIN_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 HttpUtils.get("/api/manager/getall", null, new JsonHttpResponseHandler() {
                     private JSONArray response;
 
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                        System.out.println("i have reached here");
                         for (int i = 0; i < response.length(); i++) {
 
                             try {
+                                if (email.getText().toString() == null || email.getText().toString().equals("") || password.getText().toString()==null || password.getText().toString() .equals( "")){
+                                    error="You have not entered an email or password";
+                                    refreshErrorMessage();
+                                }
                                 JSONObject jsonobject = response.getJSONObject(i);
                                 String foundEmail = jsonobject.getString("email");
-                                System.out.println(foundEmail);
                                 String foundPassword = jsonobject.getString("password");
-                                System.out.println(foundPassword);
                                 if (foundEmail.equals(email.getText().toString())) {
                                     if (foundPassword.equals(password.getText().toString())) {
-                                        error += "Account Exists! Logging you in";
                                         refreshErrorMessage();
                                         startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
                                     }else{
-                                        error += "Invalid Username/Password";
+                                        error = "Invalid Username/Password";
+                                        refreshErrorMessage();
+
                                     }
                                 }
                             } catch (JSONException e) {
                                 throw new RuntimeException(e);
                             }
-                            refreshErrorMessage();
                         }
                     }
                     @Override

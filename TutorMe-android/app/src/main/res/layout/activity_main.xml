@@ -83,7 +83,15 @@
         android:onClick="login"
         />
 
-    <include layout="@layout/content_main" />
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="300dp"
+        android:text=""
+        android:textColor="#F0B90F75"
+        android:textStyle="bold" />
 
 
 
