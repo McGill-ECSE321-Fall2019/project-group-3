@@ -144,7 +144,7 @@ public class Homepage extends AppCompatActivity {
 
             StringBuilder sb = new StringBuilder();
             if(courseName!=null) sb.append(courseName + " ");
-            if(roomId!=null) sb.append("at: " + roomId.intValue());
+            if(roomId!=null) sb.append("at Room #:" + roomId.intValue());
 
             if(sb.length()==0) sb.append("Lesson #"+lessonObj.getInt("lessonId"));
 
