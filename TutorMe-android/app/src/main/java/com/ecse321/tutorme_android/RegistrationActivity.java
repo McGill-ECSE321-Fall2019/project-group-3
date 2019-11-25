@@ -7,14 +7,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import androidx.appcompat.app.AppCompatActivity;
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
@@ -39,7 +37,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     public void registration(View V)  {
         error = "";
-        Button signUp_button = findViewById(R.id.signUp_button);
+        Button signUp_button = findViewById(R.id.registration_button);
         final TextView loginText = findViewById(R.id.login_text);
         loginText.setOnClickListener(new View.OnClickListener() {
             @Override

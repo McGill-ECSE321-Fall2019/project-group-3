@@ -52,7 +52,7 @@
         app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     <Button
-        android:id="@+id/signUp_button"
+        android:id="@+id/signIN_button"
         style="@android:style/Widget.DeviceDefault.Button"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
@@ -63,6 +63,7 @@
         android:textAlignment="center"
         android:textColor="#F1E9E9"
         android:textStyle="bold"
+        android:onClick="login"
         />
 
     <TextView

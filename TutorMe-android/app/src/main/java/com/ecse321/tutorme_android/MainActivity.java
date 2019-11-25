@@ -8,11 +8,21 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.content.Intent;
 
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+
+import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class MainActivity extends AppCompatActivity {
     private String error = "";
@@ -32,16 +42,62 @@ public class MainActivity extends AppCompatActivity {
     }
     public void login (View V) {
         System.out.println("hello");
+        Button signIN_button = findViewById(R.id.signIN_button);
+        signIN_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HttpUtils.get("/api/manager/getall", null, new JsonHttpResponseHandler() {
+                    private JSONArray response;
+
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                        System.out.println("i have reached here");
+                        for (int i = 0; i < response.length(); i++) {
+
+                            try {
+                                JSONObject jsonobject = response.getJSONObject(i);
+                                String foundEmail = jsonobject.getString("email");
+                                System.out.println(foundEmail);
+                                String foundPassword = jsonobject.getString("password");
+                                System.out.println(foundPassword);
+                                if (foundEmail == email.getText().toString()) {
+                                    if (foundPassword == password.getText().toString()) {
+                                        System.out.println("Account exists, we can login");
+                                        startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
+                                    }else{
+                                        System.out.println("Invalid Username or password");
+                                    }
+                                }
+                            } catch (JSONException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+                    }
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                        try {
+                            error += statusCode + " " + throwable.getMessage();
+                        } catch (Exception e) {
+                            error += e.getMessage();
+                        }
+                    }
+                });
+
+
+            }
+        });
         final TextView signUp_text = findViewById(R.id.signUp_text);
+
         email.getText().toString();
         password.getText().toString();
         signUp_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
-                finish();
             }
         });
+
+
     }
 
     @Override
