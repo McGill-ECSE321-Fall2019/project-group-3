@@ -77,18 +77,18 @@ public class RegistrationActivity extends AppCompatActivity {
                 try {
                         StringEntity jsonEntity = new StringEntity(requestObject.toString());
                     HttpUtils.postJson("/api/manager", jsonEntity, new JsonHttpResponseHandler(){
-                                @Override
-                                public void onSuccess(int statusCode, Header[] headers, String response) {
-                                    error += "Success";
-                                }
-                                @Override
-                                public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                                    try {
-                                        error += statusCode+" " + throwable.getMessage();
-                                    } catch (Exception e) {
-                                        error += e.getMessage();
-                                    }
-                                }
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, String response) {
+                            error += "Success";
+                        }
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                            try {
+                                error += statusCode+" " + throwable.getMessage();
+                            } catch (Exception e) {
+                                error += e.getMessage();
+                            }
+                        }
                     });
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
