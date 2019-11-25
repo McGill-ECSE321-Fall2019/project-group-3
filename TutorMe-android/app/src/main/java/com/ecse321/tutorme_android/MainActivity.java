@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
                                 System.out.println(foundEmail);
                                 String foundPassword = jsonobject.getString("password");
                                 System.out.println(foundPassword);
-                                if (foundEmail == email.getText().toString()) {
-                                    if (foundPassword == password.getText().toString()) {
+                                if (foundEmail.equals(email.getText().toString())) {
+                                    if (foundPassword.equals(password.getText().toString())) {
                                         System.out.println("Account exists, we can login");
                                         startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
                                     }else{
