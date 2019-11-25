@@ -1,6 +1,7 @@
 package com.ecse321.tutorme_android;
 
 import android.app.DownloadManager;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import cz.msebera.android.httpclient.Header;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +34,7 @@ import java.time.ZoneOffset;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Set;
 
 public class Homepage extends AppCompatActivity {
 
@@ -57,12 +60,12 @@ public class Homepage extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             textView.setAutoSizeTextTypeWithDefaults(TextView.AUTO_SIZE_TEXT_TYPE_UNIFORM);
         }
-
         setCalendarEvents();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void setCalendarEvents(){
+        System.out.println("setting up calendar");
         final CompactCalendarView compactCalendarView  = findViewById(R.id.compactcalendar_view);
         //fetch from backend and set.
         HttpUtils.get("/api/lesson/getall", new RequestParams(), new JsonHttpResponseHandler(){
@@ -101,7 +104,25 @@ public class Homepage extends AppCompatActivity {
             }
         });
         //color, time, and data.
+        setUpListeners(compactCalendarView);
+    }
 
+    public void setUpListeners(final CompactCalendarView compactCalendarView){
+        compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onDayClick(Date dateClicked) {
+                compactCalendarView.getEvents(dateClicked).forEach(event -> {
+                    Context context = getApplicationContext();
+                    Toast.makeText(context, event.getData().toString(), Toast.LENGTH_SHORT).show();
+                });
+            }
+
+            @Override
+            public void onMonthScroll(Date firstDayOfNewMonth) {
+
+            }
+        });
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -129,8 +150,7 @@ public class Homepage extends AppCompatActivity {
 
             String date = lessonObj.getString("startTime");
             long dateLong = LocalDateTime.parse(date).toEpochSecond(ZoneOffset.UTC);
-            System.out.println(date);
-            System.out.println(dateLong);
+            dateLong*=1000;
             Event event = new Event(Color.GREEN, dateLong, sb.toString().trim());
             compactCalendarView.addEvent(event);
         } catch (JSONException e) {

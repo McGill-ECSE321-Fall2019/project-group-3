@@ -80,6 +80,11 @@ public class RegistrationActivity extends AppCompatActivity {
                     HttpUtils.postJson("/api/manager", jsonEntity, new JsonHttpResponseHandler(){
 
                         @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response){
+                            startActivity(new Intent(RegistrationActivity.this, Homepage.class));
+                        }
+
+                        @Override
                         public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                             error += statusCode+" " + throwable.getMessage();
                             refreshErrorMessage();
