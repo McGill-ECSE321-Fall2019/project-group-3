@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
                             try {
                                 if (email.getText().toString() == null || email.getText().toString().equals("") || password.getText().toString()==null || password.getText().toString() .equals( "")){
+                                    refreshErrorMessage();
                                     error="You have not entered an email or password";
                                     refreshErrorMessage();
                                 }
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                                         refreshErrorMessage();
                                         startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
                                     }else{
+                                        refreshErrorMessage();
                                         error = "Invalid Username/Password";
                                         refreshErrorMessage();
 
