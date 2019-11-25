@@ -31,10 +31,10 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration);
-        email = (EditText) findViewById(R.id.email);
-        password = (EditText) findViewById(R.id.password);
-        firstName = (EditText) findViewById(R.id.firstName);
-        lastName = (EditText) findViewById(R.id.lastName);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        firstName = findViewById(R.id.firstName);
+        lastName = findViewById(R.id.lastName);
     }
 
     private void refreshErrorMessage() {
@@ -69,7 +69,8 @@ public class RegistrationActivity extends AppCompatActivity {
             requestObject.put("payroll", null);
             requestObject.put("verified", true);
         } catch (Exception e) {
-            System.out.println("nope");
+            System.out.println("JSON Object error");
+            return;
         }
         signUp_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,17 +78,11 @@ public class RegistrationActivity extends AppCompatActivity {
                 try {
                         StringEntity jsonEntity = new StringEntity(requestObject.toString());
                     HttpUtils.postJson("/api/manager", jsonEntity, new JsonHttpResponseHandler(){
-                        @Override
-                        public void onSuccess(int statusCode, Header[] headers, String response) {
-                            error += "Success";
-                        }
+
                         @Override
                         public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                            try {
-                                error += statusCode+" " + throwable.getMessage();
-                            } catch (Exception e) {
-                                error += e.getMessage();
-                            }
+                            error += statusCode+" " + throwable.getMessage();
+                            refreshErrorMessage();
                         }
                     });
                 } catch (UnsupportedEncodingException e) {

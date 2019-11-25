@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        email = (EditText) findViewById(R.id.email);
-        password = (EditText) findViewById(R.id.password);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         refreshErrorMessage();
@@ -54,64 +54,49 @@ public class MainActivity extends AppCompatActivity {
         signIN_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 HttpUtils.get("/api/manager/getall", null, new JsonHttpResponseHandler() {
-                    private JSONArray response;
 
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                         for (int i = 0; i < response.length(); i++) {
-
                             try {
                                 if (email.getText().toString() == null || email.getText().toString().equals("") || password.getText().toString()==null || password.getText().toString() .equals( "")){
-                                    refreshErrorMessage();
                                     error="You have not entered an email or password";
                                     refreshErrorMessage();
+                                    return;
                                 }
                                 JSONObject jsonobject = response.getJSONObject(i);
                                 String foundEmail = jsonobject.getString("email");
                                 String foundPassword = jsonobject.getString("password");
                                 if (foundEmail.equals(email.getText().toString())) {
                                     if (foundPassword.equals(password.getText().toString())) {
-                                        refreshErrorMessage();
                                         startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
                                     }else{
-                                        refreshErrorMessage();
                                         error = "Invalid Username/Password";
                                         refreshErrorMessage();
-
                                     }
                                 }
                             } catch (JSONException e) {
-                                throw new RuntimeException(e);
+                                e.printStackTrace();
                             }
                         }
                     }
                     @Override
                     public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                        try {
-                            error += statusCode + " " + throwable.getMessage();
-                        } catch (Exception e) {
-                            error += e.getMessage();
-                        }
+                        error += statusCode + " " + throwable.getMessage();
+                        refreshErrorMessage();
                     }
                 });
-
-
             }
         });
         final TextView signUp_text = findViewById(R.id.signUp_text);
 
-        email.getText().toString();
-        password.getText().toString();
         signUp_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
             }
         });
-
-
     }
 
     @Override
