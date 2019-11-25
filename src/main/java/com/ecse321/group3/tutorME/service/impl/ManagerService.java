@@ -18,6 +18,9 @@ public class ManagerService implements ManagerServiceIF {
     @Override
     public Manager createManager(Manager manager) throws Exception {
         Manager createdManager = null;
+        
+        if(manager!=null && managerRepo.existsById(manager.getEmail()))
+            throw new Exception("Account with this email already exists!"); 
 
         try{
             createdManager = managerRepo.save(manager);
