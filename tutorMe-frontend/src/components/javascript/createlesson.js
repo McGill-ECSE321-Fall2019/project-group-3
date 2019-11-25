@@ -73,7 +73,7 @@ export default {
                 self.form.course = self.map.get(self.form.course);  
             } 
             if(self.form.room!=null && self.form.room!=undefined){
-                self.form.room = self.map.get(self.form.course); 
+                self.form.room = self.map.get(self.form.room); 
             } 
             if(self.form.student!=null && self.form.student!=undefined){
                 self.form.student = self.map.get(self.form.student); 
