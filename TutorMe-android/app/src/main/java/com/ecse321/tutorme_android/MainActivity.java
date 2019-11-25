@@ -2,31 +2,99 @@ package com.ecse321.tutorme_android;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.content.Intent;
+
+
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import cz.msebera.android.httpclient.Header;
+
 
 public class MainActivity extends AppCompatActivity {
+    private String error = null;
+    private EditText email;
+    private EditText password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        refreshErrorMessage();
+    }
+    private void refreshErrorMessage() {
+        // set the error message
+        TextView tvError = (TextView) findViewById(R.id.error);
+        tvError.setText(error);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        if (error == null || error.length() == 0) {
+            tvError.setVisibility(View.GONE);
+        } else {
+            tvError.setVisibility(View.VISIBLE);
+        }
+    }
+    public void login (View V) {
+        error = "";
+        Button signIN_button = findViewById(R.id.signIN_button);
+        signIN_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                HttpUtils.get("/api/manager/getall", null, new JsonHttpResponseHandler() {
+
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+                                if (email.getText().toString() == null || email.getText().toString().equals("") || password.getText().toString()==null || password.getText().toString() .equals( "")){
+                                    error="You have not entered an email or password";
+                                    refreshErrorMessage();
+                                    return;
+                                }
+                                JSONObject jsonobject = response.getJSONObject(i);
+                                String foundEmail = jsonobject.getString("email");
+                                String foundPassword = jsonobject.getString("password");
+                                if (foundEmail.equals(email.getText().toString())) {
+                                    if (foundPassword.equals(password.getText().toString())) {
+                                        startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
+                                    }else{
+                                        error = "Invalid Username/Password";
+                                        refreshErrorMessage();
+                                    }
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                        error += statusCode + " " + throwable.getMessage();
+                        refreshErrorMessage();
+                    }
+                });
+            }
+        });
+        final TextView signUp_text = findViewById(R.id.signUp_text);
+
+        signUp_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
             }
         });
     }
@@ -52,4 +120,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
