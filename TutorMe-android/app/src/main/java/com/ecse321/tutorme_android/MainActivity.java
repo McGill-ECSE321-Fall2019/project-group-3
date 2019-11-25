@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.content.Intent;
 
+
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
@@ -25,14 +26,13 @@ import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class MainActivity extends AppCompatActivity {
-    private String error = "";
+    private String error = " ";
     private EditText email;
     private EditText password;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        refreshErrorMessage();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         email = (EditText) findViewById(R.id.email);
@@ -40,7 +40,19 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
+    private void refreshErrorMessage() {
+        // set the error message
+        TextView tvError = (TextView) findViewById(R.id.error);
+        tvError.setText(error);
+
+        if (error == null || error.length() == 0) {
+            tvError.setVisibility(View.GONE);
+        } else {
+            tvError.setVisibility(View.VISIBLE);
+        }
+    }
     public void login (View V) {
+        error = "";
         System.out.println("hello");
         Button signIN_button = findViewById(R.id.signIN_button);
         signIN_button.setOnClickListener(new View.OnClickListener() {
@@ -62,15 +74,17 @@ public class MainActivity extends AppCompatActivity {
                                 System.out.println(foundPassword);
                                 if (foundEmail.equals(email.getText().toString())) {
                                     if (foundPassword.equals(password.getText().toString())) {
-                                        System.out.println("Account exists, we can login");
+                                        error += "Account Exists! Logging you in";
+                                        refreshErrorMessage();
                                         startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
                                     }else{
-                                        System.out.println("Invalid Username or password");
+                                        error += "Invalid Username/Password";
                                     }
                                 }
                             } catch (JSONException e) {
                                 throw new RuntimeException(e);
                             }
+                            refreshErrorMessage();
                         }
                     }
                     @Override
@@ -121,4 +135,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
