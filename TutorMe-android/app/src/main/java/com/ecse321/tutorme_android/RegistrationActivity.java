@@ -35,7 +35,6 @@ public class RegistrationActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password);
         firstName = (EditText) findViewById(R.id.firstName);
         lastName = (EditText) findViewById(R.id.lastName);
-        refreshErrorMessage();
     }
 
     private void refreshErrorMessage() {
@@ -49,7 +48,6 @@ public class RegistrationActivity extends AppCompatActivity {
             tvError.setVisibility(View.VISIBLE);
         }
     }
-
     public void registration(View V) {
         error = "";
         Button signUp_button = findViewById(R.id.registration_button);
@@ -76,46 +74,26 @@ public class RegistrationActivity extends AppCompatActivity {
         signUp_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HttpUtils.get("/api/manager/getall", null, new JsonHttpResponseHandler() {
-                    private JSONArray response;
-
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
-                                JSONObject jsonobject = response.getJSONObject(i);
-                                String foundEmail = jsonobject.getString("email");
-                                if (foundEmail.equals(email.getText().toString())) {
-                                    error = "An account already exists with that email";
-                                    refreshErrorMessage();
-                                } else {
-                                    StringEntity jsonEntity = new StringEntity(requestObject.toString());
-                                    HttpUtils.postJson("/api/manager", jsonEntity, new JsonHttpResponseHandler() {
-                                        @Override
-                                        public void onSuccess(int statusCode, Header[] headers, String response) {
-                                            error = "Account Registered! Please return to login";
-                                            refreshErrorMessage();
-                                        }
-
-                                        @Override
-                                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                                            try {
-                                                error += statusCode + " " + throwable.getMessage();
-                                            } catch (Exception e) {
-                                                error += e.getMessage();
-                                            }
-                                        }
-                                    });
-
+                try {
+                        StringEntity jsonEntity = new StringEntity(requestObject.toString());
+                    HttpUtils.postJson("/api/manager", jsonEntity, new JsonHttpResponseHandler(){
+                                @Override
+                                public void onSuccess(int statusCode, Header[] headers, String response) {
+                                    error += "Success";
                                 }
-                            } catch (Exception e) {
-                                error += e.getMessage();
-                            }
-                        }
-                    }
-                });
+                                @Override
+                                public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                                    try {
+                                        error += statusCode+" " + throwable.getMessage();
+                                    } catch (Exception e) {
+                                        error += e.getMessage();
+                                    }
+                                }
+                    });
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 }
-
