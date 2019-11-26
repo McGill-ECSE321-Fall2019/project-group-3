@@ -167,7 +167,6 @@ public class Homepage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Homepage.this, TutorActivity.class));
-                finish();
             }
         });
     }
@@ -178,7 +177,6 @@ public class Homepage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Homepage.this, StudentActivity.class));
-                finish();
             }
         });
     }
@@ -189,7 +187,6 @@ public class Homepage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Homepage.this, UniversityActivity.class));
-                finish();
             }
         });
     }
