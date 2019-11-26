@@ -2,6 +2,7 @@ package com.ecse321.tutorme_android;
 
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import androidx.appcompat.widget.Toolbar;
 import cz.msebera.android.httpclient.Header;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -64,34 +66,34 @@ public class Homepage extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void setCalendarEvents(){
+    public void setCalendarEvents() {
         System.out.println("setting up calendar");
-        final CompactCalendarView compactCalendarView  = findViewById(R.id.compactcalendar_view);
+        final CompactCalendarView compactCalendarView = findViewById(R.id.compactcalendar_view);
         //fetch from backend and set.
-        HttpUtils.get("/api/lesson/getall", new RequestParams(), new JsonHttpResponseHandler(){
+        HttpUtils.get("/api/lesson/getall", new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                if(statusCode!=200) return;
+                if (statusCode != 200) return;
 
-                for(int i = 0; i<response.length(); i++){
+                for (int i = 0; i < response.length(); i++) {
                     try {
                         final JSONObject lessonObj = response.getJSONObject(i);
                         final int lessonId = lessonObj.getInt("lessonId");
 
                         RequestParams requestParams = new RequestParams();
-                        requestParams.put("lessonId",lessonId);
+                        requestParams.put("lessonId", lessonId);
                         HttpUtils.get("/api/lesson/getCourseRoom", requestParams,
-                        new JsonHttpResponseHandler(){
-                            @Override
-                            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                                createEvent(compactCalendarView, lessonObj, response);
-                            }
+                                new JsonHttpResponseHandler() {
+                                    @Override
+                                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                                        createEvent(compactCalendarView, lessonObj, response);
+                                    }
 
-                            @Override
-                            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                                    @Override
+                                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
 
-                            }
-                            });
+                                    }
+                                });
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -107,7 +109,7 @@ public class Homepage extends AppCompatActivity {
         setUpListeners(compactCalendarView);
     }
 
-    public void setUpListeners(final CompactCalendarView compactCalendarView){
+    public void setUpListeners(final CompactCalendarView compactCalendarView) {
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
@@ -126,7 +128,7 @@ public class Homepage extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void createEvent(final CompactCalendarView compactCalendarView, JSONObject lessonObj, JSONObject courseRoomResp){
+    public void createEvent(final CompactCalendarView compactCalendarView, JSONObject lessonObj, JSONObject courseRoomResp) {
         System.out.println("created as well");
         try {
             System.out.println(lessonObj.getInt("lessonId"));
@@ -134,23 +136,23 @@ public class Homepage extends AppCompatActivity {
             String courseName = null;
             Integer roomId = null;
 
-            if(!courseRoomResp.isNull("course") && !courseRoomResp.getJSONObject("course").isNull("courseName")){
+            if (!courseRoomResp.isNull("course") && !courseRoomResp.getJSONObject("course").isNull("courseName")) {
                 courseName = courseRoomResp.getJSONObject("course").getString("courseName");
             }
 
-            if(!courseRoomResp.isNull("room") && !courseRoomResp.getJSONObject("room").isNull("room_id")){
+            if (!courseRoomResp.isNull("room") && !courseRoomResp.getJSONObject("room").isNull("room_id")) {
                 roomId = courseRoomResp.getJSONObject("room").getInt("room_id");
             }
 
             StringBuilder sb = new StringBuilder();
-            if(courseName!=null) sb.append(courseName + " ");
-            if(roomId!=null) sb.append("at Room #:" + roomId.intValue());
+            if (courseName != null) sb.append(courseName + " ");
+            if (roomId != null) sb.append("at Room #:" + roomId.intValue());
 
-            if(sb.length()==0) sb.append("Lesson #"+lessonObj.getInt("lessonId"));
+            if (sb.length() == 0) sb.append("Lesson #" + lessonObj.getInt("lessonId"));
 
             String date = lessonObj.getString("startTime");
             long dateLong = LocalDateTime.parse(date).toEpochSecond(ZoneOffset.UTC);
-            dateLong*=1000;
+            dateLong *= 1000;
             Event event = new Event(Color.GREEN, dateLong, sb.toString().trim());
             compactCalendarView.addEvent(event);
         } catch (JSONException e) {
@@ -159,4 +161,37 @@ public class Homepage extends AppCompatActivity {
 
     }
 
+    public void navigateToTutors(View v) {
+        Button tutorButtons = findViewById(R.id.button4);
+        tutorButtons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Homepage.this, TutorActivity.class));
+                finish();
+            }
+        });
+    }
+
+    public void navigateToStudents(View v) {
+        Button studentButton = findViewById(R.id.button5);
+        studentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Homepage.this, StudentActivity.class));
+                finish();
+            }
+        });
+    }
+
+    public void navigateToUniversities(View v) {
+        Button uniButton = findViewById(R.id.button6);
+        uniButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Homepage.this, UniversityActivity.class));
+                finish();
+            }
+        });
+    }
 }
+
