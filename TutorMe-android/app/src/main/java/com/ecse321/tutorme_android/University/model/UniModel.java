@@ -1,12 +1,16 @@
-package com.ecse321.tutorme_android.model;
+package com.ecse321.tutorme_android.University.model;
 
 import java.util.List;
 
 public class UniModel {
 
     private String universityTitle;
-    private List<String> courseNames;
     private List<String> subjectNames;
+
+    public UniModel(String universityTitle, List<String> subjectNames) {
+        this.universityTitle = universityTitle;
+        this.subjectNames = subjectNames;
+    }
 
     public String getUniversityTitle() {
         return universityTitle;
@@ -14,14 +18,6 @@ public class UniModel {
 
     public void setUniversityTitle(String universityTitle) {
         this.universityTitle = universityTitle;
-    }
-
-    public List<String> getCourseNames() {
-        return courseNames;
-    }
-
-    public void setCourseNames(List<String> courseNames) {
-        this.courseNames = courseNames;
     }
 
     public List<String> getSubjectNames() {
