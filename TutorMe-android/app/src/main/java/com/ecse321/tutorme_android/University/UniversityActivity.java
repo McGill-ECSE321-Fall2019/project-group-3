@@ -36,6 +36,7 @@ public class UniversityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_university);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Universities");
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +89,7 @@ public class UniversityActivity extends AppCompatActivity {
 
             }
         });
-        addTests(models);
+       // addTests(models);
         return models;
     }
 
