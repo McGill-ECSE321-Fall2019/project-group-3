@@ -70,7 +70,9 @@ public class MainActivity extends AppCompatActivity {
                                 String foundPassword = jsonobject.getString("password");
                                 if (foundEmail.equals(email.getText().toString())) {
                                     if (foundPassword.equals(password.getText().toString())) {
-                                        startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
+                                        error += "Account Exists! Logging you in";
+                                        refreshErrorMessage();
+                                        startActivity(new Intent(MainActivity.this, Homepage.class));
                                     }else{
                                         error = "Invalid Username/Password";
                                         refreshErrorMessage();

@@ -12,6 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".University.UniversityActivity"
+            android:label="@string/title_activity_university"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".StudentActivity"
+            android:label="@string/title_activity_student"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TutorActivity"
+            android:label="@string/title_activity_tutor"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Homepage"
+            android:label="@string/title_activity_homepage"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
