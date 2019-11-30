@@ -19,7 +19,9 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 
-
+/**
+ * This class represents behaviour for the Registration screen
+ */
 public class RegistrationActivity extends AppCompatActivity {
     private String error = null;
     private EditText email;

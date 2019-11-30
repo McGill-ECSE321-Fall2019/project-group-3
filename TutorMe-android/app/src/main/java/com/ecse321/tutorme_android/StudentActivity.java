@@ -10,6 +10,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 
+/**
+ * This class represents behaviour for the View all Students screen
+ */
 public class StudentActivity extends AppCompatActivity {
 
     @Override

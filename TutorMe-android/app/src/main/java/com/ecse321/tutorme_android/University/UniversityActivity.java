@@ -30,6 +30,10 @@ public class UniversityActivity extends AppCompatActivity {
     RecyclerView uRecyclerView;
     UniAdapter uniAdapter;
 
+    /**
+     * The University onCreate function sets the toolbar layout and begins call to fetch university data.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +58,11 @@ public class UniversityActivity extends AppCompatActivity {
         uRecyclerView.setAdapter(uniAdapter);
     }
 
+    /**
+     * Makes call to /api/university/getall, and receives all universities.
+     * The received objects are parsed by this function into a model for the view.
+     * @return void
+     */
     private ArrayList<UniModel> fetchList(){
         ArrayList<UniModel> models = new ArrayList<>();
 
@@ -89,24 +98,6 @@ public class UniversityActivity extends AppCompatActivity {
 
             }
         });
-       // addTests(models);
         return models;
-    }
-
-    private void addTests(ArrayList<UniModel> models){
-        List<String> sampleCourses = new ArrayList<>();
-        sampleCourses.add("Course1");
-        sampleCourses.add("Course2");
-        sampleCourses.add("Course3");
-        models.add(new UniModel("Test University", sampleCourses));
-        models.add(new UniModel("Test2 University", sampleCourses));
-        models.add(new UniModel("Test3 University", sampleCourses));
-        models.add(new UniModel("Test4 University", sampleCourses));
-        models.add(new UniModel("Test5 University", sampleCourses));
-        models.add(new UniModel("Test6 University", sampleCourses));
-        models.add(new UniModel("Test7 University", sampleCourses));
-        models.add(new UniModel("Test8 University", sampleCourses));
-        models.add(new UniModel("Test9 University", sampleCourses));
-        models.add(new UniModel("Test10 University", sampleCourses));
     }
 }

@@ -21,7 +21,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import cz.msebera.android.httpclient.Header;
 
-
+/**
+ * This class represents behaviour for the main activity on launch.
+ * i.e. the login screen
+ */
 public class MainActivity extends AppCompatActivity {
     private String error = null;
     private EditText email;
