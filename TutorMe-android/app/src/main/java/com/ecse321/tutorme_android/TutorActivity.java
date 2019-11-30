@@ -10,6 +10,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 
+/**
+ * This class represents behaviour for the View all Tutors screen
+ */
 public class TutorActivity extends AppCompatActivity {
 
     @Override
