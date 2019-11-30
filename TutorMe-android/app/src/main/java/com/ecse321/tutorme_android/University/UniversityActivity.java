@@ -87,6 +87,7 @@ public class UniversityActivity extends AppCompatActivity {
                             }
                         }
                         models.add(new UniModel(uniTitle, subjectNames));
+                        uniAdapter.notifyDataSetChanged();
                     } catch (Exception e){
                         e.printStackTrace();
                     }
