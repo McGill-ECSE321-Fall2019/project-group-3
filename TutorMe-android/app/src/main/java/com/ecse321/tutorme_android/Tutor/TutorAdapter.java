@@ -29,19 +29,21 @@ public class TutorAdapter extends RecyclerView.Adapter<ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from
                 (parent.getContext())
-                .inflate(R.layout.unirow, null));
+                .inflate(R.layout.tutor_row, null));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.nameView.setText(models.get(position).getFirstName() + " " + models.get(position).getLastName());
-
-        //add to spinner
-        List<String> items_subs = models.get(position).getReviewComments();
-        String[] items = items_subs.toArray(new String[0]);
-        ArrayAdapter<String> subject_adapter = new ArrayAdapter<>(c, android.R.layout.simple_spinner_dropdown_item, items);
-        holder.reviewSpinner.setAdapter(subject_adapter);
+        holder.emailView.setText(models.get(position).getEmail());
+        StringBuilder sb = new StringBuilder();
+        if(models.get(position).getReviewComments().size() != 0) sb.append("Tutor reviews: \n \n" );
+        int index = 0;
+        for(String comment: models.get(position).getReviewComments()){
+            sb.append("\u2022  " + models.get(position).getReviewComments().get(index++) + "\n");
+        }
+        holder.reviewView.setText(sb.toString());
     }
 
     @Override

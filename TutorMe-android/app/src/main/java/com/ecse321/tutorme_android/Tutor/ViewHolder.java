@@ -14,14 +14,13 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     TextView nameView;
     TextView emailView;
     TextView reviewView;
-    Spinner reviewSpinner;
 
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
 
         this.nameView = itemView.findViewById(R.id.tutorName);
         this.emailView = itemView.findViewById(R.id.tutorEmail);
-        this.reviewSpinner = itemView.findViewById(R.id.reviewSpinner);
+        this.reviewView = itemView.findViewById(R.id.reviewText);
     }
 
 
