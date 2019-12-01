@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="lib" path="build/libs/tutorME-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="tutorMe-frontend/node_modules/selenium-server/lib/runner/selenium-server-standalone-3.141.59.jar"/>
+	<classpathentry kind="output" path="build/bin"/>
+</classpath>

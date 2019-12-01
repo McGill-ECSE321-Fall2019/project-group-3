@@ -1,28 +1,25 @@
-package com.ecse321.tutorme_android.University;
+package com.ecse321.tutorme_android.Tutor;
 
 import android.content.Context;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.ecse321.tutorme_android.R;
-import com.ecse321.tutorme_android.University.model.UniModel;
+import com.ecse321.tutorme_android.Tutor.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
-
-public class UniAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class TutorAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     Context c;
-    ArrayList<UniModel> models;
+    ArrayList<TutorModel> models;
 
-    public UniAdapter(Context c, ArrayList<UniModel> models) {
+    public TutorAdapter(Context c, ArrayList<TutorModel> models) {
         this.c = c;
         this.models = models;
     }
@@ -38,18 +35,17 @@ public class UniAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.titleView.setText(models.get(position).getUniversityTitle());
+        holder.nameView.setText(models.get(position).getFirstName() + " " + models.get(position).getLastName());
 
         //add to spinner
-        List<String> items_subs = models.get(position).getSubjectNames();
+        List<String> items_subs = models.get(position).getReviewComments();
         String[] items = items_subs.toArray(new String[0]);
         ArrayAdapter<String> subject_adapter = new ArrayAdapter<>(c, android.R.layout.simple_spinner_dropdown_item, items);
-        holder.subjectSpinner.setAdapter(subject_adapter);
+        holder.reviewSpinner.setAdapter(subject_adapter);
     }
 
     @Override
     public int getItemCount() {
-        System.out.println("Number of elements:" + models.size());
         return models.size();
     }
 }
