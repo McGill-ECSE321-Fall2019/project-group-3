@@ -9,6 +9,10 @@ import com.ecse321.tutorme_android.R;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+/*
+ViewHolder for the RecyclerView.
+Each University Card (View) has a title, and a spinner for subject.
+ */
 public class ViewHolder extends RecyclerView.ViewHolder {
 
     TextView titleView;

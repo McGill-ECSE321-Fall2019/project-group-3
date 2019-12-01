@@ -32,8 +32,15 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Date;
 
+/**
+ * This class represents behaviour for the HomePage screen, i.e. after login.
+ */
 public class Homepage extends AppCompatActivity {
 
+    /**
+     * This method configures layout and initiates the loading of calendar events from backend.
+     * @param savedInstanceState
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +66,13 @@ public class Homepage extends AppCompatActivity {
         setCalendarEvents();
     }
 
+    /**
+     * Fetches all lessons from backend.
+     * On success of call, parses lessons, and makes another call to retrieve their courses and rooms.
+     * createEvent() is then initiated to add lesson to calendar.
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void setCalendarEvents() {
-        System.out.println("setting up calendar");
         final CompactCalendarView compactCalendarView = findViewById(R.id.compactcalendar_view);
         //fetch from backend and set.
         HttpUtils.get("/api/lesson/getall", new RequestParams(), new JsonHttpResponseHandler() {
@@ -103,6 +114,10 @@ public class Homepage extends AppCompatActivity {
         setUpListeners(compactCalendarView);
     }
 
+    /**
+     * This method takes in a reference to CalendarView and adds an onClick listener for date clicked.
+     * @param compactCalendarView
+     */
     public void setUpListeners(final CompactCalendarView compactCalendarView) {
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -121,12 +136,16 @@ public class Homepage extends AppCompatActivity {
         });
     }
 
+    /**
+     * The createEvent method takes references to the calendarView, and JSONObjects retrieved from backend.
+     * The objects are parsed into View-Friendly Text and configured to be added to the calendar.
+     * @param compactCalendarView
+     * @param lessonObj
+     * @param courseRoomResp
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void createEvent(final CompactCalendarView compactCalendarView, JSONObject lessonObj, JSONObject courseRoomResp) {
-        System.out.println("created as well");
         try {
-            System.out.println(lessonObj.getInt("lessonId"));
-
             String courseName = null;
             Integer roomId = null;
 
@@ -155,6 +174,10 @@ public class Homepage extends AppCompatActivity {
 
     }
 
+    /**
+     * This method takes a reference to the View and navigates to TutorActivity onClick of respective button.
+     * @param v
+     */
     public void navigateToTutors(View v) {
         Button tutorButtons = findViewById(R.id.button4);
         tutorButtons.setOnClickListener(new View.OnClickListener() {
@@ -164,7 +187,10 @@ public class Homepage extends AppCompatActivity {
             }
         });
     }
-
+    /**
+     * This method takes a reference to the View and navigates to StudentActivity onClick of respective button.
+     * @param v
+     */
     public void navigateToStudents(View v) {
         Button studentButton = findViewById(R.id.button5);
         studentButton.setOnClickListener(new View.OnClickListener() {
@@ -174,7 +200,10 @@ public class Homepage extends AppCompatActivity {
             }
         });
     }
-
+    /**
+     * This method takes a reference to the View and navigates to UniversityActivity onClick of respective button.
+     * @param v
+     */
     public void navigateToUniversities(View v) {
         Button uniButton = findViewById(R.id.button6);
         uniButton.setOnClickListener(new View.OnClickListener() {

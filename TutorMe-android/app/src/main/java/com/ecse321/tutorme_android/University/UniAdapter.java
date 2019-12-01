@@ -17,6 +17,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+/*
+This class dictates the adapter for the Universities.
+i.e. handles the data flow from strings to the respective components.
+ */
 public class UniAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     Context c;
@@ -27,6 +31,12 @@ public class UniAdapter extends RecyclerView.Adapter<ViewHolder> {
         this.models = models;
     }
 
+    /**
+     * Initializes the View Holder with the unirow.xml configuration
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -35,6 +45,11 @@ public class UniAdapter extends RecyclerView.Adapter<ViewHolder> {
                 .inflate(R.layout.unirow, null));
     }
 
+    /**
+     * Sets the titleView and Spinners for University Card Views to their respective String values.
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
