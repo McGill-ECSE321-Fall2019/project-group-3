@@ -82,4 +82,15 @@
         app:layout_constraintStart_toEndOf="@+id/button5"
         android:onClick="navigateToUniversities"/>
 
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="11dp"
+        android:text="Courses"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button6"
+        android:onClick="navigateToCourses" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,6 +16,10 @@
             android:label="@string/title_activity_university"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
+            android:name=".Course.CourseActivity"
+            android:label="CourseActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".StudentActivity"
             android:label="@string/title_activity_student"
             android:theme="@style/AppTheme.NoActionBar" />
