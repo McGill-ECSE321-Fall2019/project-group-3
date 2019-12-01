@@ -12,13 +12,15 @@ import com.ecse321.tutorme_android.R;
 public class ViewHolder extends RecyclerView.ViewHolder {
 
     TextView nameView;
-    Spinner reviewSpinner;
+    TextView emailView;
+    TextView reviewView;
 
     public ViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        this.nameView = itemView.findViewById(R.id.titleUni);
-        this.reviewSpinner = itemView.findViewById(R.id.spinner_subjects);
+        this.nameView = itemView.findViewById(R.id.studentName);
+        this.emailView = itemView.findViewById(R.id.studentEmail);
+        this.reviewView = itemView.findViewById(R.id.reviewText);
     }
 
 

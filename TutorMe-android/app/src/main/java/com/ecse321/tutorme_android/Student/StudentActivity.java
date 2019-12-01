@@ -89,18 +89,5 @@ public class StudentActivity extends AppCompatActivity {
         // addTests(models);
         return models;
     }
-
-    private void addTests(ArrayList<StudentModel> models) {
-        List<String> sampleReviews = new ArrayList<>();
-        sampleReviews.add("Review1");
-        sampleReviews.add("Review2");
-        sampleReviews.add("Review3");
-        models.add(new StudentModel("zaber", "doe", "zib@email.com", sampleReviews));
-        models.add(new StudentModel("zaber", "doe", "zib@email.com", sampleReviews));
-        models.add(new StudentModel("zaber", "doe", "zib@email.com", sampleReviews));
-        models.add(new StudentModel("zaber", "doe", "zib@email.com", sampleReviews));
-        models.add(new StudentModel("zaber", "doe", "zib@email.com", sampleReviews));
-        models.add(new StudentModel("zaber", "doe", "zib@email.com", sampleReviews));
-        models.add(new StudentModel("zaber", "doe", "zib@email.com", sampleReviews));
-    }
+    
 }
