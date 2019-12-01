@@ -50,15 +50,6 @@ public class Homepage extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         TextView textView = findViewById(R.id.homepage_text);
         textView.setText("Welcome to TutorME!");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
