@@ -3,37 +3,37 @@ package com.ecse321.tutorme_android.Course.model;
 import java.util.List;
 
 /*
-This is a sample class to hold data for the University
--- Holds a title, and a list of associated subjects' names. 
+This is a sample class to hold data for the Subject
+-- Holds a title, and a list of associated courses' names.
  */
 public class CourseModel {
 
-    private String courseTitle;
-    private List<String> subjectNames;
+    private String subjectTitle;
+    private List<String> courseNames;
 
     /**
-     * Create a Course Model with title, and a list of the subjects available.
-     * @param courseTitle
-     * @param subjectNames
+     * Create a Course Model with subjbect title, and a list of the courses available.
+     * @param subjectTitle
+     * @param courseNames
      */
-    public CourseModel(String courseTitle, List<String> subjectNames) {
-        this.courseTitle = courseTitle;
-        this.subjectNames = subjectNames;
+    public CourseModel(String subjectTitle, List<String> courseNames) {
+        this.subjectTitle = subjectTitle;
+        this.courseNames = courseNames;
     }
 
-    public String getCourseTitle() {
-        return courseTitle;
+    public String getSubjectTitle() {
+        return subjectTitle;
     }
 
-    public void setCourseTitle(String courseTitle) {
-        this.courseTitle = courseTitle;
+    public void setSubjectTitle(String subjectTitle) {
+        this.subjectTitle = subjectTitle;
     }
 
-    public List<String> getSubjectNames() {
-        return subjectNames;
+    public List<String> getCourseNames() {
+        return courseNames;
     }
 
-    public void setSubjectNames(List<String> subjectNames) {
-        this.subjectNames = subjectNames;
+    public void setCourseNames(List<String> courseNames) {
+        this.courseNames = courseNames;
     }
 }

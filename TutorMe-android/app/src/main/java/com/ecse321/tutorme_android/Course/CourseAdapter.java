@@ -9,11 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ecse321.tutorme_android.R;
-import com.ecse321.tutorme_android.Course.ViewHolder;
 import com.ecse321.tutorme_android.Course.model.CourseModel;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /*
 This class dictates the adapter for the Universities.
@@ -44,19 +42,19 @@ public class CourseAdapter extends RecyclerView.Adapter<ViewHolder> {
     }
 
     /**
-     * Sets the titleView and Spinners for University Card Views to their respective String values.
+     * Sets the titleView for Course Card Views to their String values.
      * @param holder
      * @param position
      */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.titleView.setText(models.get(position).getCourseTitle());
+        holder.titleView.setText(models.get(position).getSubjectTitle());
 
         StringBuilder sb = new StringBuilder();
         int index = 0;
-        for(String course: this.models.get(position).getSubjectNames()){
-            sb.append("\u2022  " + this.models.get(position).getSubjectNames().get(index++) + "\n");
+        for(String course: this.models.get(position).getCourseNames()){
+            sb.append("\u2022  " + this.models.get(position).getCourseNames().get(index++) + "\n");
         }
 
         holder.coursesView.setText(sb.toString());

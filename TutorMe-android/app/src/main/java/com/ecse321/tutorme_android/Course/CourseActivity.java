@@ -1,7 +1,6 @@
 package com.ecse321.tutorme_android.Course;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,10 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ecse321.tutorme_android.HttpUtils;
 import com.ecse321.tutorme_android.R;
-import com.ecse321.tutorme_android.Course.CourseAdapter;
 import com.ecse321.tutorme_android.Course.model.CourseModel;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
@@ -42,15 +38,6 @@ public class CourseActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Courses");
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         uRecyclerView = findViewById(R.id.recyclerview);
         uRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -59,7 +46,7 @@ public class CourseActivity extends AppCompatActivity {
     }
 
     /**
-     * Makes call to /api/university/getall, and receives all universities.
+     * Makes call to /api/subject/getall, and receives all subjects.
      * The received objects are parsed by this function into a model for the view.
      * @return void
      */
@@ -75,20 +62,19 @@ public class CourseActivity extends AppCompatActivity {
                     try {
                         JSONObject jsonObj = responseArray.getJSONObject(i);
                         String subjectTitle = jsonObj.getString("subject_name");
-                        List<String> subjectNames = new ArrayList<>();
+                        List<String> courseNames = new ArrayList<>();
                         if(jsonObj.getJSONArray("courses").length()!=0){
                             JSONArray subjectArray = jsonObj.getJSONArray("courses");
                             for(int j = 0; j<subjectArray.length(); j++){
                                 try{
                                     JSONObject subjectObj = subjectArray.getJSONObject(j);
-                                    subjectNames.add(subjectObj.getString("courseName"));
+                                    courseNames.add(subjectObj.getString("courseName"));
                                 } catch (Exception e){
                                     e.printStackTrace();
                                 }
                             }
                         }
-                        System.out.println(subjectTitle);
-                        models.add(new CourseModel(subjectTitle, subjectNames));
+                        models.add(new CourseModel(subjectTitle, courseNames));
                         courseAdapter.notifyDataSetChanged();
                     } catch (Exception e){
                         e.printStackTrace();

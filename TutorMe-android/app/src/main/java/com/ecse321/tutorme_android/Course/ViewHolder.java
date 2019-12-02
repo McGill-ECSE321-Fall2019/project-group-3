@@ -11,7 +11,7 @@ import com.ecse321.tutorme_android.R;
 
 /*
 ViewHolder for the RecyclerView.
-Each University Card (View) has a title, and a spinner for subject.
+Each Course Card (View) has a title, and a list of subjects.
  */
 public class ViewHolder extends RecyclerView.ViewHolder {
 
