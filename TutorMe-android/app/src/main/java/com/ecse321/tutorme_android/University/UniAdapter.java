@@ -64,6 +64,7 @@ public class UniAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public int getItemCount() {
+        System.out.println("Number of elements:" + models.size());
         return models.size();
     }
 }

@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
+import com.ecse321.tutorme_android.Tutor.TutorActivity;
 import com.ecse321.tutorme_android.University.UniversityActivity;
 import com.ecse321.tutorme_android.Course.CourseActivity;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;

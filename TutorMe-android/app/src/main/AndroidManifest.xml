@@ -24,7 +24,7 @@
             android:label="@string/title_activity_student"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".TutorActivity"
+            android:name=".Tutor.TutorActivity"
             android:label="@string/title_activity_tutor"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

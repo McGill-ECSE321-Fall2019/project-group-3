@@ -92,6 +92,7 @@ public class UniversityActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+                uniAdapter.notifyDataSetChanged();
             }
 
             @Override
