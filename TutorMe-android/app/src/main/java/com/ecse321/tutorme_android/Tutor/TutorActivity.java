@@ -29,6 +29,10 @@ public class TutorActivity extends AppCompatActivity {
     RecyclerView tutorRecyclerView;
     TutorAdapter tutorAdapter;
 
+    /**
+     * Actions to do upon page creation
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +57,10 @@ public class TutorActivity extends AppCompatActivity {
         tutorRecyclerView.setAdapter(tutorAdapter);
     }
 
+    /**
+     * Function that calls http request to get all tutors
+     * @return
+     */
     private ArrayList<TutorModel> fetchList(){
         ArrayList<TutorModel> models = new ArrayList<>();
 
@@ -94,20 +102,4 @@ public class TutorActivity extends AppCompatActivity {
         // addTests(models);
         return models;
     }
-
-    private void addTests(ArrayList<TutorModel> models){
-        List<String> sampleReviews = new ArrayList<>();
-        sampleReviews.add("Review1");
-        sampleReviews.add("Revirew2");
-        sampleReviews.add("Review3");
-        models.add(new TutorModel("John", "Doe", "test@email.com" ,sampleReviews));
-        models.add(new TutorModel("John", "Doe", "test@email.com" ,sampleReviews));
-        models.add(new TutorModel("John", "Doe", "test@email.com" ,sampleReviews));
-        models.add(new TutorModel("John", "Doe", "test@email.com" ,sampleReviews));
-        models.add(new TutorModel("John", "Doe", "test@email.com" ,sampleReviews));
-        models.add(new TutorModel("John", "Doe", "test@email.com" ,sampleReviews));
-        models.add(new TutorModel("John", "Doe", "test@email.com" ,sampleReviews));
-        models.add(new TutorModel("John", "Doe", "test@email.com" ,sampleReviews));
-    }
-
 }

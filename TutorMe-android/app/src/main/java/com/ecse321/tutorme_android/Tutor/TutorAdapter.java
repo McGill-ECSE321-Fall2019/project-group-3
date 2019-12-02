@@ -19,6 +19,11 @@ public class TutorAdapter extends RecyclerView.Adapter<ViewHolder> {
     Context c;
     ArrayList<TutorModel> models;
 
+    /**
+     *
+     * @param c context
+     * @param models list of tutor models
+     */
     public TutorAdapter(Context c, ArrayList<TutorModel> models) {
         this.c = c;
         this.models = models;
@@ -32,6 +37,11 @@ public class TutorAdapter extends RecyclerView.Adapter<ViewHolder> {
                 .inflate(R.layout.tutor_row, null));
     }
 
+    /**
+     *
+     * @param holder View holder to bind
+     * @param position Position of the row in the refresher view
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
@@ -46,6 +56,10 @@ public class TutorAdapter extends RecyclerView.Adapter<ViewHolder> {
         holder.reviewView.setText(sb.toString());
     }
 
+    /**
+     *
+     * @return The number of rows to render
+     */
     @Override
     public int getItemCount() {
         return models.size();
