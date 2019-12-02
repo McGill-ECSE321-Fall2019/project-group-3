@@ -20,12 +20,12 @@
             android:label="CourseActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".StudentActivity"
-            android:label="@string/title_activity_student"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".Tutor.TutorActivity"
             android:label="@string/title_activity_tutor"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Student.StudentActivity"
+            android:label="StudentActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Homepage"
