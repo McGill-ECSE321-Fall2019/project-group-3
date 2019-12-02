@@ -29,6 +29,10 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText firstName;
     private EditText lastName;
 
+    /**
+     * The Registration onCreate function sets the registration form input layout to include fields for email, password, firstname and lastname
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +42,9 @@ public class RegistrationActivity extends AppCompatActivity {
         firstName = findViewById(R.id.firstName);
         lastName = findViewById(R.id.lastName);
     }
-
+    /**
+     * Makes a call to refresh an error message display.
+     */
     private void refreshErrorMessage() {
         // set the error message
         TextView tvError = (TextView) findViewById(R.id.error);
@@ -50,6 +56,11 @@ public class RegistrationActivity extends AppCompatActivity {
             tvError.setVisibility(View.VISIBLE);
         }
     }
+    /**
+     * Parses all input data into a JSON object.
+     * Makes call to /api/manager, passing the JSON object of a new manager in the post request.
+     * @param V
+     */
     public void registration(View V) {
         error = "";
         Button signUp_button = findViewById(R.id.registration_button);

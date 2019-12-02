@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
 
+    /**
+     * The MainActivity ie. login onCreate function sets the login form input layout and toolbar layout.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         refreshErrorMessage();
     }
+
+    /**
+     * Makes a call to refresh an error message display.
+     */
     private void refreshErrorMessage() {
         // set the error message
         TextView tvError = (TextView) findViewById(R.id.error);
@@ -51,6 +59,14 @@ public class MainActivity extends AppCompatActivity {
             tvError.setVisibility(View.VISIBLE);
         }
     }
+
+    /**
+     * Makes call to /api/manager/getall, and receives all managers.
+     * The received objects are parsed by this function into a model for the view.
+     * The login input parameters are checked against the list of existing managers to determine
+     * whether an accunt with these details exists, and if the input details much the existing manager account
+     * @param V
+     */
     public void login (View V) {
         error = "";
         Button signIN_button = findViewById(R.id.signIN_button);
