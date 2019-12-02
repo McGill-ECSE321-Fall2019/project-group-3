@@ -55,10 +55,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginBottom="11dp"
+        android:onClick="navigateToTutors"
         android:text="Tutors"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="navigateToTutors"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button5"
@@ -66,10 +67,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginBottom="11dp"
+        android:onClick="navigateToStudents"
         android:text="Students"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button4"
-        android:onClick="navigateToStudents"/>
+        app:layout_constraintStart_toEndOf="@+id/button4" />
 
     <Button
         android:id="@+id/button6"
@@ -77,9 +79,22 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="11dp"
+        android:onClick="navigateToUniversities"
         android:text="Universities"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button5"
-        android:onClick="navigateToUniversities"/>
+        app:layout_constraintStart_toEndOf="@+id/button5" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="11dp"
+        android:onClick="navigateToCourses"
+        android:text="Courses"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

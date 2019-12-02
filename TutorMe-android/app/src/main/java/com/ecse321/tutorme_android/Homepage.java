@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import com.ecse321.tutorme_android.University.UniversityActivity;
+import com.ecse321.tutorme_android.Course.CourseActivity;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -48,15 +49,6 @@ public class Homepage extends AppCompatActivity {
         setContentView(R.layout.activity_homepage);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         TextView textView = findViewById(R.id.homepage_text);
         textView.setText("Welcome to TutorME!");
@@ -210,6 +202,16 @@ public class Homepage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Homepage.this, UniversityActivity.class));
+            }
+        });
+    }
+
+    public void navigateToCourses(View v) {
+        Button coursesButton = findViewById(R.id.button7);
+        coursesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Homepage.this, CourseActivity.class));
             }
         });
     }
