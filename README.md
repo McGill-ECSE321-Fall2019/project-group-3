@@ -3,7 +3,7 @@
 
 Welcome to the ECSE 321 - Fall 2019 project - Group 3 edition.
 
-TutorMe is hosted here: https://tutorme-ecse321-group3.herokuapp.com
+TutorMe is hosted here: https://tutorme-ecse321-group3.herokuapp.com/swagger-ui.html
 
 Please check the wiki for information on the architecture of the system and how to use it.
 
@@ -58,5 +58,21 @@ The user guide in order to use the TutorMe application can be found [here](https
 | Nicolas Abdelnour | 40 |  Integration of Web Frontend with Backend Services, Continuous Integration and Delivery. Course/Subject Page|
 | Elie Elia | 40 | Build System, Continuous Integration and Delivery. Frontend deisgn and backend integration of the following pages: Login, Registration, Rooms, Homepage, Navigation Bar. Application User Guide and Documentation |
 | Jason Daou | 40 |Implementation and Integration of Tutor Frontend and Backend services, Architechture Model and Multiple Bug Fixes|
+
+* Note: Every team member was reponsible for the implementation and testing of their own methods, specified in the report
+
+## Deliverable 4
+
+The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/project-group-3/wiki/Deliverable-4-Report)
+
+The user guide in order to use the TutorMe application can be found [here](https://github.com/McGill-ECSE321-Fall2019/project-group-3/wiki/User-Guide)
+
+| Team member| Total hours| Responsibility |
+|------------------ |:-------------:| ---------------|
+| Karl Eid     | 25 | Implementation and Integration of Student Page, Project Management | 
+| Preyansh Kaushik| 25 | Implementation and Integration of User HomePage, and View Universities Page |
+| Nicolas Abdelnour | 25 |  Implementation and Integration of Subjects/Courses Page |
+| Elie Elia | 25 | Implementation and Integration of Login and Registration Page |
+| Jason Daou | 25 |Implementation and Integration of Tutor Page |
 
 * Note: Every team member was reponsible for the implementation and testing of their own methods, specified in the report
