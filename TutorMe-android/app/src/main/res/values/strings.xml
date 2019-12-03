@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TutorMe-android</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_homepage">Homepage</string>
+    <string name="title_activity_tutor">TutorActivity</string>
+    <string name="title_activity_student">StudentActivity</string>
+    <string name="title_activity_university">UniversityActivity</string>
+</resources>
