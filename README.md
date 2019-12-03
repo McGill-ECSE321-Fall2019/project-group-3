@@ -49,7 +49,7 @@ The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/projec
 
 Frontend deployment URL in order to view the application can be found [here](http://tutorme-ecse321-group3-web.herokuapp.com/#/)
 
-The user guide in order to use the TutorMe application can be found [here](https://github.com/McGill-ECSE321-Fall2019/project-group-3/wiki/User-Guide)
+The user guide in order to use the TutorMe WEB application can be found [here](https://github.com/McGill-ECSE321-Fall2019/project-group-3/wiki/User-Guide)
 
 | Team member| Total hours| Responsibility |
 |------------------ |:-------------:| ---------------|
@@ -65,14 +65,16 @@ The user guide in order to use the TutorMe application can be found [here](https
 
 The report can be found [here](https://github.com/McGill-ECSE321-Fall2019/project-group-3/wiki/Deliverable-4-Report)
 
-The user guide in order to use the TutorMe application can be found [here](https://github.com/McGill-ECSE321-Fall2019/project-group-3/wiki/User-Guide)
+The user guide in order to use the TutorMe ANDROID application can be found [here](https://github.com/McGill-ECSE321-Fall2019/project-group-3/wiki/Android-App-User-Guide)
+
+The user guide in order to use the TutorMe WEB application can be found [here](https://github.com/McGill-ECSE321-Fall2019/project-group-3/wiki/User-Guide)
 
 | Team member| Total hours| Responsibility |
 |------------------ |:-------------:| ---------------|
-| Karl Eid     | 25 | Implementation and Integration of Student Page, Project Management | 
-| Preyansh Kaushik| 25 | Implementation and Integration of User HomePage, and View Universities Page |
-| Nicolas Abdelnour | 25 |  Implementation and Integration of Subjects/Courses Page |
-| Elie Elia | 25 | Implementation and Integration of Login and Registration Page |
-| Jason Daou | 25 |Implementation and Integration of Tutor Page |
+| Karl Eid     | 25 | Implementation and Integration of Student Page, Project Management, Documentation | 
+| Preyansh Kaushik| 25 | Implementation and Integration of User HomePage, and View Universities Page, Project Management, Documentation |
+| Nicolas Abdelnour | 25 |  Implementation and Integration of Subjects/Courses Page, Documentation |
+| Elie Elia | 25 | Implementation and Integration of Login and Registration Page, Documentation |
+| Jason Daou | 25 |Implementation and Integration of Tutor Page, Documentation |
 
 * Note: Every team member was reponsible for the implementation and testing of their own methods, specified in the report
